@@ -1,0 +1,10 @@
+This module depends on and provides bindings for libiscsi, a userspace iSCSI
+library hosted at https://github.com/sahlberg/libiscsi
+
+Before you can build this module you must first install the latest version
+of libiscsi.
+
+Building and installing
+=======================
+sudo python setup.py install
+

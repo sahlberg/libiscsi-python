@@ -1,0 +1,9 @@
+This module is an iSCSI client for python.
+This project is hosted at https://github.com/sahlberg/libiscsi-python
+
+
+LICENSE
+=======
+This module is distributed under LGPL version 2.1.
+Please see COPYING for the full text of this license.
+
