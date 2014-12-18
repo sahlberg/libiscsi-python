@@ -579,6 +579,8 @@ enum scsi_residual {
 };
 
 extern struct scsi_task *scsi_create_task(int cdb_size, unsigned char *cdb, int xfer_dir, int expxferlen);
+extern unsigned char *scsi_task_get_data_in_buffer(struct scsi_task *task, uint32_t pos, ssize_t *count);
+extern unsigned char *scsi_task_get_data_out_buffer(struct scsi_task *task, uint32_t pos, ssize_t *count);
 
 extern void scsi_free_scsi_task(struct scsi_task *task);
 

@@ -769,6 +769,14 @@ def scsi_create_task(*args):
   return _libiscsi.scsi_create_task(*args)
 scsi_create_task = _libiscsi.scsi_create_task
 
+def scsi_task_get_data_in_buffer(*args):
+  return _libiscsi.scsi_task_get_data_in_buffer(*args)
+scsi_task_get_data_in_buffer = _libiscsi.scsi_task_get_data_in_buffer
+
+def scsi_task_get_data_out_buffer(*args):
+  return _libiscsi.scsi_task_get_data_out_buffer(*args)
+scsi_task_get_data_out_buffer = _libiscsi.scsi_task_get_data_out_buffer
+
 def scsi_free_scsi_task(*args):
   return _libiscsi.scsi_free_scsi_task(*args)
 scsi_free_scsi_task = _libiscsi.scsi_free_scsi_task
