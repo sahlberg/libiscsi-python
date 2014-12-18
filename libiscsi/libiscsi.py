@@ -374,22 +374,6 @@ def iscsi_scsi_command_sync(*args):
   return _libiscsi.iscsi_scsi_command_sync(*args)
 iscsi_scsi_command_sync = _libiscsi.iscsi_scsi_command_sync
 
-def iscsi_modeselect6_sync(*args):
-  return _libiscsi.iscsi_modeselect6_sync(*args)
-iscsi_modeselect6_sync = _libiscsi.iscsi_modeselect6_sync
-
-def iscsi_modeselect10_sync(*args):
-  return _libiscsi.iscsi_modeselect10_sync(*args)
-iscsi_modeselect10_sync = _libiscsi.iscsi_modeselect10_sync
-
-def iscsi_modesense6_sync(*args):
-  return _libiscsi.iscsi_modesense6_sync(*args)
-iscsi_modesense6_sync = _libiscsi.iscsi_modesense6_sync
-
-def iscsi_modesense10_sync(*args):
-  return _libiscsi.iscsi_modesense10_sync(*args)
-iscsi_modesense10_sync = _libiscsi.iscsi_modesense10_sync
-
 def iscsi_reportluns_sync(*args):
   return _libiscsi.iscsi_reportluns_sync(*args)
 iscsi_reportluns_sync = _libiscsi.iscsi_reportluns_sync
@@ -577,6 +561,1662 @@ iscsi_set_bind_interfaces = _libiscsi.iscsi_set_bind_interfaces
 def iscsi_set_reconnect_max_retries(*args):
   return _libiscsi.iscsi_set_reconnect_max_retries(*args)
 iscsi_set_reconnect_max_retries = _libiscsi.iscsi_set_reconnect_max_retries
+SCSI_OPCODE_TESTUNITREADY = _libiscsi.SCSI_OPCODE_TESTUNITREADY
+SCSI_OPCODE_READ6 = _libiscsi.SCSI_OPCODE_READ6
+SCSI_OPCODE_INQUIRY = _libiscsi.SCSI_OPCODE_INQUIRY
+SCSI_OPCODE_MODESELECT6 = _libiscsi.SCSI_OPCODE_MODESELECT6
+SCSI_OPCODE_RESERVE6 = _libiscsi.SCSI_OPCODE_RESERVE6
+SCSI_OPCODE_RELEASE6 = _libiscsi.SCSI_OPCODE_RELEASE6
+SCSI_OPCODE_MODESENSE6 = _libiscsi.SCSI_OPCODE_MODESENSE6
+SCSI_OPCODE_STARTSTOPUNIT = _libiscsi.SCSI_OPCODE_STARTSTOPUNIT
+SCSI_OPCODE_PREVENTALLOW = _libiscsi.SCSI_OPCODE_PREVENTALLOW
+SCSI_OPCODE_READCAPACITY10 = _libiscsi.SCSI_OPCODE_READCAPACITY10
+SCSI_OPCODE_READ10 = _libiscsi.SCSI_OPCODE_READ10
+SCSI_OPCODE_WRITE10 = _libiscsi.SCSI_OPCODE_WRITE10
+SCSI_OPCODE_WRITE_VERIFY10 = _libiscsi.SCSI_OPCODE_WRITE_VERIFY10
+SCSI_OPCODE_VERIFY10 = _libiscsi.SCSI_OPCODE_VERIFY10
+SCSI_OPCODE_PREFETCH10 = _libiscsi.SCSI_OPCODE_PREFETCH10
+SCSI_OPCODE_SYNCHRONIZECACHE10 = _libiscsi.SCSI_OPCODE_SYNCHRONIZECACHE10
+SCSI_OPCODE_WRITE_SAME10 = _libiscsi.SCSI_OPCODE_WRITE_SAME10
+SCSI_OPCODE_UNMAP = _libiscsi.SCSI_OPCODE_UNMAP
+SCSI_OPCODE_READTOC = _libiscsi.SCSI_OPCODE_READTOC
+SCSI_OPCODE_SANITIZE = _libiscsi.SCSI_OPCODE_SANITIZE
+SCSI_OPCODE_MODESELECT10 = _libiscsi.SCSI_OPCODE_MODESELECT10
+SCSI_OPCODE_MODESENSE10 = _libiscsi.SCSI_OPCODE_MODESENSE10
+SCSI_OPCODE_PERSISTENT_RESERVE_IN = _libiscsi.SCSI_OPCODE_PERSISTENT_RESERVE_IN
+SCSI_OPCODE_PERSISTENT_RESERVE_OUT = _libiscsi.SCSI_OPCODE_PERSISTENT_RESERVE_OUT
+SCSI_OPCODE_READ16 = _libiscsi.SCSI_OPCODE_READ16
+SCSI_OPCODE_COMPARE_AND_WRITE = _libiscsi.SCSI_OPCODE_COMPARE_AND_WRITE
+SCSI_OPCODE_WRITE16 = _libiscsi.SCSI_OPCODE_WRITE16
+SCSI_OPCODE_ORWRITE = _libiscsi.SCSI_OPCODE_ORWRITE
+SCSI_OPCODE_WRITE_VERIFY16 = _libiscsi.SCSI_OPCODE_WRITE_VERIFY16
+SCSI_OPCODE_VERIFY16 = _libiscsi.SCSI_OPCODE_VERIFY16
+SCSI_OPCODE_PREFETCH16 = _libiscsi.SCSI_OPCODE_PREFETCH16
+SCSI_OPCODE_SYNCHRONIZECACHE16 = _libiscsi.SCSI_OPCODE_SYNCHRONIZECACHE16
+SCSI_OPCODE_WRITE_SAME16 = _libiscsi.SCSI_OPCODE_WRITE_SAME16
+SCSI_OPCODE_SERVICE_ACTION_IN = _libiscsi.SCSI_OPCODE_SERVICE_ACTION_IN
+SCSI_OPCODE_REPORTLUNS = _libiscsi.SCSI_OPCODE_REPORTLUNS
+SCSI_OPCODE_MAINTENANCE_IN = _libiscsi.SCSI_OPCODE_MAINTENANCE_IN
+SCSI_OPCODE_READ12 = _libiscsi.SCSI_OPCODE_READ12
+SCSI_OPCODE_WRITE12 = _libiscsi.SCSI_OPCODE_WRITE12
+SCSI_OPCODE_WRITE_VERIFY12 = _libiscsi.SCSI_OPCODE_WRITE_VERIFY12
+SCSI_OPCODE_VERIFY12 = _libiscsi.SCSI_OPCODE_VERIFY12
+SCSI_PERSISTENT_RESERVE_READ_KEYS = _libiscsi.SCSI_PERSISTENT_RESERVE_READ_KEYS
+SCSI_PERSISTENT_RESERVE_READ_RESERVATION = _libiscsi.SCSI_PERSISTENT_RESERVE_READ_RESERVATION
+SCSI_PERSISTENT_RESERVE_REPORT_CAPABILITIES = _libiscsi.SCSI_PERSISTENT_RESERVE_REPORT_CAPABILITIES
+SCSI_PERSISTENT_RESERVE_READ_FULL_STATUS = _libiscsi.SCSI_PERSISTENT_RESERVE_READ_FULL_STATUS
+SCSI_READCAPACITY16 = _libiscsi.SCSI_READCAPACITY16
+SCSI_GET_LBA_STATUS = _libiscsi.SCSI_GET_LBA_STATUS
+SCSI_PERSISTENT_RESERVE_REGISTER = _libiscsi.SCSI_PERSISTENT_RESERVE_REGISTER
+SCSI_PERSISTENT_RESERVE_RESERVE = _libiscsi.SCSI_PERSISTENT_RESERVE_RESERVE
+SCSI_PERSISTENT_RESERVE_RELEASE = _libiscsi.SCSI_PERSISTENT_RESERVE_RELEASE
+SCSI_PERSISTENT_RESERVE_CLEAR = _libiscsi.SCSI_PERSISTENT_RESERVE_CLEAR
+SCSI_PERSISTENT_RESERVE_PREEMPT = _libiscsi.SCSI_PERSISTENT_RESERVE_PREEMPT
+SCSI_PERSISTENT_RESERVE_PREEMPT_AND_ABORT = _libiscsi.SCSI_PERSISTENT_RESERVE_PREEMPT_AND_ABORT
+SCSI_PERSISTENT_RESERVE_REGISTER_AND_IGNORE_EXISTING_KEY = _libiscsi.SCSI_PERSISTENT_RESERVE_REGISTER_AND_IGNORE_EXISTING_KEY
+SCSI_PERSISTENT_RESERVE_REGISTER_AND_MOVE = _libiscsi.SCSI_PERSISTENT_RESERVE_REGISTER_AND_MOVE
+SCSI_PERSISTENT_RESERVE_SCOPE_LU = _libiscsi.SCSI_PERSISTENT_RESERVE_SCOPE_LU
+SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE = _libiscsi.SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE
+SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS = _libiscsi.SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS
+SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_REGISTRANTS_ONLY = _libiscsi.SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_REGISTRANTS_ONLY
+SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY = _libiscsi.SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY
+SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_ALL_REGISTRANTS = _libiscsi.SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_ALL_REGISTRANTS
+SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_ALL_REGISTRANTS = _libiscsi.SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
+class scsi_persistent_reserve_out_basic(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_persistent_reserve_out_basic, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_persistent_reserve_out_basic, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["reservation_key"] = _libiscsi.scsi_persistent_reserve_out_basic_reservation_key_set
+    __swig_getmethods__["reservation_key"] = _libiscsi.scsi_persistent_reserve_out_basic_reservation_key_get
+    if _newclass:reservation_key = _swig_property(_libiscsi.scsi_persistent_reserve_out_basic_reservation_key_get, _libiscsi.scsi_persistent_reserve_out_basic_reservation_key_set)
+    __swig_setmethods__["service_action_reservation_key"] = _libiscsi.scsi_persistent_reserve_out_basic_service_action_reservation_key_set
+    __swig_getmethods__["service_action_reservation_key"] = _libiscsi.scsi_persistent_reserve_out_basic_service_action_reservation_key_get
+    if _newclass:service_action_reservation_key = _swig_property(_libiscsi.scsi_persistent_reserve_out_basic_service_action_reservation_key_get, _libiscsi.scsi_persistent_reserve_out_basic_service_action_reservation_key_set)
+    __swig_setmethods__["spec_i_pt"] = _libiscsi.scsi_persistent_reserve_out_basic_spec_i_pt_set
+    __swig_getmethods__["spec_i_pt"] = _libiscsi.scsi_persistent_reserve_out_basic_spec_i_pt_get
+    if _newclass:spec_i_pt = _swig_property(_libiscsi.scsi_persistent_reserve_out_basic_spec_i_pt_get, _libiscsi.scsi_persistent_reserve_out_basic_spec_i_pt_set)
+    __swig_setmethods__["all_tg_pt"] = _libiscsi.scsi_persistent_reserve_out_basic_all_tg_pt_set
+    __swig_getmethods__["all_tg_pt"] = _libiscsi.scsi_persistent_reserve_out_basic_all_tg_pt_get
+    if _newclass:all_tg_pt = _swig_property(_libiscsi.scsi_persistent_reserve_out_basic_all_tg_pt_get, _libiscsi.scsi_persistent_reserve_out_basic_all_tg_pt_set)
+    __swig_setmethods__["aptpl"] = _libiscsi.scsi_persistent_reserve_out_basic_aptpl_set
+    __swig_getmethods__["aptpl"] = _libiscsi.scsi_persistent_reserve_out_basic_aptpl_get
+    if _newclass:aptpl = _swig_property(_libiscsi.scsi_persistent_reserve_out_basic_aptpl_get, _libiscsi.scsi_persistent_reserve_out_basic_aptpl_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_persistent_reserve_out_basic()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_persistent_reserve_out_basic
+    __del__ = lambda self : None;
+scsi_persistent_reserve_out_basic_swigregister = _libiscsi.scsi_persistent_reserve_out_basic_swigregister
+scsi_persistent_reserve_out_basic_swigregister(scsi_persistent_reserve_out_basic)
+
+SCSI_REPORT_SUPPORTED_OP_CODES = _libiscsi.SCSI_REPORT_SUPPORTED_OP_CODES
+SCSI_REPORT_SUPPORTING_OPS_ALL = _libiscsi.SCSI_REPORT_SUPPORTING_OPS_ALL
+SCSI_REPORT_SUPPORTING_OPCODE = _libiscsi.SCSI_REPORT_SUPPORTING_OPCODE
+SCSI_REPORT_SUPPORTING_SERVICEACTION = _libiscsi.SCSI_REPORT_SUPPORTING_SERVICEACTION
+SCSI_SENSE_NO_SENSE = _libiscsi.SCSI_SENSE_NO_SENSE
+SCSI_SENSE_RECOVERED_ERROR = _libiscsi.SCSI_SENSE_RECOVERED_ERROR
+SCSI_SENSE_NOT_READY = _libiscsi.SCSI_SENSE_NOT_READY
+SCSI_SENSE_MEDIUM_ERROR = _libiscsi.SCSI_SENSE_MEDIUM_ERROR
+SCSI_SENSE_HARDWARE_ERROR = _libiscsi.SCSI_SENSE_HARDWARE_ERROR
+SCSI_SENSE_ILLEGAL_REQUEST = _libiscsi.SCSI_SENSE_ILLEGAL_REQUEST
+SCSI_SENSE_UNIT_ATTENTION = _libiscsi.SCSI_SENSE_UNIT_ATTENTION
+SCSI_SENSE_DATA_PROTECTION = _libiscsi.SCSI_SENSE_DATA_PROTECTION
+SCSI_SENSE_BLANK_CHECK = _libiscsi.SCSI_SENSE_BLANK_CHECK
+SCSI_SENSE_VENDOR_SPECIFIC = _libiscsi.SCSI_SENSE_VENDOR_SPECIFIC
+SCSI_SENSE_COPY_ABORTED = _libiscsi.SCSI_SENSE_COPY_ABORTED
+SCSI_SENSE_COMMAND_ABORTED = _libiscsi.SCSI_SENSE_COMMAND_ABORTED
+SCSI_SENSE_OBSOLETE_ERROR_CODE = _libiscsi.SCSI_SENSE_OBSOLETE_ERROR_CODE
+SCSI_SENSE_OVERFLOW_COMMAND = _libiscsi.SCSI_SENSE_OVERFLOW_COMMAND
+SCSI_SENSE_MISCOMPARE = _libiscsi.SCSI_SENSE_MISCOMPARE
+
+def scsi_sense_key_str(*args):
+  return _libiscsi.scsi_sense_key_str(*args)
+scsi_sense_key_str = _libiscsi.scsi_sense_key_str
+SCSI_SENSE_ASCQ_SANITIZE_IN_PROGRESS = _libiscsi.SCSI_SENSE_ASCQ_SANITIZE_IN_PROGRESS
+SCSI_SENSE_ASCQ_WRITE_AFTER_SANITIZE_REQUIRED = _libiscsi.SCSI_SENSE_ASCQ_WRITE_AFTER_SANITIZE_REQUIRED
+SCSI_SENSE_ASCQ_PARAMETER_LIST_LENGTH_ERROR = _libiscsi.SCSI_SENSE_ASCQ_PARAMETER_LIST_LENGTH_ERROR
+SCSI_SENSE_ASCQ_MISCOMPARE_DURING_VERIFY = _libiscsi.SCSI_SENSE_ASCQ_MISCOMPARE_DURING_VERIFY
+SCSI_SENSE_ASCQ_MISCOMPARE_VERIFY_OF_UNMAPPED_LBA = _libiscsi.SCSI_SENSE_ASCQ_MISCOMPARE_VERIFY_OF_UNMAPPED_LBA
+SCSI_SENSE_ASCQ_INVALID_OPERATION_CODE = _libiscsi.SCSI_SENSE_ASCQ_INVALID_OPERATION_CODE
+SCSI_SENSE_ASCQ_LBA_OUT_OF_RANGE = _libiscsi.SCSI_SENSE_ASCQ_LBA_OUT_OF_RANGE
+SCSI_SENSE_ASCQ_INVALID_FIELD_IN_CDB = _libiscsi.SCSI_SENSE_ASCQ_INVALID_FIELD_IN_CDB
+SCSI_SENSE_ASCQ_LOGICAL_UNIT_NOT_SUPPORTED = _libiscsi.SCSI_SENSE_ASCQ_LOGICAL_UNIT_NOT_SUPPORTED
+SCSI_SENSE_ASCQ_INVALID_FIELD_IN_PARAMETER_LIST = _libiscsi.SCSI_SENSE_ASCQ_INVALID_FIELD_IN_PARAMETER_LIST
+SCSI_SENSE_ASCQ_WRITE_PROTECTED = _libiscsi.SCSI_SENSE_ASCQ_WRITE_PROTECTED
+SCSI_SENSE_ASCQ_BUS_RESET = _libiscsi.SCSI_SENSE_ASCQ_BUS_RESET
+SCSI_SENSE_ASCQ_POWER_ON_OCCURED = _libiscsi.SCSI_SENSE_ASCQ_POWER_ON_OCCURED
+SCSI_SENSE_ASCQ_SCSI_BUS_RESET_OCCURED = _libiscsi.SCSI_SENSE_ASCQ_SCSI_BUS_RESET_OCCURED
+SCSI_SENSE_ASCQ_BUS_DEVICE_RESET_FUNCTION_OCCURED = _libiscsi.SCSI_SENSE_ASCQ_BUS_DEVICE_RESET_FUNCTION_OCCURED
+SCSI_SENSE_ASCQ_DEVICE_INTERNAL_RESET = _libiscsi.SCSI_SENSE_ASCQ_DEVICE_INTERNAL_RESET
+SCSI_SENSE_ASCQ_TRANSCEIVER_MODE_CHANGED_TO_SINGLE_ENDED = _libiscsi.SCSI_SENSE_ASCQ_TRANSCEIVER_MODE_CHANGED_TO_SINGLE_ENDED
+SCSI_SENSE_ASCQ_TRANSCEIVER_MODE_CHANGED_TO_LVD = _libiscsi.SCSI_SENSE_ASCQ_TRANSCEIVER_MODE_CHANGED_TO_LVD
+SCSI_SENSE_ASCQ_NEXUS_LOSS = _libiscsi.SCSI_SENSE_ASCQ_NEXUS_LOSS
+SCSI_SENSE_ASCQ_MODE_PARAMETERS_CHANGED = _libiscsi.SCSI_SENSE_ASCQ_MODE_PARAMETERS_CHANGED
+SCSI_SENSE_ASCQ_CAPACITY_DATA_HAS_CHANGED = _libiscsi.SCSI_SENSE_ASCQ_CAPACITY_DATA_HAS_CHANGED
+SCSI_SENSE_ASCQ_THIN_PROVISION_SOFT_THRES_REACHED = _libiscsi.SCSI_SENSE_ASCQ_THIN_PROVISION_SOFT_THRES_REACHED
+SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT = _libiscsi.SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT
+SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT_TRAY_CLOSED = _libiscsi.SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT_TRAY_CLOSED
+SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT_TRAY_OPEN = _libiscsi.SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT_TRAY_OPEN
+SCSI_SENSE_ASCQ_INQUIRY_DATA_HAS_CHANGED = _libiscsi.SCSI_SENSE_ASCQ_INQUIRY_DATA_HAS_CHANGED
+SCSI_SENSE_ASCQ_INTERNAL_TARGET_FAILURE = _libiscsi.SCSI_SENSE_ASCQ_INTERNAL_TARGET_FAILURE
+SCSI_SENSE_ASCQ_MEDIUM_LOAD_OR_EJECT_FAILED = _libiscsi.SCSI_SENSE_ASCQ_MEDIUM_LOAD_OR_EJECT_FAILED
+SCSI_SENSE_ASCQ_MEDIUM_REMOVAL_PREVENTED = _libiscsi.SCSI_SENSE_ASCQ_MEDIUM_REMOVAL_PREVENTED
+SCSI_SENSE_ASCQ_INVALID_FIELD_IN_INFORMATION_UNIT = _libiscsi.SCSI_SENSE_ASCQ_INVALID_FIELD_IN_INFORMATION_UNIT
+
+def scsi_sense_ascq_str(*args):
+  return _libiscsi.scsi_sense_ascq_str(*args)
+scsi_sense_ascq_str = _libiscsi.scsi_sense_ascq_str
+
+def scsi_pr_type_str(*args):
+  return _libiscsi.scsi_pr_type_str(*args)
+scsi_pr_type_str = _libiscsi.scsi_pr_type_str
+SCSI_XFER_NONE = _libiscsi.SCSI_XFER_NONE
+SCSI_XFER_READ = _libiscsi.SCSI_XFER_READ
+SCSI_XFER_WRITE = _libiscsi.SCSI_XFER_WRITE
+class scsi_sense(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_sense, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_sense, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["error_type"] = _libiscsi.scsi_sense_error_type_set
+    __swig_getmethods__["error_type"] = _libiscsi.scsi_sense_error_type_get
+    if _newclass:error_type = _swig_property(_libiscsi.scsi_sense_error_type_get, _libiscsi.scsi_sense_error_type_set)
+    __swig_setmethods__["key"] = _libiscsi.scsi_sense_key_set
+    __swig_getmethods__["key"] = _libiscsi.scsi_sense_key_get
+    if _newclass:key = _swig_property(_libiscsi.scsi_sense_key_get, _libiscsi.scsi_sense_key_set)
+    __swig_setmethods__["ascq"] = _libiscsi.scsi_sense_ascq_set
+    __swig_getmethods__["ascq"] = _libiscsi.scsi_sense_ascq_get
+    if _newclass:ascq = _swig_property(_libiscsi.scsi_sense_ascq_get, _libiscsi.scsi_sense_ascq_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_sense()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_sense
+    __del__ = lambda self : None;
+scsi_sense_swigregister = _libiscsi.scsi_sense_swigregister
+scsi_sense_swigregister(scsi_sense)
+
+class scsi_data(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_data, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_data, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["size"] = _libiscsi.scsi_data_size_set
+    __swig_getmethods__["size"] = _libiscsi.scsi_data_size_get
+    if _newclass:size = _swig_property(_libiscsi.scsi_data_size_get, _libiscsi.scsi_data_size_set)
+    __swig_setmethods__["data"] = _libiscsi.scsi_data_data_set
+    __swig_getmethods__["data"] = _libiscsi.scsi_data_data_get
+    if _newclass:data = _swig_property(_libiscsi.scsi_data_data_get, _libiscsi.scsi_data_data_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_data()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_data
+    __del__ = lambda self : None;
+scsi_data_swigregister = _libiscsi.scsi_data_swigregister
+scsi_data_swigregister(scsi_data)
+
+SCSI_RESIDUAL_NO_RESIDUAL = _libiscsi.SCSI_RESIDUAL_NO_RESIDUAL
+SCSI_RESIDUAL_UNDERFLOW = _libiscsi.SCSI_RESIDUAL_UNDERFLOW
+SCSI_RESIDUAL_OVERFLOW = _libiscsi.SCSI_RESIDUAL_OVERFLOW
+
+def scsi_create_task(*args):
+  return _libiscsi.scsi_create_task(*args)
+scsi_create_task = _libiscsi.scsi_create_task
+
+def scsi_free_scsi_task(*args):
+  return _libiscsi.scsi_free_scsi_task(*args)
+scsi_free_scsi_task = _libiscsi.scsi_free_scsi_task
+
+def scsi_set_task_private_ptr(*args):
+  return _libiscsi.scsi_set_task_private_ptr(*args)
+scsi_set_task_private_ptr = _libiscsi.scsi_set_task_private_ptr
+
+def scsi_get_task_private_ptr(*args):
+  return _libiscsi.scsi_get_task_private_ptr(*args)
+scsi_get_task_private_ptr = _libiscsi.scsi_get_task_private_ptr
+
+def scsi_cdb_testunitready():
+  return _libiscsi.scsi_cdb_testunitready()
+scsi_cdb_testunitready = _libiscsi.scsi_cdb_testunitready
+SCSI_SANITIZE_OVERWRITE = _libiscsi.SCSI_SANITIZE_OVERWRITE
+SCSI_SANITIZE_BLOCK_ERASE = _libiscsi.SCSI_SANITIZE_BLOCK_ERASE
+SCSI_SANITIZE_CRYPTO_ERASE = _libiscsi.SCSI_SANITIZE_CRYPTO_ERASE
+SCSI_SANITIZE_EXIT_FAILURE_MODE = _libiscsi.SCSI_SANITIZE_EXIT_FAILURE_MODE
+
+def scsi_cdb_sanitize(*args):
+  return _libiscsi.scsi_cdb_sanitize(*args)
+scsi_cdb_sanitize = _libiscsi.scsi_cdb_sanitize
+SCSI_REPORTLUNS_REPORT_ALL_LUNS = _libiscsi.SCSI_REPORTLUNS_REPORT_ALL_LUNS
+SCSI_REPORTLUNS_REPORT_WELL_KNOWN_ONLY = _libiscsi.SCSI_REPORTLUNS_REPORT_WELL_KNOWN_ONLY
+SCSI_REPORTLUNS_REPORT_AVAILABLE_LUNS_ONLY = _libiscsi.SCSI_REPORTLUNS_REPORT_AVAILABLE_LUNS_ONLY
+class scsi_reportluns_list(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_reportluns_list, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_reportluns_list, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["num"] = _libiscsi.scsi_reportluns_list_num_set
+    __swig_getmethods__["num"] = _libiscsi.scsi_reportluns_list_num_get
+    if _newclass:num = _swig_property(_libiscsi.scsi_reportluns_list_num_get, _libiscsi.scsi_reportluns_list_num_set)
+    __swig_setmethods__["luns"] = _libiscsi.scsi_reportluns_list_luns_set
+    __swig_getmethods__["luns"] = _libiscsi.scsi_reportluns_list_luns_get
+    if _newclass:luns = _swig_property(_libiscsi.scsi_reportluns_list_luns_get, _libiscsi.scsi_reportluns_list_luns_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_reportluns_list()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_reportluns_list
+    __del__ = lambda self : None;
+scsi_reportluns_list_swigregister = _libiscsi.scsi_reportluns_list_swigregister
+scsi_reportluns_list_swigregister(scsi_reportluns_list)
+
+
+def scsi_reportluns_cdb(*args):
+  return _libiscsi.scsi_reportluns_cdb(*args)
+scsi_reportluns_cdb = _libiscsi.scsi_reportluns_cdb
+
+def scsi_cdb_reserve6():
+  return _libiscsi.scsi_cdb_reserve6()
+scsi_cdb_reserve6 = _libiscsi.scsi_cdb_reserve6
+
+def scsi_cdb_release6():
+  return _libiscsi.scsi_cdb_release6()
+scsi_cdb_release6 = _libiscsi.scsi_cdb_release6
+class scsi_readcapacity10(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_readcapacity10, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_readcapacity10, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["lba"] = _libiscsi.scsi_readcapacity10_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_readcapacity10_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_readcapacity10_lba_get, _libiscsi.scsi_readcapacity10_lba_set)
+    __swig_setmethods__["block_size"] = _libiscsi.scsi_readcapacity10_block_size_set
+    __swig_getmethods__["block_size"] = _libiscsi.scsi_readcapacity10_block_size_get
+    if _newclass:block_size = _swig_property(_libiscsi.scsi_readcapacity10_block_size_get, _libiscsi.scsi_readcapacity10_block_size_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_readcapacity10()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_readcapacity10
+    __del__ = lambda self : None;
+scsi_readcapacity10_swigregister = _libiscsi.scsi_readcapacity10_swigregister
+scsi_readcapacity10_swigregister(scsi_readcapacity10)
+
+
+def scsi_cdb_readcapacity10(*args):
+  return _libiscsi.scsi_cdb_readcapacity10(*args)
+scsi_cdb_readcapacity10 = _libiscsi.scsi_cdb_readcapacity10
+SCSI_INQUIRY_PERIPHERAL_QUALIFIER_CONNECTED = _libiscsi.SCSI_INQUIRY_PERIPHERAL_QUALIFIER_CONNECTED
+SCSI_INQUIRY_PERIPHERAL_QUALIFIER_DISCONNECTED = _libiscsi.SCSI_INQUIRY_PERIPHERAL_QUALIFIER_DISCONNECTED
+SCSI_INQUIRY_PERIPHERAL_QUALIFIER_NOT_SUPPORTED = _libiscsi.SCSI_INQUIRY_PERIPHERAL_QUALIFIER_NOT_SUPPORTED
+
+def scsi_devqualifier_to_str(*args):
+  return _libiscsi.scsi_devqualifier_to_str(*args)
+scsi_devqualifier_to_str = _libiscsi.scsi_devqualifier_to_str
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_DIRECT_ACCESS = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_DIRECT_ACCESS
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQUENTIAL_ACCESS = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQUENTIAL_ACCESS
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PRINTER = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PRINTER
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PROCESSOR = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PROCESSOR
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WRITE_ONCE = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WRITE_ONCE
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MMC = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MMC
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SCANNER = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SCANNER
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_MEMORY = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_MEMORY
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MEDIA_CHANGER = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MEDIA_CHANGER
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_COMMUNICATIONS = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_COMMUNICATIONS
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_STORAGE_ARRAY_CONTROLLER = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_STORAGE_ARRAY_CONTROLLER
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_ENCLOSURE_SERVICES = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_ENCLOSURE_SERVICES
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SIMPLIFIED_DIRECT_ACCESS = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SIMPLIFIED_DIRECT_ACCESS
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_CARD_READER = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_CARD_READER
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_BRIDGE_CONTROLLER = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_BRIDGE_CONTROLLER
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OSD = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OSD
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_AUTOMATION = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_AUTOMATION
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQURITY_MANAGER = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQURITY_MANAGER
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WELL_KNOWN_LUN = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WELL_KNOWN_LUN
+SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_UNKNOWN = _libiscsi.SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_UNKNOWN
+
+def scsi_devtype_to_str(*args):
+  return _libiscsi.scsi_devtype_to_str(*args)
+scsi_devtype_to_str = _libiscsi.scsi_devtype_to_str
+SCSI_VERSION_SPC = _libiscsi.SCSI_VERSION_SPC
+SCSI_VERSION_SPC2 = _libiscsi.SCSI_VERSION_SPC2
+SCSI_VERSION_SPC3 = _libiscsi.SCSI_VERSION_SPC3
+
+def scsi_version_to_str(*args):
+  return _libiscsi.scsi_version_to_str(*args)
+scsi_version_to_str = _libiscsi.scsi_version_to_str
+SCSI_VERSION_DESCRIPTOR_ISCSI = _libiscsi.SCSI_VERSION_DESCRIPTOR_ISCSI
+SCSI_VERSION_DESCRIPTOR_SBC = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC
+SCSI_VERSION_DESCRIPTOR_SBC_ANSI_INCITS_306_1998 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_ANSI_INCITS_306_1998
+SCSI_VERSION_DESCRIPTOR_SBC_T10_0996_D_R08C = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_T10_0996_D_R08C
+SCSI_VERSION_DESCRIPTOR_SBC_2 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_2
+SCSI_VERSION_DESCRIPTOR_SBC_2_ISO_IEC_14776_322 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_2_ISO_IEC_14776_322
+SCSI_VERSION_DESCRIPTOR_SBC_2_ANSI_INCITS_405_2005 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_2_ANSI_INCITS_405_2005
+SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R16 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R16
+SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R5A = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R5A
+SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R15 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R15
+SCSI_VERSION_DESCRIPTOR_SBC_3 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SBC_3
+SCSI_VERSION_DESCRIPTOR_SPC = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC
+SCSI_VERSION_DESCRIPTOR_SPC_ANSI_INCITS_301_1997 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_ANSI_INCITS_301_1997
+SCSI_VERSION_DESCRIPTOR_SPC_T10_0995_D_R11A = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_T10_0995_D_R11A
+SCSI_VERSION_DESCRIPTOR_SPC_2 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_2
+SCSI_VERSION_DESCRIPTOR_SPC_2_ISO_IEC_14776_452 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_2_ISO_IEC_14776_452
+SCSI_VERSION_DESCRIPTOR_SPC_2_ANSI_INCITS_351_2001 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_2_ANSI_INCITS_351_2001
+SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R20 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R20
+SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R12 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R12
+SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R18 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R18
+SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R19 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R19
+SCSI_VERSION_DESCRIPTOR_SPC_3 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_3
+SCSI_VERSION_DESCRIPTOR_SPC_3_ISO_IEC_14776_453 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_3_ISO_IEC_14776_453
+SCSI_VERSION_DESCRIPTOR_SPC_3_ANSI_INCITS_408_2005 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_3_ANSI_INCITS_408_2005
+SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R7 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R7
+SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R21 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R21
+SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R22 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R22
+SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R23 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R23
+SCSI_VERSION_DESCRIPTOR_SPC_4 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_4
+SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R16 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R16
+SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R18 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R18
+SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R23 = _libiscsi.SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R23
+SCSI_VERSION_DESCRIPTOR_SSC = _libiscsi.SCSI_VERSION_DESCRIPTOR_SSC
+SCSI_VERSION_DESCRIPTOR_UAS_T10_2095D_R04 = _libiscsi.SCSI_VERSION_DESCRIPTOR_UAS_T10_2095D_R04
+
+def scsi_version_descriptor_to_str(*args):
+  return _libiscsi.scsi_version_descriptor_to_str(*args)
+scsi_version_descriptor_to_str = _libiscsi.scsi_version_descriptor_to_str
+SCSI_INQUIRY_TPGS_NO_SUPPORT = _libiscsi.SCSI_INQUIRY_TPGS_NO_SUPPORT
+SCSI_INQUIRY_TPGS_IMPLICIT = _libiscsi.SCSI_INQUIRY_TPGS_IMPLICIT
+SCSI_INQUIRY_TPGS_EXPLICIT = _libiscsi.SCSI_INQUIRY_TPGS_EXPLICIT
+SCSI_INQUIRY_TPGS_IMPLICIT_AND_EXPLICIT = _libiscsi.SCSI_INQUIRY_TPGS_IMPLICIT_AND_EXPLICIT
+class scsi_inquiry_standard(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_standard, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_standard, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["qualifier"] = _libiscsi.scsi_inquiry_standard_qualifier_set
+    __swig_getmethods__["qualifier"] = _libiscsi.scsi_inquiry_standard_qualifier_get
+    if _newclass:qualifier = _swig_property(_libiscsi.scsi_inquiry_standard_qualifier_get, _libiscsi.scsi_inquiry_standard_qualifier_set)
+    __swig_setmethods__["device_type"] = _libiscsi.scsi_inquiry_standard_device_type_set
+    __swig_getmethods__["device_type"] = _libiscsi.scsi_inquiry_standard_device_type_get
+    if _newclass:device_type = _swig_property(_libiscsi.scsi_inquiry_standard_device_type_get, _libiscsi.scsi_inquiry_standard_device_type_set)
+    __swig_setmethods__["rmb"] = _libiscsi.scsi_inquiry_standard_rmb_set
+    __swig_getmethods__["rmb"] = _libiscsi.scsi_inquiry_standard_rmb_get
+    if _newclass:rmb = _swig_property(_libiscsi.scsi_inquiry_standard_rmb_get, _libiscsi.scsi_inquiry_standard_rmb_set)
+    __swig_setmethods__["version"] = _libiscsi.scsi_inquiry_standard_version_set
+    __swig_getmethods__["version"] = _libiscsi.scsi_inquiry_standard_version_get
+    if _newclass:version = _swig_property(_libiscsi.scsi_inquiry_standard_version_get, _libiscsi.scsi_inquiry_standard_version_set)
+    __swig_setmethods__["normaca"] = _libiscsi.scsi_inquiry_standard_normaca_set
+    __swig_getmethods__["normaca"] = _libiscsi.scsi_inquiry_standard_normaca_get
+    if _newclass:normaca = _swig_property(_libiscsi.scsi_inquiry_standard_normaca_get, _libiscsi.scsi_inquiry_standard_normaca_set)
+    __swig_setmethods__["hisup"] = _libiscsi.scsi_inquiry_standard_hisup_set
+    __swig_getmethods__["hisup"] = _libiscsi.scsi_inquiry_standard_hisup_get
+    if _newclass:hisup = _swig_property(_libiscsi.scsi_inquiry_standard_hisup_get, _libiscsi.scsi_inquiry_standard_hisup_set)
+    __swig_setmethods__["response_data_format"] = _libiscsi.scsi_inquiry_standard_response_data_format_set
+    __swig_getmethods__["response_data_format"] = _libiscsi.scsi_inquiry_standard_response_data_format_get
+    if _newclass:response_data_format = _swig_property(_libiscsi.scsi_inquiry_standard_response_data_format_get, _libiscsi.scsi_inquiry_standard_response_data_format_set)
+    __swig_setmethods__["additional_length"] = _libiscsi.scsi_inquiry_standard_additional_length_set
+    __swig_getmethods__["additional_length"] = _libiscsi.scsi_inquiry_standard_additional_length_get
+    if _newclass:additional_length = _swig_property(_libiscsi.scsi_inquiry_standard_additional_length_get, _libiscsi.scsi_inquiry_standard_additional_length_set)
+    __swig_setmethods__["sccs"] = _libiscsi.scsi_inquiry_standard_sccs_set
+    __swig_getmethods__["sccs"] = _libiscsi.scsi_inquiry_standard_sccs_get
+    if _newclass:sccs = _swig_property(_libiscsi.scsi_inquiry_standard_sccs_get, _libiscsi.scsi_inquiry_standard_sccs_set)
+    __swig_setmethods__["acc"] = _libiscsi.scsi_inquiry_standard_acc_set
+    __swig_getmethods__["acc"] = _libiscsi.scsi_inquiry_standard_acc_get
+    if _newclass:acc = _swig_property(_libiscsi.scsi_inquiry_standard_acc_get, _libiscsi.scsi_inquiry_standard_acc_set)
+    __swig_setmethods__["tpgs"] = _libiscsi.scsi_inquiry_standard_tpgs_set
+    __swig_getmethods__["tpgs"] = _libiscsi.scsi_inquiry_standard_tpgs_get
+    if _newclass:tpgs = _swig_property(_libiscsi.scsi_inquiry_standard_tpgs_get, _libiscsi.scsi_inquiry_standard_tpgs_set)
+    __swig_setmethods__["threepc"] = _libiscsi.scsi_inquiry_standard_threepc_set
+    __swig_getmethods__["threepc"] = _libiscsi.scsi_inquiry_standard_threepc_get
+    if _newclass:threepc = _swig_property(_libiscsi.scsi_inquiry_standard_threepc_get, _libiscsi.scsi_inquiry_standard_threepc_set)
+    __swig_setmethods__["protect"] = _libiscsi.scsi_inquiry_standard_protect_set
+    __swig_getmethods__["protect"] = _libiscsi.scsi_inquiry_standard_protect_get
+    if _newclass:protect = _swig_property(_libiscsi.scsi_inquiry_standard_protect_get, _libiscsi.scsi_inquiry_standard_protect_set)
+    __swig_setmethods__["encserv"] = _libiscsi.scsi_inquiry_standard_encserv_set
+    __swig_getmethods__["encserv"] = _libiscsi.scsi_inquiry_standard_encserv_get
+    if _newclass:encserv = _swig_property(_libiscsi.scsi_inquiry_standard_encserv_get, _libiscsi.scsi_inquiry_standard_encserv_set)
+    __swig_setmethods__["multip"] = _libiscsi.scsi_inquiry_standard_multip_set
+    __swig_getmethods__["multip"] = _libiscsi.scsi_inquiry_standard_multip_get
+    if _newclass:multip = _swig_property(_libiscsi.scsi_inquiry_standard_multip_get, _libiscsi.scsi_inquiry_standard_multip_set)
+    __swig_setmethods__["addr16"] = _libiscsi.scsi_inquiry_standard_addr16_set
+    __swig_getmethods__["addr16"] = _libiscsi.scsi_inquiry_standard_addr16_get
+    if _newclass:addr16 = _swig_property(_libiscsi.scsi_inquiry_standard_addr16_get, _libiscsi.scsi_inquiry_standard_addr16_set)
+    __swig_setmethods__["wbus16"] = _libiscsi.scsi_inquiry_standard_wbus16_set
+    __swig_getmethods__["wbus16"] = _libiscsi.scsi_inquiry_standard_wbus16_get
+    if _newclass:wbus16 = _swig_property(_libiscsi.scsi_inquiry_standard_wbus16_get, _libiscsi.scsi_inquiry_standard_wbus16_set)
+    __swig_setmethods__["sync"] = _libiscsi.scsi_inquiry_standard_sync_set
+    __swig_getmethods__["sync"] = _libiscsi.scsi_inquiry_standard_sync_get
+    if _newclass:sync = _swig_property(_libiscsi.scsi_inquiry_standard_sync_get, _libiscsi.scsi_inquiry_standard_sync_set)
+    __swig_setmethods__["cmdque"] = _libiscsi.scsi_inquiry_standard_cmdque_set
+    __swig_getmethods__["cmdque"] = _libiscsi.scsi_inquiry_standard_cmdque_get
+    if _newclass:cmdque = _swig_property(_libiscsi.scsi_inquiry_standard_cmdque_get, _libiscsi.scsi_inquiry_standard_cmdque_set)
+    __swig_setmethods__["clocking"] = _libiscsi.scsi_inquiry_standard_clocking_set
+    __swig_getmethods__["clocking"] = _libiscsi.scsi_inquiry_standard_clocking_get
+    if _newclass:clocking = _swig_property(_libiscsi.scsi_inquiry_standard_clocking_get, _libiscsi.scsi_inquiry_standard_clocking_set)
+    __swig_setmethods__["qas"] = _libiscsi.scsi_inquiry_standard_qas_set
+    __swig_getmethods__["qas"] = _libiscsi.scsi_inquiry_standard_qas_get
+    if _newclass:qas = _swig_property(_libiscsi.scsi_inquiry_standard_qas_get, _libiscsi.scsi_inquiry_standard_qas_set)
+    __swig_setmethods__["ius"] = _libiscsi.scsi_inquiry_standard_ius_set
+    __swig_getmethods__["ius"] = _libiscsi.scsi_inquiry_standard_ius_get
+    if _newclass:ius = _swig_property(_libiscsi.scsi_inquiry_standard_ius_get, _libiscsi.scsi_inquiry_standard_ius_set)
+    __swig_setmethods__["vendor_identification"] = _libiscsi.scsi_inquiry_standard_vendor_identification_set
+    __swig_getmethods__["vendor_identification"] = _libiscsi.scsi_inquiry_standard_vendor_identification_get
+    if _newclass:vendor_identification = _swig_property(_libiscsi.scsi_inquiry_standard_vendor_identification_get, _libiscsi.scsi_inquiry_standard_vendor_identification_set)
+    __swig_setmethods__["product_identification"] = _libiscsi.scsi_inquiry_standard_product_identification_set
+    __swig_getmethods__["product_identification"] = _libiscsi.scsi_inquiry_standard_product_identification_get
+    if _newclass:product_identification = _swig_property(_libiscsi.scsi_inquiry_standard_product_identification_get, _libiscsi.scsi_inquiry_standard_product_identification_set)
+    __swig_setmethods__["product_revision_level"] = _libiscsi.scsi_inquiry_standard_product_revision_level_set
+    __swig_getmethods__["product_revision_level"] = _libiscsi.scsi_inquiry_standard_product_revision_level_get
+    if _newclass:product_revision_level = _swig_property(_libiscsi.scsi_inquiry_standard_product_revision_level_get, _libiscsi.scsi_inquiry_standard_product_revision_level_set)
+    __swig_setmethods__["version_descriptor"] = _libiscsi.scsi_inquiry_standard_version_descriptor_set
+    __swig_getmethods__["version_descriptor"] = _libiscsi.scsi_inquiry_standard_version_descriptor_get
+    if _newclass:version_descriptor = _swig_property(_libiscsi.scsi_inquiry_standard_version_descriptor_get, _libiscsi.scsi_inquiry_standard_version_descriptor_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_standard()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_standard
+    __del__ = lambda self : None;
+scsi_inquiry_standard_swigregister = _libiscsi.scsi_inquiry_standard_swigregister
+scsi_inquiry_standard_swigregister(scsi_inquiry_standard)
+
+SCSI_INQUIRY_PAGECODE_SUPPORTED_VPD_PAGES = _libiscsi.SCSI_INQUIRY_PAGECODE_SUPPORTED_VPD_PAGES
+SCSI_INQUIRY_PAGECODE_UNIT_SERIAL_NUMBER = _libiscsi.SCSI_INQUIRY_PAGECODE_UNIT_SERIAL_NUMBER
+SCSI_INQUIRY_PAGECODE_DEVICE_IDENTIFICATION = _libiscsi.SCSI_INQUIRY_PAGECODE_DEVICE_IDENTIFICATION
+SCSI_INQUIRY_PAGECODE_BLOCK_LIMITS = _libiscsi.SCSI_INQUIRY_PAGECODE_BLOCK_LIMITS
+SCSI_INQUIRY_PAGECODE_BLOCK_DEVICE_CHARACTERISTICS = _libiscsi.SCSI_INQUIRY_PAGECODE_BLOCK_DEVICE_CHARACTERISTICS
+SCSI_INQUIRY_PAGECODE_LOGICAL_BLOCK_PROVISIONING = _libiscsi.SCSI_INQUIRY_PAGECODE_LOGICAL_BLOCK_PROVISIONING
+
+def scsi_inquiry_pagecode_to_str(*args):
+  return _libiscsi.scsi_inquiry_pagecode_to_str(*args)
+scsi_inquiry_pagecode_to_str = _libiscsi.scsi_inquiry_pagecode_to_str
+class scsi_inquiry_supported_pages(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_supported_pages, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_supported_pages, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["qualifier"] = _libiscsi.scsi_inquiry_supported_pages_qualifier_set
+    __swig_getmethods__["qualifier"] = _libiscsi.scsi_inquiry_supported_pages_qualifier_get
+    if _newclass:qualifier = _swig_property(_libiscsi.scsi_inquiry_supported_pages_qualifier_get, _libiscsi.scsi_inquiry_supported_pages_qualifier_set)
+    __swig_setmethods__["device_type"] = _libiscsi.scsi_inquiry_supported_pages_device_type_set
+    __swig_getmethods__["device_type"] = _libiscsi.scsi_inquiry_supported_pages_device_type_get
+    if _newclass:device_type = _swig_property(_libiscsi.scsi_inquiry_supported_pages_device_type_get, _libiscsi.scsi_inquiry_supported_pages_device_type_set)
+    __swig_setmethods__["pagecode"] = _libiscsi.scsi_inquiry_supported_pages_pagecode_set
+    __swig_getmethods__["pagecode"] = _libiscsi.scsi_inquiry_supported_pages_pagecode_get
+    if _newclass:pagecode = _swig_property(_libiscsi.scsi_inquiry_supported_pages_pagecode_get, _libiscsi.scsi_inquiry_supported_pages_pagecode_set)
+    __swig_setmethods__["num_pages"] = _libiscsi.scsi_inquiry_supported_pages_num_pages_set
+    __swig_getmethods__["num_pages"] = _libiscsi.scsi_inquiry_supported_pages_num_pages_get
+    if _newclass:num_pages = _swig_property(_libiscsi.scsi_inquiry_supported_pages_num_pages_get, _libiscsi.scsi_inquiry_supported_pages_num_pages_set)
+    __swig_setmethods__["pages"] = _libiscsi.scsi_inquiry_supported_pages_pages_set
+    __swig_getmethods__["pages"] = _libiscsi.scsi_inquiry_supported_pages_pages_get
+    if _newclass:pages = _swig_property(_libiscsi.scsi_inquiry_supported_pages_pages_get, _libiscsi.scsi_inquiry_supported_pages_pages_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_supported_pages()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_supported_pages
+    __del__ = lambda self : None;
+scsi_inquiry_supported_pages_swigregister = _libiscsi.scsi_inquiry_supported_pages_swigregister
+scsi_inquiry_supported_pages_swigregister(scsi_inquiry_supported_pages)
+
+class scsi_inquiry_block_limits(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_block_limits, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_block_limits, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["qualifier"] = _libiscsi.scsi_inquiry_block_limits_qualifier_set
+    __swig_getmethods__["qualifier"] = _libiscsi.scsi_inquiry_block_limits_qualifier_get
+    if _newclass:qualifier = _swig_property(_libiscsi.scsi_inquiry_block_limits_qualifier_get, _libiscsi.scsi_inquiry_block_limits_qualifier_set)
+    __swig_setmethods__["device_type"] = _libiscsi.scsi_inquiry_block_limits_device_type_set
+    __swig_getmethods__["device_type"] = _libiscsi.scsi_inquiry_block_limits_device_type_get
+    if _newclass:device_type = _swig_property(_libiscsi.scsi_inquiry_block_limits_device_type_get, _libiscsi.scsi_inquiry_block_limits_device_type_set)
+    __swig_setmethods__["pagecode"] = _libiscsi.scsi_inquiry_block_limits_pagecode_set
+    __swig_getmethods__["pagecode"] = _libiscsi.scsi_inquiry_block_limits_pagecode_get
+    if _newclass:pagecode = _swig_property(_libiscsi.scsi_inquiry_block_limits_pagecode_get, _libiscsi.scsi_inquiry_block_limits_pagecode_set)
+    __swig_setmethods__["wsnz"] = _libiscsi.scsi_inquiry_block_limits_wsnz_set
+    __swig_getmethods__["wsnz"] = _libiscsi.scsi_inquiry_block_limits_wsnz_get
+    if _newclass:wsnz = _swig_property(_libiscsi.scsi_inquiry_block_limits_wsnz_get, _libiscsi.scsi_inquiry_block_limits_wsnz_set)
+    __swig_setmethods__["max_cmp"] = _libiscsi.scsi_inquiry_block_limits_max_cmp_set
+    __swig_getmethods__["max_cmp"] = _libiscsi.scsi_inquiry_block_limits_max_cmp_get
+    if _newclass:max_cmp = _swig_property(_libiscsi.scsi_inquiry_block_limits_max_cmp_get, _libiscsi.scsi_inquiry_block_limits_max_cmp_set)
+    __swig_setmethods__["opt_gran"] = _libiscsi.scsi_inquiry_block_limits_opt_gran_set
+    __swig_getmethods__["opt_gran"] = _libiscsi.scsi_inquiry_block_limits_opt_gran_get
+    if _newclass:opt_gran = _swig_property(_libiscsi.scsi_inquiry_block_limits_opt_gran_get, _libiscsi.scsi_inquiry_block_limits_opt_gran_set)
+    __swig_setmethods__["max_xfer_len"] = _libiscsi.scsi_inquiry_block_limits_max_xfer_len_set
+    __swig_getmethods__["max_xfer_len"] = _libiscsi.scsi_inquiry_block_limits_max_xfer_len_get
+    if _newclass:max_xfer_len = _swig_property(_libiscsi.scsi_inquiry_block_limits_max_xfer_len_get, _libiscsi.scsi_inquiry_block_limits_max_xfer_len_set)
+    __swig_setmethods__["opt_xfer_len"] = _libiscsi.scsi_inquiry_block_limits_opt_xfer_len_set
+    __swig_getmethods__["opt_xfer_len"] = _libiscsi.scsi_inquiry_block_limits_opt_xfer_len_get
+    if _newclass:opt_xfer_len = _swig_property(_libiscsi.scsi_inquiry_block_limits_opt_xfer_len_get, _libiscsi.scsi_inquiry_block_limits_opt_xfer_len_set)
+    __swig_setmethods__["max_prefetch"] = _libiscsi.scsi_inquiry_block_limits_max_prefetch_set
+    __swig_getmethods__["max_prefetch"] = _libiscsi.scsi_inquiry_block_limits_max_prefetch_get
+    if _newclass:max_prefetch = _swig_property(_libiscsi.scsi_inquiry_block_limits_max_prefetch_get, _libiscsi.scsi_inquiry_block_limits_max_prefetch_set)
+    __swig_setmethods__["max_unmap"] = _libiscsi.scsi_inquiry_block_limits_max_unmap_set
+    __swig_getmethods__["max_unmap"] = _libiscsi.scsi_inquiry_block_limits_max_unmap_get
+    if _newclass:max_unmap = _swig_property(_libiscsi.scsi_inquiry_block_limits_max_unmap_get, _libiscsi.scsi_inquiry_block_limits_max_unmap_set)
+    __swig_setmethods__["max_unmap_bdc"] = _libiscsi.scsi_inquiry_block_limits_max_unmap_bdc_set
+    __swig_getmethods__["max_unmap_bdc"] = _libiscsi.scsi_inquiry_block_limits_max_unmap_bdc_get
+    if _newclass:max_unmap_bdc = _swig_property(_libiscsi.scsi_inquiry_block_limits_max_unmap_bdc_get, _libiscsi.scsi_inquiry_block_limits_max_unmap_bdc_set)
+    __swig_setmethods__["opt_unmap_gran"] = _libiscsi.scsi_inquiry_block_limits_opt_unmap_gran_set
+    __swig_getmethods__["opt_unmap_gran"] = _libiscsi.scsi_inquiry_block_limits_opt_unmap_gran_get
+    if _newclass:opt_unmap_gran = _swig_property(_libiscsi.scsi_inquiry_block_limits_opt_unmap_gran_get, _libiscsi.scsi_inquiry_block_limits_opt_unmap_gran_set)
+    __swig_setmethods__["ugavalid"] = _libiscsi.scsi_inquiry_block_limits_ugavalid_set
+    __swig_getmethods__["ugavalid"] = _libiscsi.scsi_inquiry_block_limits_ugavalid_get
+    if _newclass:ugavalid = _swig_property(_libiscsi.scsi_inquiry_block_limits_ugavalid_get, _libiscsi.scsi_inquiry_block_limits_ugavalid_set)
+    __swig_setmethods__["unmap_gran_align"] = _libiscsi.scsi_inquiry_block_limits_unmap_gran_align_set
+    __swig_getmethods__["unmap_gran_align"] = _libiscsi.scsi_inquiry_block_limits_unmap_gran_align_get
+    if _newclass:unmap_gran_align = _swig_property(_libiscsi.scsi_inquiry_block_limits_unmap_gran_align_get, _libiscsi.scsi_inquiry_block_limits_unmap_gran_align_set)
+    __swig_setmethods__["max_ws_len"] = _libiscsi.scsi_inquiry_block_limits_max_ws_len_set
+    __swig_getmethods__["max_ws_len"] = _libiscsi.scsi_inquiry_block_limits_max_ws_len_get
+    if _newclass:max_ws_len = _swig_property(_libiscsi.scsi_inquiry_block_limits_max_ws_len_get, _libiscsi.scsi_inquiry_block_limits_max_ws_len_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_block_limits()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_block_limits
+    __del__ = lambda self : None;
+scsi_inquiry_block_limits_swigregister = _libiscsi.scsi_inquiry_block_limits_swigregister
+scsi_inquiry_block_limits_swigregister(scsi_inquiry_block_limits)
+
+class scsi_inquiry_block_device_characteristics(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_block_device_characteristics, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_block_device_characteristics, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["qualifier"] = _libiscsi.scsi_inquiry_block_device_characteristics_qualifier_set
+    __swig_getmethods__["qualifier"] = _libiscsi.scsi_inquiry_block_device_characteristics_qualifier_get
+    if _newclass:qualifier = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_qualifier_get, _libiscsi.scsi_inquiry_block_device_characteristics_qualifier_set)
+    __swig_setmethods__["device_type"] = _libiscsi.scsi_inquiry_block_device_characteristics_device_type_set
+    __swig_getmethods__["device_type"] = _libiscsi.scsi_inquiry_block_device_characteristics_device_type_get
+    if _newclass:device_type = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_device_type_get, _libiscsi.scsi_inquiry_block_device_characteristics_device_type_set)
+    __swig_setmethods__["pagecode"] = _libiscsi.scsi_inquiry_block_device_characteristics_pagecode_set
+    __swig_getmethods__["pagecode"] = _libiscsi.scsi_inquiry_block_device_characteristics_pagecode_get
+    if _newclass:pagecode = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_pagecode_get, _libiscsi.scsi_inquiry_block_device_characteristics_pagecode_set)
+    __swig_setmethods__["medium_rotation_rate"] = _libiscsi.scsi_inquiry_block_device_characteristics_medium_rotation_rate_set
+    __swig_getmethods__["medium_rotation_rate"] = _libiscsi.scsi_inquiry_block_device_characteristics_medium_rotation_rate_get
+    if _newclass:medium_rotation_rate = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_medium_rotation_rate_get, _libiscsi.scsi_inquiry_block_device_characteristics_medium_rotation_rate_set)
+    __swig_setmethods__["product_type"] = _libiscsi.scsi_inquiry_block_device_characteristics_product_type_set
+    __swig_getmethods__["product_type"] = _libiscsi.scsi_inquiry_block_device_characteristics_product_type_get
+    if _newclass:product_type = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_product_type_get, _libiscsi.scsi_inquiry_block_device_characteristics_product_type_set)
+    __swig_setmethods__["wabereq"] = _libiscsi.scsi_inquiry_block_device_characteristics_wabereq_set
+    __swig_getmethods__["wabereq"] = _libiscsi.scsi_inquiry_block_device_characteristics_wabereq_get
+    if _newclass:wabereq = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_wabereq_get, _libiscsi.scsi_inquiry_block_device_characteristics_wabereq_set)
+    __swig_setmethods__["wacereq"] = _libiscsi.scsi_inquiry_block_device_characteristics_wacereq_set
+    __swig_getmethods__["wacereq"] = _libiscsi.scsi_inquiry_block_device_characteristics_wacereq_get
+    if _newclass:wacereq = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_wacereq_get, _libiscsi.scsi_inquiry_block_device_characteristics_wacereq_set)
+    __swig_setmethods__["nominal_form_factor"] = _libiscsi.scsi_inquiry_block_device_characteristics_nominal_form_factor_set
+    __swig_getmethods__["nominal_form_factor"] = _libiscsi.scsi_inquiry_block_device_characteristics_nominal_form_factor_get
+    if _newclass:nominal_form_factor = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_nominal_form_factor_get, _libiscsi.scsi_inquiry_block_device_characteristics_nominal_form_factor_set)
+    __swig_setmethods__["fuab"] = _libiscsi.scsi_inquiry_block_device_characteristics_fuab_set
+    __swig_getmethods__["fuab"] = _libiscsi.scsi_inquiry_block_device_characteristics_fuab_get
+    if _newclass:fuab = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_fuab_get, _libiscsi.scsi_inquiry_block_device_characteristics_fuab_set)
+    __swig_setmethods__["vbuls"] = _libiscsi.scsi_inquiry_block_device_characteristics_vbuls_set
+    __swig_getmethods__["vbuls"] = _libiscsi.scsi_inquiry_block_device_characteristics_vbuls_get
+    if _newclass:vbuls = _swig_property(_libiscsi.scsi_inquiry_block_device_characteristics_vbuls_get, _libiscsi.scsi_inquiry_block_device_characteristics_vbuls_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_block_device_characteristics()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_block_device_characteristics
+    __del__ = lambda self : None;
+scsi_inquiry_block_device_characteristics_swigregister = _libiscsi.scsi_inquiry_block_device_characteristics_swigregister
+scsi_inquiry_block_device_characteristics_swigregister(scsi_inquiry_block_device_characteristics)
+
+PROVISIONING_TYPE_NONE = _libiscsi.PROVISIONING_TYPE_NONE
+PROVISIONING_TYPE_RESOURCE = _libiscsi.PROVISIONING_TYPE_RESOURCE
+PROVISIONING_TYPE_THIN = _libiscsi.PROVISIONING_TYPE_THIN
+class scsi_inquiry_logical_block_provisioning(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_logical_block_provisioning, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_logical_block_provisioning, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["qualifier"] = _libiscsi.scsi_inquiry_logical_block_provisioning_qualifier_set
+    __swig_getmethods__["qualifier"] = _libiscsi.scsi_inquiry_logical_block_provisioning_qualifier_get
+    if _newclass:qualifier = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_qualifier_get, _libiscsi.scsi_inquiry_logical_block_provisioning_qualifier_set)
+    __swig_setmethods__["device_type"] = _libiscsi.scsi_inquiry_logical_block_provisioning_device_type_set
+    __swig_getmethods__["device_type"] = _libiscsi.scsi_inquiry_logical_block_provisioning_device_type_get
+    if _newclass:device_type = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_device_type_get, _libiscsi.scsi_inquiry_logical_block_provisioning_device_type_set)
+    __swig_setmethods__["pagecode"] = _libiscsi.scsi_inquiry_logical_block_provisioning_pagecode_set
+    __swig_getmethods__["pagecode"] = _libiscsi.scsi_inquiry_logical_block_provisioning_pagecode_get
+    if _newclass:pagecode = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_pagecode_get, _libiscsi.scsi_inquiry_logical_block_provisioning_pagecode_set)
+    __swig_setmethods__["threshold_exponent"] = _libiscsi.scsi_inquiry_logical_block_provisioning_threshold_exponent_set
+    __swig_getmethods__["threshold_exponent"] = _libiscsi.scsi_inquiry_logical_block_provisioning_threshold_exponent_get
+    if _newclass:threshold_exponent = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_threshold_exponent_get, _libiscsi.scsi_inquiry_logical_block_provisioning_threshold_exponent_set)
+    __swig_setmethods__["lbpu"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbpu_set
+    __swig_getmethods__["lbpu"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbpu_get
+    if _newclass:lbpu = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_lbpu_get, _libiscsi.scsi_inquiry_logical_block_provisioning_lbpu_set)
+    __swig_setmethods__["lbpws"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbpws_set
+    __swig_getmethods__["lbpws"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbpws_get
+    if _newclass:lbpws = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_lbpws_get, _libiscsi.scsi_inquiry_logical_block_provisioning_lbpws_set)
+    __swig_setmethods__["lbpws10"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbpws10_set
+    __swig_getmethods__["lbpws10"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbpws10_get
+    if _newclass:lbpws10 = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_lbpws10_get, _libiscsi.scsi_inquiry_logical_block_provisioning_lbpws10_set)
+    __swig_setmethods__["lbprz"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbprz_set
+    __swig_getmethods__["lbprz"] = _libiscsi.scsi_inquiry_logical_block_provisioning_lbprz_get
+    if _newclass:lbprz = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_lbprz_get, _libiscsi.scsi_inquiry_logical_block_provisioning_lbprz_set)
+    __swig_setmethods__["anc_sup"] = _libiscsi.scsi_inquiry_logical_block_provisioning_anc_sup_set
+    __swig_getmethods__["anc_sup"] = _libiscsi.scsi_inquiry_logical_block_provisioning_anc_sup_get
+    if _newclass:anc_sup = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_anc_sup_get, _libiscsi.scsi_inquiry_logical_block_provisioning_anc_sup_set)
+    __swig_setmethods__["dp"] = _libiscsi.scsi_inquiry_logical_block_provisioning_dp_set
+    __swig_getmethods__["dp"] = _libiscsi.scsi_inquiry_logical_block_provisioning_dp_get
+    if _newclass:dp = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_dp_get, _libiscsi.scsi_inquiry_logical_block_provisioning_dp_set)
+    __swig_setmethods__["provisioning_type"] = _libiscsi.scsi_inquiry_logical_block_provisioning_provisioning_type_set
+    __swig_getmethods__["provisioning_type"] = _libiscsi.scsi_inquiry_logical_block_provisioning_provisioning_type_get
+    if _newclass:provisioning_type = _swig_property(_libiscsi.scsi_inquiry_logical_block_provisioning_provisioning_type_get, _libiscsi.scsi_inquiry_logical_block_provisioning_provisioning_type_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_logical_block_provisioning()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_logical_block_provisioning
+    __del__ = lambda self : None;
+scsi_inquiry_logical_block_provisioning_swigregister = _libiscsi.scsi_inquiry_logical_block_provisioning_swigregister
+scsi_inquiry_logical_block_provisioning_swigregister(scsi_inquiry_logical_block_provisioning)
+
+
+def scsi_cdb_inquiry(*args):
+  return _libiscsi.scsi_cdb_inquiry(*args)
+scsi_cdb_inquiry = _libiscsi.scsi_cdb_inquiry
+class scsi_inquiry_unit_serial_number(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_unit_serial_number, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_unit_serial_number, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["qualifier"] = _libiscsi.scsi_inquiry_unit_serial_number_qualifier_set
+    __swig_getmethods__["qualifier"] = _libiscsi.scsi_inquiry_unit_serial_number_qualifier_get
+    if _newclass:qualifier = _swig_property(_libiscsi.scsi_inquiry_unit_serial_number_qualifier_get, _libiscsi.scsi_inquiry_unit_serial_number_qualifier_set)
+    __swig_setmethods__["device_type"] = _libiscsi.scsi_inquiry_unit_serial_number_device_type_set
+    __swig_getmethods__["device_type"] = _libiscsi.scsi_inquiry_unit_serial_number_device_type_get
+    if _newclass:device_type = _swig_property(_libiscsi.scsi_inquiry_unit_serial_number_device_type_get, _libiscsi.scsi_inquiry_unit_serial_number_device_type_set)
+    __swig_setmethods__["pagecode"] = _libiscsi.scsi_inquiry_unit_serial_number_pagecode_set
+    __swig_getmethods__["pagecode"] = _libiscsi.scsi_inquiry_unit_serial_number_pagecode_get
+    if _newclass:pagecode = _swig_property(_libiscsi.scsi_inquiry_unit_serial_number_pagecode_get, _libiscsi.scsi_inquiry_unit_serial_number_pagecode_set)
+    __swig_setmethods__["usn"] = _libiscsi.scsi_inquiry_unit_serial_number_usn_set
+    __swig_getmethods__["usn"] = _libiscsi.scsi_inquiry_unit_serial_number_usn_get
+    if _newclass:usn = _swig_property(_libiscsi.scsi_inquiry_unit_serial_number_usn_get, _libiscsi.scsi_inquiry_unit_serial_number_usn_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_unit_serial_number()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_unit_serial_number
+    __del__ = lambda self : None;
+scsi_inquiry_unit_serial_number_swigregister = _libiscsi.scsi_inquiry_unit_serial_number_swigregister
+scsi_inquiry_unit_serial_number_swigregister(scsi_inquiry_unit_serial_number)
+
+SCSI_PROTOCOL_IDENTIFIER_FIBRE_CHANNEL = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_FIBRE_CHANNEL
+SCSI_PROTOCOL_IDENTIFIER_PARALLEL_SCSI = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_PARALLEL_SCSI
+SCSI_PROTOCOL_IDENTIFIER_SSA = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_SSA
+SCSI_PROTOCOL_IDENTIFIER_IEEE_1394 = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_IEEE_1394
+SCSI_PROTOCOL_IDENTIFIER_RDMA = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_RDMA
+SCSI_PROTOCOL_IDENTIFIER_ISCSI = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_ISCSI
+SCSI_PROTOCOL_IDENTIFIER_SAS = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_SAS
+SCSI_PROTOCOL_IDENTIFIER_ADT = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_ADT
+SCSI_PROTOCOL_IDENTIFIER_ATA = _libiscsi.SCSI_PROTOCOL_IDENTIFIER_ATA
+
+def scsi_protocol_identifier_to_str(*args):
+  return _libiscsi.scsi_protocol_identifier_to_str(*args)
+scsi_protocol_identifier_to_str = _libiscsi.scsi_protocol_identifier_to_str
+SCSI_CODESET_BINARY = _libiscsi.SCSI_CODESET_BINARY
+SCSI_CODESET_ASCII = _libiscsi.SCSI_CODESET_ASCII
+SCSI_CODESET_UTF8 = _libiscsi.SCSI_CODESET_UTF8
+
+def scsi_codeset_to_str(*args):
+  return _libiscsi.scsi_codeset_to_str(*args)
+scsi_codeset_to_str = _libiscsi.scsi_codeset_to_str
+SCSI_ASSOCIATION_LOGICAL_UNIT = _libiscsi.SCSI_ASSOCIATION_LOGICAL_UNIT
+SCSI_ASSOCIATION_TARGET_PORT = _libiscsi.SCSI_ASSOCIATION_TARGET_PORT
+SCSI_ASSOCIATION_TARGET_DEVICE = _libiscsi.SCSI_ASSOCIATION_TARGET_DEVICE
+
+def scsi_association_to_str(*args):
+  return _libiscsi.scsi_association_to_str(*args)
+scsi_association_to_str = _libiscsi.scsi_association_to_str
+SCSI_DESIGNATOR_TYPE_VENDOR_SPECIFIC = _libiscsi.SCSI_DESIGNATOR_TYPE_VENDOR_SPECIFIC
+SCSI_DESIGNATOR_TYPE_T10_VENDORT_ID = _libiscsi.SCSI_DESIGNATOR_TYPE_T10_VENDORT_ID
+SCSI_DESIGNATOR_TYPE_EUI_64 = _libiscsi.SCSI_DESIGNATOR_TYPE_EUI_64
+SCSI_DESIGNATOR_TYPE_NAA = _libiscsi.SCSI_DESIGNATOR_TYPE_NAA
+SCSI_DESIGNATOR_TYPE_RELATIVE_TARGET_PORT = _libiscsi.SCSI_DESIGNATOR_TYPE_RELATIVE_TARGET_PORT
+SCSI_DESIGNATOR_TYPE_TARGET_PORT_GROUP = _libiscsi.SCSI_DESIGNATOR_TYPE_TARGET_PORT_GROUP
+SCSI_DESIGNATOR_TYPE_LOGICAL_UNIT_GROUP = _libiscsi.SCSI_DESIGNATOR_TYPE_LOGICAL_UNIT_GROUP
+SCSI_DESIGNATOR_TYPE_MD5_LOGICAL_UNIT_IDENTIFIER = _libiscsi.SCSI_DESIGNATOR_TYPE_MD5_LOGICAL_UNIT_IDENTIFIER
+SCSI_DESIGNATOR_TYPE_SCSI_NAME_STRING = _libiscsi.SCSI_DESIGNATOR_TYPE_SCSI_NAME_STRING
+
+def scsi_designator_type_to_str(*args):
+  return _libiscsi.scsi_designator_type_to_str(*args)
+scsi_designator_type_to_str = _libiscsi.scsi_designator_type_to_str
+class scsi_inquiry_device_designator(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_device_designator, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_device_designator, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["next"] = _libiscsi.scsi_inquiry_device_designator_next_set
+    __swig_getmethods__["next"] = _libiscsi.scsi_inquiry_device_designator_next_get
+    if _newclass:next = _swig_property(_libiscsi.scsi_inquiry_device_designator_next_get, _libiscsi.scsi_inquiry_device_designator_next_set)
+    __swig_setmethods__["protocol_identifier"] = _libiscsi.scsi_inquiry_device_designator_protocol_identifier_set
+    __swig_getmethods__["protocol_identifier"] = _libiscsi.scsi_inquiry_device_designator_protocol_identifier_get
+    if _newclass:protocol_identifier = _swig_property(_libiscsi.scsi_inquiry_device_designator_protocol_identifier_get, _libiscsi.scsi_inquiry_device_designator_protocol_identifier_set)
+    __swig_setmethods__["code_set"] = _libiscsi.scsi_inquiry_device_designator_code_set_set
+    __swig_getmethods__["code_set"] = _libiscsi.scsi_inquiry_device_designator_code_set_get
+    if _newclass:code_set = _swig_property(_libiscsi.scsi_inquiry_device_designator_code_set_get, _libiscsi.scsi_inquiry_device_designator_code_set_set)
+    __swig_setmethods__["piv"] = _libiscsi.scsi_inquiry_device_designator_piv_set
+    __swig_getmethods__["piv"] = _libiscsi.scsi_inquiry_device_designator_piv_get
+    if _newclass:piv = _swig_property(_libiscsi.scsi_inquiry_device_designator_piv_get, _libiscsi.scsi_inquiry_device_designator_piv_set)
+    __swig_setmethods__["association"] = _libiscsi.scsi_inquiry_device_designator_association_set
+    __swig_getmethods__["association"] = _libiscsi.scsi_inquiry_device_designator_association_get
+    if _newclass:association = _swig_property(_libiscsi.scsi_inquiry_device_designator_association_get, _libiscsi.scsi_inquiry_device_designator_association_set)
+    __swig_setmethods__["designator_type"] = _libiscsi.scsi_inquiry_device_designator_designator_type_set
+    __swig_getmethods__["designator_type"] = _libiscsi.scsi_inquiry_device_designator_designator_type_get
+    if _newclass:designator_type = _swig_property(_libiscsi.scsi_inquiry_device_designator_designator_type_get, _libiscsi.scsi_inquiry_device_designator_designator_type_set)
+    __swig_setmethods__["designator_length"] = _libiscsi.scsi_inquiry_device_designator_designator_length_set
+    __swig_getmethods__["designator_length"] = _libiscsi.scsi_inquiry_device_designator_designator_length_get
+    if _newclass:designator_length = _swig_property(_libiscsi.scsi_inquiry_device_designator_designator_length_get, _libiscsi.scsi_inquiry_device_designator_designator_length_set)
+    __swig_setmethods__["designator"] = _libiscsi.scsi_inquiry_device_designator_designator_set
+    __swig_getmethods__["designator"] = _libiscsi.scsi_inquiry_device_designator_designator_get
+    if _newclass:designator = _swig_property(_libiscsi.scsi_inquiry_device_designator_designator_get, _libiscsi.scsi_inquiry_device_designator_designator_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_device_designator()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_device_designator
+    __del__ = lambda self : None;
+scsi_inquiry_device_designator_swigregister = _libiscsi.scsi_inquiry_device_designator_swigregister
+scsi_inquiry_device_designator_swigregister(scsi_inquiry_device_designator)
+
+class scsi_inquiry_device_identification(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_inquiry_device_identification, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_inquiry_device_identification, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["qualifier"] = _libiscsi.scsi_inquiry_device_identification_qualifier_set
+    __swig_getmethods__["qualifier"] = _libiscsi.scsi_inquiry_device_identification_qualifier_get
+    if _newclass:qualifier = _swig_property(_libiscsi.scsi_inquiry_device_identification_qualifier_get, _libiscsi.scsi_inquiry_device_identification_qualifier_set)
+    __swig_setmethods__["device_type"] = _libiscsi.scsi_inquiry_device_identification_device_type_set
+    __swig_getmethods__["device_type"] = _libiscsi.scsi_inquiry_device_identification_device_type_get
+    if _newclass:device_type = _swig_property(_libiscsi.scsi_inquiry_device_identification_device_type_get, _libiscsi.scsi_inquiry_device_identification_device_type_set)
+    __swig_setmethods__["pagecode"] = _libiscsi.scsi_inquiry_device_identification_pagecode_set
+    __swig_getmethods__["pagecode"] = _libiscsi.scsi_inquiry_device_identification_pagecode_get
+    if _newclass:pagecode = _swig_property(_libiscsi.scsi_inquiry_device_identification_pagecode_get, _libiscsi.scsi_inquiry_device_identification_pagecode_set)
+    __swig_setmethods__["designators"] = _libiscsi.scsi_inquiry_device_identification_designators_set
+    __swig_getmethods__["designators"] = _libiscsi.scsi_inquiry_device_identification_designators_get
+    if _newclass:designators = _swig_property(_libiscsi.scsi_inquiry_device_identification_designators_get, _libiscsi.scsi_inquiry_device_identification_designators_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_inquiry_device_identification()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_inquiry_device_identification
+    __del__ = lambda self : None;
+scsi_inquiry_device_identification_swigregister = _libiscsi.scsi_inquiry_device_identification_swigregister
+scsi_inquiry_device_identification_swigregister(scsi_inquiry_device_identification)
+
+SCSI_MODESENSE_PC_CURRENT = _libiscsi.SCSI_MODESENSE_PC_CURRENT
+SCSI_MODESENSE_PC_CHANGEABLE = _libiscsi.SCSI_MODESENSE_PC_CHANGEABLE
+SCSI_MODESENSE_PC_DEFAULT = _libiscsi.SCSI_MODESENSE_PC_DEFAULT
+SCSI_MODESENSE_PC_SAVED = _libiscsi.SCSI_MODESENSE_PC_SAVED
+SCSI_MODEPAGE_READ_WRITE_ERROR_RECOVERY = _libiscsi.SCSI_MODEPAGE_READ_WRITE_ERROR_RECOVERY
+SCSI_MODEPAGE_DISCONNECT_RECONNECT = _libiscsi.SCSI_MODEPAGE_DISCONNECT_RECONNECT
+SCSI_MODEPAGE_VERIFY_ERROR_RECOVERY = _libiscsi.SCSI_MODEPAGE_VERIFY_ERROR_RECOVERY
+SCSI_MODEPAGE_CACHING = _libiscsi.SCSI_MODEPAGE_CACHING
+SCSI_MODEPAGE_XOR_CONTROL = _libiscsi.SCSI_MODEPAGE_XOR_CONTROL
+SCSI_MODEPAGE_CONTROL = _libiscsi.SCSI_MODEPAGE_CONTROL
+SCSI_MODEPAGE_POWER_CONDITION = _libiscsi.SCSI_MODEPAGE_POWER_CONDITION
+SCSI_MODEPAGE_INFORMATIONAL_EXCEPTIONS_CONTROL = _libiscsi.SCSI_MODEPAGE_INFORMATIONAL_EXCEPTIONS_CONTROL
+SCSI_MODEPAGE_RETURN_ALL_PAGES = _libiscsi.SCSI_MODEPAGE_RETURN_ALL_PAGES
+class scsi_readcapacity16(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_readcapacity16, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_readcapacity16, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["returned_lba"] = _libiscsi.scsi_readcapacity16_returned_lba_set
+    __swig_getmethods__["returned_lba"] = _libiscsi.scsi_readcapacity16_returned_lba_get
+    if _newclass:returned_lba = _swig_property(_libiscsi.scsi_readcapacity16_returned_lba_get, _libiscsi.scsi_readcapacity16_returned_lba_set)
+    __swig_setmethods__["block_length"] = _libiscsi.scsi_readcapacity16_block_length_set
+    __swig_getmethods__["block_length"] = _libiscsi.scsi_readcapacity16_block_length_get
+    if _newclass:block_length = _swig_property(_libiscsi.scsi_readcapacity16_block_length_get, _libiscsi.scsi_readcapacity16_block_length_set)
+    __swig_setmethods__["p_type"] = _libiscsi.scsi_readcapacity16_p_type_set
+    __swig_getmethods__["p_type"] = _libiscsi.scsi_readcapacity16_p_type_get
+    if _newclass:p_type = _swig_property(_libiscsi.scsi_readcapacity16_p_type_get, _libiscsi.scsi_readcapacity16_p_type_set)
+    __swig_setmethods__["prot_en"] = _libiscsi.scsi_readcapacity16_prot_en_set
+    __swig_getmethods__["prot_en"] = _libiscsi.scsi_readcapacity16_prot_en_get
+    if _newclass:prot_en = _swig_property(_libiscsi.scsi_readcapacity16_prot_en_get, _libiscsi.scsi_readcapacity16_prot_en_set)
+    __swig_setmethods__["p_i_exp"] = _libiscsi.scsi_readcapacity16_p_i_exp_set
+    __swig_getmethods__["p_i_exp"] = _libiscsi.scsi_readcapacity16_p_i_exp_get
+    if _newclass:p_i_exp = _swig_property(_libiscsi.scsi_readcapacity16_p_i_exp_get, _libiscsi.scsi_readcapacity16_p_i_exp_set)
+    __swig_setmethods__["lbppbe"] = _libiscsi.scsi_readcapacity16_lbppbe_set
+    __swig_getmethods__["lbppbe"] = _libiscsi.scsi_readcapacity16_lbppbe_get
+    if _newclass:lbppbe = _swig_property(_libiscsi.scsi_readcapacity16_lbppbe_get, _libiscsi.scsi_readcapacity16_lbppbe_set)
+    __swig_setmethods__["lbpme"] = _libiscsi.scsi_readcapacity16_lbpme_set
+    __swig_getmethods__["lbpme"] = _libiscsi.scsi_readcapacity16_lbpme_get
+    if _newclass:lbpme = _swig_property(_libiscsi.scsi_readcapacity16_lbpme_get, _libiscsi.scsi_readcapacity16_lbpme_set)
+    __swig_setmethods__["lbprz"] = _libiscsi.scsi_readcapacity16_lbprz_set
+    __swig_getmethods__["lbprz"] = _libiscsi.scsi_readcapacity16_lbprz_get
+    if _newclass:lbprz = _swig_property(_libiscsi.scsi_readcapacity16_lbprz_get, _libiscsi.scsi_readcapacity16_lbprz_set)
+    __swig_setmethods__["lalba"] = _libiscsi.scsi_readcapacity16_lalba_set
+    __swig_getmethods__["lalba"] = _libiscsi.scsi_readcapacity16_lalba_get
+    if _newclass:lalba = _swig_property(_libiscsi.scsi_readcapacity16_lalba_get, _libiscsi.scsi_readcapacity16_lalba_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_readcapacity16()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_readcapacity16
+    __del__ = lambda self : None;
+scsi_readcapacity16_swigregister = _libiscsi.scsi_readcapacity16_swigregister
+scsi_readcapacity16_swigregister(scsi_readcapacity16)
+
+SCSI_PROVISIONING_TYPE_MAPPED = _libiscsi.SCSI_PROVISIONING_TYPE_MAPPED
+SCSI_PROVISIONING_TYPE_DEALLOCATED = _libiscsi.SCSI_PROVISIONING_TYPE_DEALLOCATED
+SCSI_PROVISIONING_TYPE_ANCHORED = _libiscsi.SCSI_PROVISIONING_TYPE_ANCHORED
+class scsi_lba_status_descriptor(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_lba_status_descriptor, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_lba_status_descriptor, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["lba"] = _libiscsi.scsi_lba_status_descriptor_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_lba_status_descriptor_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_lba_status_descriptor_lba_get, _libiscsi.scsi_lba_status_descriptor_lba_set)
+    __swig_setmethods__["num_blocks"] = _libiscsi.scsi_lba_status_descriptor_num_blocks_set
+    __swig_getmethods__["num_blocks"] = _libiscsi.scsi_lba_status_descriptor_num_blocks_get
+    if _newclass:num_blocks = _swig_property(_libiscsi.scsi_lba_status_descriptor_num_blocks_get, _libiscsi.scsi_lba_status_descriptor_num_blocks_set)
+    __swig_setmethods__["provisioning"] = _libiscsi.scsi_lba_status_descriptor_provisioning_set
+    __swig_getmethods__["provisioning"] = _libiscsi.scsi_lba_status_descriptor_provisioning_get
+    if _newclass:provisioning = _swig_property(_libiscsi.scsi_lba_status_descriptor_provisioning_get, _libiscsi.scsi_lba_status_descriptor_provisioning_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_lba_status_descriptor()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_lba_status_descriptor
+    __del__ = lambda self : None;
+scsi_lba_status_descriptor_swigregister = _libiscsi.scsi_lba_status_descriptor_swigregister
+scsi_lba_status_descriptor_swigregister(scsi_lba_status_descriptor)
+
+class scsi_get_lba_status(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_get_lba_status, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_get_lba_status, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["num_descriptors"] = _libiscsi.scsi_get_lba_status_num_descriptors_set
+    __swig_getmethods__["num_descriptors"] = _libiscsi.scsi_get_lba_status_num_descriptors_get
+    if _newclass:num_descriptors = _swig_property(_libiscsi.scsi_get_lba_status_num_descriptors_get, _libiscsi.scsi_get_lba_status_num_descriptors_set)
+    __swig_setmethods__["descriptors"] = _libiscsi.scsi_get_lba_status_descriptors_set
+    __swig_getmethods__["descriptors"] = _libiscsi.scsi_get_lba_status_descriptors_get
+    if _newclass:descriptors = _swig_property(_libiscsi.scsi_get_lba_status_descriptors_get, _libiscsi.scsi_get_lba_status_descriptors_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_get_lba_status()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_get_lba_status
+    __del__ = lambda self : None;
+scsi_get_lba_status_swigregister = _libiscsi.scsi_get_lba_status_swigregister
+scsi_get_lba_status_swigregister(scsi_get_lba_status)
+
+class scsi_op_timeout_descriptor(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_op_timeout_descriptor, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_op_timeout_descriptor, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["descriptor_length"] = _libiscsi.scsi_op_timeout_descriptor_descriptor_length_set
+    __swig_getmethods__["descriptor_length"] = _libiscsi.scsi_op_timeout_descriptor_descriptor_length_get
+    if _newclass:descriptor_length = _swig_property(_libiscsi.scsi_op_timeout_descriptor_descriptor_length_get, _libiscsi.scsi_op_timeout_descriptor_descriptor_length_set)
+    __swig_setmethods__["command_specific"] = _libiscsi.scsi_op_timeout_descriptor_command_specific_set
+    __swig_getmethods__["command_specific"] = _libiscsi.scsi_op_timeout_descriptor_command_specific_get
+    if _newclass:command_specific = _swig_property(_libiscsi.scsi_op_timeout_descriptor_command_specific_get, _libiscsi.scsi_op_timeout_descriptor_command_specific_set)
+    __swig_setmethods__["nominal_processing_timeout"] = _libiscsi.scsi_op_timeout_descriptor_nominal_processing_timeout_set
+    __swig_getmethods__["nominal_processing_timeout"] = _libiscsi.scsi_op_timeout_descriptor_nominal_processing_timeout_get
+    if _newclass:nominal_processing_timeout = _swig_property(_libiscsi.scsi_op_timeout_descriptor_nominal_processing_timeout_get, _libiscsi.scsi_op_timeout_descriptor_nominal_processing_timeout_set)
+    __swig_setmethods__["recommended_timeout"] = _libiscsi.scsi_op_timeout_descriptor_recommended_timeout_set
+    __swig_getmethods__["recommended_timeout"] = _libiscsi.scsi_op_timeout_descriptor_recommended_timeout_get
+    if _newclass:recommended_timeout = _swig_property(_libiscsi.scsi_op_timeout_descriptor_recommended_timeout_get, _libiscsi.scsi_op_timeout_descriptor_recommended_timeout_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_op_timeout_descriptor()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_op_timeout_descriptor
+    __del__ = lambda self : None;
+scsi_op_timeout_descriptor_swigregister = _libiscsi.scsi_op_timeout_descriptor_swigregister
+scsi_op_timeout_descriptor_swigregister(scsi_op_timeout_descriptor)
+
+class scsi_command_descriptor(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_command_descriptor, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_command_descriptor, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_command_descriptor_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_command_descriptor_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_command_descriptor_opcode_get, _libiscsi.scsi_command_descriptor_opcode_set)
+    __swig_setmethods__["sa"] = _libiscsi.scsi_command_descriptor_sa_set
+    __swig_getmethods__["sa"] = _libiscsi.scsi_command_descriptor_sa_get
+    if _newclass:sa = _swig_property(_libiscsi.scsi_command_descriptor_sa_get, _libiscsi.scsi_command_descriptor_sa_set)
+    __swig_setmethods__["ctdp"] = _libiscsi.scsi_command_descriptor_ctdp_set
+    __swig_getmethods__["ctdp"] = _libiscsi.scsi_command_descriptor_ctdp_get
+    if _newclass:ctdp = _swig_property(_libiscsi.scsi_command_descriptor_ctdp_get, _libiscsi.scsi_command_descriptor_ctdp_set)
+    __swig_setmethods__["servactv"] = _libiscsi.scsi_command_descriptor_servactv_set
+    __swig_getmethods__["servactv"] = _libiscsi.scsi_command_descriptor_servactv_get
+    if _newclass:servactv = _swig_property(_libiscsi.scsi_command_descriptor_servactv_get, _libiscsi.scsi_command_descriptor_servactv_set)
+    __swig_setmethods__["cdb_len"] = _libiscsi.scsi_command_descriptor_cdb_len_set
+    __swig_getmethods__["cdb_len"] = _libiscsi.scsi_command_descriptor_cdb_len_get
+    if _newclass:cdb_len = _swig_property(_libiscsi.scsi_command_descriptor_cdb_len_get, _libiscsi.scsi_command_descriptor_cdb_len_set)
+    __swig_setmethods__["to"] = _libiscsi.scsi_command_descriptor_to_set
+    __swig_getmethods__["to"] = _libiscsi.scsi_command_descriptor_to_get
+    if _newclass:to = _swig_property(_libiscsi.scsi_command_descriptor_to_get, _libiscsi.scsi_command_descriptor_to_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_command_descriptor()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_command_descriptor
+    __del__ = lambda self : None;
+scsi_command_descriptor_swigregister = _libiscsi.scsi_command_descriptor_swigregister
+scsi_command_descriptor_swigregister(scsi_command_descriptor)
+
+class scsi_report_supported_op_codes(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_report_supported_op_codes, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_report_supported_op_codes, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["num_descriptors"] = _libiscsi.scsi_report_supported_op_codes_num_descriptors_set
+    __swig_getmethods__["num_descriptors"] = _libiscsi.scsi_report_supported_op_codes_num_descriptors_get
+    if _newclass:num_descriptors = _swig_property(_libiscsi.scsi_report_supported_op_codes_num_descriptors_get, _libiscsi.scsi_report_supported_op_codes_num_descriptors_set)
+    __swig_setmethods__["descriptors"] = _libiscsi.scsi_report_supported_op_codes_descriptors_set
+    __swig_getmethods__["descriptors"] = _libiscsi.scsi_report_supported_op_codes_descriptors_get
+    if _newclass:descriptors = _swig_property(_libiscsi.scsi_report_supported_op_codes_descriptors_get, _libiscsi.scsi_report_supported_op_codes_descriptors_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_report_supported_op_codes()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_report_supported_op_codes
+    __del__ = lambda self : None;
+scsi_report_supported_op_codes_swigregister = _libiscsi.scsi_report_supported_op_codes_swigregister
+scsi_report_supported_op_codes_swigregister(scsi_report_supported_op_codes)
+
+class scsi_report_supported_op_codes_one_command(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_report_supported_op_codes_one_command, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_report_supported_op_codes_one_command, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["ctdp"] = _libiscsi.scsi_report_supported_op_codes_one_command_ctdp_set
+    __swig_getmethods__["ctdp"] = _libiscsi.scsi_report_supported_op_codes_one_command_ctdp_get
+    if _newclass:ctdp = _swig_property(_libiscsi.scsi_report_supported_op_codes_one_command_ctdp_get, _libiscsi.scsi_report_supported_op_codes_one_command_ctdp_set)
+    __swig_setmethods__["support"] = _libiscsi.scsi_report_supported_op_codes_one_command_support_set
+    __swig_getmethods__["support"] = _libiscsi.scsi_report_supported_op_codes_one_command_support_get
+    if _newclass:support = _swig_property(_libiscsi.scsi_report_supported_op_codes_one_command_support_get, _libiscsi.scsi_report_supported_op_codes_one_command_support_set)
+    __swig_setmethods__["cdb_length"] = _libiscsi.scsi_report_supported_op_codes_one_command_cdb_length_set
+    __swig_getmethods__["cdb_length"] = _libiscsi.scsi_report_supported_op_codes_one_command_cdb_length_get
+    if _newclass:cdb_length = _swig_property(_libiscsi.scsi_report_supported_op_codes_one_command_cdb_length_get, _libiscsi.scsi_report_supported_op_codes_one_command_cdb_length_set)
+    __swig_setmethods__["cdb_usage_data"] = _libiscsi.scsi_report_supported_op_codes_one_command_cdb_usage_data_set
+    __swig_getmethods__["cdb_usage_data"] = _libiscsi.scsi_report_supported_op_codes_one_command_cdb_usage_data_get
+    if _newclass:cdb_usage_data = _swig_property(_libiscsi.scsi_report_supported_op_codes_one_command_cdb_usage_data_get, _libiscsi.scsi_report_supported_op_codes_one_command_cdb_usage_data_set)
+    __swig_setmethods__["to"] = _libiscsi.scsi_report_supported_op_codes_one_command_to_set
+    __swig_getmethods__["to"] = _libiscsi.scsi_report_supported_op_codes_one_command_to_get
+    if _newclass:to = _swig_property(_libiscsi.scsi_report_supported_op_codes_one_command_to_get, _libiscsi.scsi_report_supported_op_codes_one_command_to_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_report_supported_op_codes_one_command()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_report_supported_op_codes_one_command
+    __del__ = lambda self : None;
+scsi_report_supported_op_codes_one_command_swigregister = _libiscsi.scsi_report_supported_op_codes_one_command_swigregister
+scsi_report_supported_op_codes_one_command_swigregister(scsi_report_supported_op_codes_one_command)
+
+class scsi_persistent_reserve_in_read_keys(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_persistent_reserve_in_read_keys, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_persistent_reserve_in_read_keys, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["prgeneration"] = _libiscsi.scsi_persistent_reserve_in_read_keys_prgeneration_set
+    __swig_getmethods__["prgeneration"] = _libiscsi.scsi_persistent_reserve_in_read_keys_prgeneration_get
+    if _newclass:prgeneration = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_keys_prgeneration_get, _libiscsi.scsi_persistent_reserve_in_read_keys_prgeneration_set)
+    __swig_setmethods__["additional_length"] = _libiscsi.scsi_persistent_reserve_in_read_keys_additional_length_set
+    __swig_getmethods__["additional_length"] = _libiscsi.scsi_persistent_reserve_in_read_keys_additional_length_get
+    if _newclass:additional_length = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_keys_additional_length_get, _libiscsi.scsi_persistent_reserve_in_read_keys_additional_length_set)
+    __swig_setmethods__["num_keys"] = _libiscsi.scsi_persistent_reserve_in_read_keys_num_keys_set
+    __swig_getmethods__["num_keys"] = _libiscsi.scsi_persistent_reserve_in_read_keys_num_keys_get
+    if _newclass:num_keys = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_keys_num_keys_get, _libiscsi.scsi_persistent_reserve_in_read_keys_num_keys_set)
+    __swig_setmethods__["keys"] = _libiscsi.scsi_persistent_reserve_in_read_keys_keys_set
+    __swig_getmethods__["keys"] = _libiscsi.scsi_persistent_reserve_in_read_keys_keys_get
+    if _newclass:keys = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_keys_keys_get, _libiscsi.scsi_persistent_reserve_in_read_keys_keys_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_persistent_reserve_in_read_keys()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_persistent_reserve_in_read_keys
+    __del__ = lambda self : None;
+scsi_persistent_reserve_in_read_keys_swigregister = _libiscsi.scsi_persistent_reserve_in_read_keys_swigregister
+scsi_persistent_reserve_in_read_keys_swigregister(scsi_persistent_reserve_in_read_keys)
+
+class scsi_persistent_reserve_in_read_reservation(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_persistent_reserve_in_read_reservation, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_persistent_reserve_in_read_reservation, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["prgeneration"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_prgeneration_set
+    __swig_getmethods__["prgeneration"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_prgeneration_get
+    if _newclass:prgeneration = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_reservation_prgeneration_get, _libiscsi.scsi_persistent_reserve_in_read_reservation_prgeneration_set)
+    __swig_setmethods__["additional_length"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_additional_length_set
+    __swig_getmethods__["additional_length"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_additional_length_get
+    if _newclass:additional_length = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_reservation_additional_length_get, _libiscsi.scsi_persistent_reserve_in_read_reservation_additional_length_set)
+    __swig_setmethods__["reserved"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_reserved_set
+    __swig_getmethods__["reserved"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_reserved_get
+    if _newclass:reserved = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_reservation_reserved_get, _libiscsi.scsi_persistent_reserve_in_read_reservation_reserved_set)
+    __swig_setmethods__["reservation_key"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_reservation_key_set
+    __swig_getmethods__["reservation_key"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_reservation_key_get
+    if _newclass:reservation_key = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_reservation_reservation_key_get, _libiscsi.scsi_persistent_reserve_in_read_reservation_reservation_key_set)
+    __swig_setmethods__["pr_scope"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_pr_scope_set
+    __swig_getmethods__["pr_scope"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_pr_scope_get
+    if _newclass:pr_scope = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_reservation_pr_scope_get, _libiscsi.scsi_persistent_reserve_in_read_reservation_pr_scope_set)
+    __swig_setmethods__["pr_type"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_pr_type_set
+    __swig_getmethods__["pr_type"] = _libiscsi.scsi_persistent_reserve_in_read_reservation_pr_type_get
+    if _newclass:pr_type = _swig_property(_libiscsi.scsi_persistent_reserve_in_read_reservation_pr_type_get, _libiscsi.scsi_persistent_reserve_in_read_reservation_pr_type_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_persistent_reserve_in_read_reservation()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_persistent_reserve_in_read_reservation
+    __del__ = lambda self : None;
+scsi_persistent_reserve_in_read_reservation_swigregister = _libiscsi.scsi_persistent_reserve_in_read_reservation_swigregister
+scsi_persistent_reserve_in_read_reservation_swigregister(scsi_persistent_reserve_in_read_reservation)
+
+class scsi_persistent_reserve_in_report_capabilities(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_persistent_reserve_in_report_capabilities, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_persistent_reserve_in_report_capabilities, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["length"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_length_set
+    __swig_getmethods__["length"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_length_get
+    if _newclass:length = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_length_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_length_set)
+    __swig_setmethods__["crh"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_crh_set
+    __swig_getmethods__["crh"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_crh_get
+    if _newclass:crh = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_crh_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_crh_set)
+    __swig_setmethods__["sip_c"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_sip_c_set
+    __swig_getmethods__["sip_c"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_sip_c_get
+    if _newclass:sip_c = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_sip_c_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_sip_c_set)
+    __swig_setmethods__["atp_c"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_atp_c_set
+    __swig_getmethods__["atp_c"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_atp_c_get
+    if _newclass:atp_c = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_atp_c_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_atp_c_set)
+    __swig_setmethods__["ptpl_c"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_c_set
+    __swig_getmethods__["ptpl_c"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_c_get
+    if _newclass:ptpl_c = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_c_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_c_set)
+    __swig_setmethods__["tmv"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_tmv_set
+    __swig_getmethods__["tmv"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_tmv_get
+    if _newclass:tmv = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_tmv_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_tmv_set)
+    __swig_setmethods__["allow_commands"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_allow_commands_set
+    __swig_getmethods__["allow_commands"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_allow_commands_get
+    if _newclass:allow_commands = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_allow_commands_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_allow_commands_set)
+    __swig_setmethods__["ptpl_a"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_a_set
+    __swig_getmethods__["ptpl_a"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_a_get
+    if _newclass:ptpl_a = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_a_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_ptpl_a_set)
+    __swig_setmethods__["persistent_reservation_type_mask"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set
+    __swig_getmethods__["persistent_reservation_type_mask"] = _libiscsi.scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_get
+    if _newclass:persistent_reservation_type_mask = _swig_property(_libiscsi.scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_get, _libiscsi.scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_persistent_reserve_in_report_capabilities()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_persistent_reserve_in_report_capabilities
+    __del__ = lambda self : None;
+scsi_persistent_reserve_in_report_capabilities_swigregister = _libiscsi.scsi_persistent_reserve_in_report_capabilities_swigregister
+scsi_persistent_reserve_in_report_capabilities_swigregister(scsi_persistent_reserve_in_report_capabilities)
+
+class scsi_read6_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_read6_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_read6_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_read6_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_read6_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_read6_cdb_opcode_get, _libiscsi.scsi_read6_cdb_opcode_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_read6_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_read6_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_read6_cdb_lba_get, _libiscsi.scsi_read6_cdb_lba_set)
+    __swig_setmethods__["transfer_length"] = _libiscsi.scsi_read6_cdb_transfer_length_set
+    __swig_getmethods__["transfer_length"] = _libiscsi.scsi_read6_cdb_transfer_length_get
+    if _newclass:transfer_length = _swig_property(_libiscsi.scsi_read6_cdb_transfer_length_get, _libiscsi.scsi_read6_cdb_transfer_length_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_read6_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_read6_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_read6_cdb_control_get, _libiscsi.scsi_read6_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_read6_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_read6_cdb
+    __del__ = lambda self : None;
+scsi_read6_cdb_swigregister = _libiscsi.scsi_read6_cdb_swigregister
+scsi_read6_cdb_swigregister(scsi_read6_cdb)
+
+class scsi_read10_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_read10_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_read10_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_read10_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_read10_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_read10_cdb_opcode_get, _libiscsi.scsi_read10_cdb_opcode_set)
+    __swig_setmethods__["rdprotect"] = _libiscsi.scsi_read10_cdb_rdprotect_set
+    __swig_getmethods__["rdprotect"] = _libiscsi.scsi_read10_cdb_rdprotect_get
+    if _newclass:rdprotect = _swig_property(_libiscsi.scsi_read10_cdb_rdprotect_get, _libiscsi.scsi_read10_cdb_rdprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_read10_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_read10_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_read10_cdb_dpo_get, _libiscsi.scsi_read10_cdb_dpo_set)
+    __swig_setmethods__["fua"] = _libiscsi.scsi_read10_cdb_fua_set
+    __swig_getmethods__["fua"] = _libiscsi.scsi_read10_cdb_fua_get
+    if _newclass:fua = _swig_property(_libiscsi.scsi_read10_cdb_fua_get, _libiscsi.scsi_read10_cdb_fua_set)
+    __swig_setmethods__["fua_nv"] = _libiscsi.scsi_read10_cdb_fua_nv_set
+    __swig_getmethods__["fua_nv"] = _libiscsi.scsi_read10_cdb_fua_nv_get
+    if _newclass:fua_nv = _swig_property(_libiscsi.scsi_read10_cdb_fua_nv_get, _libiscsi.scsi_read10_cdb_fua_nv_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_read10_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_read10_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_read10_cdb_lba_get, _libiscsi.scsi_read10_cdb_lba_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_read10_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_read10_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_read10_cdb_group_get, _libiscsi.scsi_read10_cdb_group_set)
+    __swig_setmethods__["transfer_length"] = _libiscsi.scsi_read10_cdb_transfer_length_set
+    __swig_getmethods__["transfer_length"] = _libiscsi.scsi_read10_cdb_transfer_length_get
+    if _newclass:transfer_length = _swig_property(_libiscsi.scsi_read10_cdb_transfer_length_get, _libiscsi.scsi_read10_cdb_transfer_length_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_read10_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_read10_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_read10_cdb_control_get, _libiscsi.scsi_read10_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_read10_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_read10_cdb
+    __del__ = lambda self : None;
+scsi_read10_cdb_swigregister = _libiscsi.scsi_read10_cdb_swigregister
+scsi_read10_cdb_swigregister(scsi_read10_cdb)
+
+class scsi_read12_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_read12_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_read12_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_read12_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_read12_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_read12_cdb_opcode_get, _libiscsi.scsi_read12_cdb_opcode_set)
+    __swig_setmethods__["rdprotect"] = _libiscsi.scsi_read12_cdb_rdprotect_set
+    __swig_getmethods__["rdprotect"] = _libiscsi.scsi_read12_cdb_rdprotect_get
+    if _newclass:rdprotect = _swig_property(_libiscsi.scsi_read12_cdb_rdprotect_get, _libiscsi.scsi_read12_cdb_rdprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_read12_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_read12_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_read12_cdb_dpo_get, _libiscsi.scsi_read12_cdb_dpo_set)
+    __swig_setmethods__["fua"] = _libiscsi.scsi_read12_cdb_fua_set
+    __swig_getmethods__["fua"] = _libiscsi.scsi_read12_cdb_fua_get
+    if _newclass:fua = _swig_property(_libiscsi.scsi_read12_cdb_fua_get, _libiscsi.scsi_read12_cdb_fua_set)
+    __swig_setmethods__["rarc"] = _libiscsi.scsi_read12_cdb_rarc_set
+    __swig_getmethods__["rarc"] = _libiscsi.scsi_read12_cdb_rarc_get
+    if _newclass:rarc = _swig_property(_libiscsi.scsi_read12_cdb_rarc_get, _libiscsi.scsi_read12_cdb_rarc_set)
+    __swig_setmethods__["fua_nv"] = _libiscsi.scsi_read12_cdb_fua_nv_set
+    __swig_getmethods__["fua_nv"] = _libiscsi.scsi_read12_cdb_fua_nv_get
+    if _newclass:fua_nv = _swig_property(_libiscsi.scsi_read12_cdb_fua_nv_get, _libiscsi.scsi_read12_cdb_fua_nv_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_read12_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_read12_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_read12_cdb_lba_get, _libiscsi.scsi_read12_cdb_lba_set)
+    __swig_setmethods__["transfer_length"] = _libiscsi.scsi_read12_cdb_transfer_length_set
+    __swig_getmethods__["transfer_length"] = _libiscsi.scsi_read12_cdb_transfer_length_get
+    if _newclass:transfer_length = _swig_property(_libiscsi.scsi_read12_cdb_transfer_length_get, _libiscsi.scsi_read12_cdb_transfer_length_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_read12_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_read12_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_read12_cdb_group_get, _libiscsi.scsi_read12_cdb_group_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_read12_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_read12_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_read12_cdb_control_get, _libiscsi.scsi_read12_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_read12_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_read12_cdb
+    __del__ = lambda self : None;
+scsi_read12_cdb_swigregister = _libiscsi.scsi_read12_cdb_swigregister
+scsi_read12_cdb_swigregister(scsi_read12_cdb)
+
+class scsi_read16_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_read16_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_read16_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_read16_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_read16_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_read16_cdb_opcode_get, _libiscsi.scsi_read16_cdb_opcode_set)
+    __swig_setmethods__["rdprotect"] = _libiscsi.scsi_read16_cdb_rdprotect_set
+    __swig_getmethods__["rdprotect"] = _libiscsi.scsi_read16_cdb_rdprotect_get
+    if _newclass:rdprotect = _swig_property(_libiscsi.scsi_read16_cdb_rdprotect_get, _libiscsi.scsi_read16_cdb_rdprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_read16_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_read16_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_read16_cdb_dpo_get, _libiscsi.scsi_read16_cdb_dpo_set)
+    __swig_setmethods__["fua"] = _libiscsi.scsi_read16_cdb_fua_set
+    __swig_getmethods__["fua"] = _libiscsi.scsi_read16_cdb_fua_get
+    if _newclass:fua = _swig_property(_libiscsi.scsi_read16_cdb_fua_get, _libiscsi.scsi_read16_cdb_fua_set)
+    __swig_setmethods__["rarc"] = _libiscsi.scsi_read16_cdb_rarc_set
+    __swig_getmethods__["rarc"] = _libiscsi.scsi_read16_cdb_rarc_get
+    if _newclass:rarc = _swig_property(_libiscsi.scsi_read16_cdb_rarc_get, _libiscsi.scsi_read16_cdb_rarc_set)
+    __swig_setmethods__["fua_nv"] = _libiscsi.scsi_read16_cdb_fua_nv_set
+    __swig_getmethods__["fua_nv"] = _libiscsi.scsi_read16_cdb_fua_nv_get
+    if _newclass:fua_nv = _swig_property(_libiscsi.scsi_read16_cdb_fua_nv_get, _libiscsi.scsi_read16_cdb_fua_nv_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_read16_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_read16_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_read16_cdb_lba_get, _libiscsi.scsi_read16_cdb_lba_set)
+    __swig_setmethods__["transfer_length"] = _libiscsi.scsi_read16_cdb_transfer_length_set
+    __swig_getmethods__["transfer_length"] = _libiscsi.scsi_read16_cdb_transfer_length_get
+    if _newclass:transfer_length = _swig_property(_libiscsi.scsi_read16_cdb_transfer_length_get, _libiscsi.scsi_read16_cdb_transfer_length_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_read16_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_read16_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_read16_cdb_group_get, _libiscsi.scsi_read16_cdb_group_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_read16_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_read16_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_read16_cdb_control_get, _libiscsi.scsi_read16_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_read16_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_read16_cdb
+    __del__ = lambda self : None;
+scsi_read16_cdb_swigregister = _libiscsi.scsi_read16_cdb_swigregister
+scsi_read16_cdb_swigregister(scsi_read16_cdb)
+
+class scsi_verify10_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_verify10_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_verify10_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_verify10_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_verify10_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_verify10_cdb_opcode_get, _libiscsi.scsi_verify10_cdb_opcode_set)
+    __swig_setmethods__["vrprotect"] = _libiscsi.scsi_verify10_cdb_vrprotect_set
+    __swig_getmethods__["vrprotect"] = _libiscsi.scsi_verify10_cdb_vrprotect_get
+    if _newclass:vrprotect = _swig_property(_libiscsi.scsi_verify10_cdb_vrprotect_get, _libiscsi.scsi_verify10_cdb_vrprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_verify10_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_verify10_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_verify10_cdb_dpo_get, _libiscsi.scsi_verify10_cdb_dpo_set)
+    __swig_setmethods__["bytchk"] = _libiscsi.scsi_verify10_cdb_bytchk_set
+    __swig_getmethods__["bytchk"] = _libiscsi.scsi_verify10_cdb_bytchk_get
+    if _newclass:bytchk = _swig_property(_libiscsi.scsi_verify10_cdb_bytchk_get, _libiscsi.scsi_verify10_cdb_bytchk_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_verify10_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_verify10_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_verify10_cdb_lba_get, _libiscsi.scsi_verify10_cdb_lba_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_verify10_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_verify10_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_verify10_cdb_group_get, _libiscsi.scsi_verify10_cdb_group_set)
+    __swig_setmethods__["verification_length"] = _libiscsi.scsi_verify10_cdb_verification_length_set
+    __swig_getmethods__["verification_length"] = _libiscsi.scsi_verify10_cdb_verification_length_get
+    if _newclass:verification_length = _swig_property(_libiscsi.scsi_verify10_cdb_verification_length_get, _libiscsi.scsi_verify10_cdb_verification_length_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_verify10_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_verify10_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_verify10_cdb_control_get, _libiscsi.scsi_verify10_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_verify10_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_verify10_cdb
+    __del__ = lambda self : None;
+scsi_verify10_cdb_swigregister = _libiscsi.scsi_verify10_cdb_swigregister
+scsi_verify10_cdb_swigregister(scsi_verify10_cdb)
+
+class scsi_verify12_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_verify12_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_verify12_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_verify12_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_verify12_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_verify12_cdb_opcode_get, _libiscsi.scsi_verify12_cdb_opcode_set)
+    __swig_setmethods__["vrprotect"] = _libiscsi.scsi_verify12_cdb_vrprotect_set
+    __swig_getmethods__["vrprotect"] = _libiscsi.scsi_verify12_cdb_vrprotect_get
+    if _newclass:vrprotect = _swig_property(_libiscsi.scsi_verify12_cdb_vrprotect_get, _libiscsi.scsi_verify12_cdb_vrprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_verify12_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_verify12_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_verify12_cdb_dpo_get, _libiscsi.scsi_verify12_cdb_dpo_set)
+    __swig_setmethods__["bytchk"] = _libiscsi.scsi_verify12_cdb_bytchk_set
+    __swig_getmethods__["bytchk"] = _libiscsi.scsi_verify12_cdb_bytchk_get
+    if _newclass:bytchk = _swig_property(_libiscsi.scsi_verify12_cdb_bytchk_get, _libiscsi.scsi_verify12_cdb_bytchk_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_verify12_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_verify12_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_verify12_cdb_lba_get, _libiscsi.scsi_verify12_cdb_lba_set)
+    __swig_setmethods__["verification_length"] = _libiscsi.scsi_verify12_cdb_verification_length_set
+    __swig_getmethods__["verification_length"] = _libiscsi.scsi_verify12_cdb_verification_length_get
+    if _newclass:verification_length = _swig_property(_libiscsi.scsi_verify12_cdb_verification_length_get, _libiscsi.scsi_verify12_cdb_verification_length_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_verify12_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_verify12_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_verify12_cdb_group_get, _libiscsi.scsi_verify12_cdb_group_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_verify12_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_verify12_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_verify12_cdb_control_get, _libiscsi.scsi_verify12_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_verify12_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_verify12_cdb
+    __del__ = lambda self : None;
+scsi_verify12_cdb_swigregister = _libiscsi.scsi_verify12_cdb_swigregister
+scsi_verify12_cdb_swigregister(scsi_verify12_cdb)
+
+class scsi_verify16_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_verify16_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_verify16_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_verify16_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_verify16_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_verify16_cdb_opcode_get, _libiscsi.scsi_verify16_cdb_opcode_set)
+    __swig_setmethods__["vrprotect"] = _libiscsi.scsi_verify16_cdb_vrprotect_set
+    __swig_getmethods__["vrprotect"] = _libiscsi.scsi_verify16_cdb_vrprotect_get
+    if _newclass:vrprotect = _swig_property(_libiscsi.scsi_verify16_cdb_vrprotect_get, _libiscsi.scsi_verify16_cdb_vrprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_verify16_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_verify16_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_verify16_cdb_dpo_get, _libiscsi.scsi_verify16_cdb_dpo_set)
+    __swig_setmethods__["bytchk"] = _libiscsi.scsi_verify16_cdb_bytchk_set
+    __swig_getmethods__["bytchk"] = _libiscsi.scsi_verify16_cdb_bytchk_get
+    if _newclass:bytchk = _swig_property(_libiscsi.scsi_verify16_cdb_bytchk_get, _libiscsi.scsi_verify16_cdb_bytchk_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_verify16_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_verify16_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_verify16_cdb_lba_get, _libiscsi.scsi_verify16_cdb_lba_set)
+    __swig_setmethods__["verification_length"] = _libiscsi.scsi_verify16_cdb_verification_length_set
+    __swig_getmethods__["verification_length"] = _libiscsi.scsi_verify16_cdb_verification_length_get
+    if _newclass:verification_length = _swig_property(_libiscsi.scsi_verify16_cdb_verification_length_get, _libiscsi.scsi_verify16_cdb_verification_length_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_verify16_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_verify16_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_verify16_cdb_group_get, _libiscsi.scsi_verify16_cdb_group_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_verify16_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_verify16_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_verify16_cdb_control_get, _libiscsi.scsi_verify16_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_verify16_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_verify16_cdb
+    __del__ = lambda self : None;
+scsi_verify16_cdb_swigregister = _libiscsi.scsi_verify16_cdb_swigregister
+scsi_verify16_cdb_swigregister(scsi_verify16_cdb)
+
+class scsi_write10_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_write10_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_write10_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_write10_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_write10_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_write10_cdb_opcode_get, _libiscsi.scsi_write10_cdb_opcode_set)
+    __swig_setmethods__["wrprotect"] = _libiscsi.scsi_write10_cdb_wrprotect_set
+    __swig_getmethods__["wrprotect"] = _libiscsi.scsi_write10_cdb_wrprotect_get
+    if _newclass:wrprotect = _swig_property(_libiscsi.scsi_write10_cdb_wrprotect_get, _libiscsi.scsi_write10_cdb_wrprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_write10_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_write10_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_write10_cdb_dpo_get, _libiscsi.scsi_write10_cdb_dpo_set)
+    __swig_setmethods__["fua"] = _libiscsi.scsi_write10_cdb_fua_set
+    __swig_getmethods__["fua"] = _libiscsi.scsi_write10_cdb_fua_get
+    if _newclass:fua = _swig_property(_libiscsi.scsi_write10_cdb_fua_get, _libiscsi.scsi_write10_cdb_fua_set)
+    __swig_setmethods__["fua_nv"] = _libiscsi.scsi_write10_cdb_fua_nv_set
+    __swig_getmethods__["fua_nv"] = _libiscsi.scsi_write10_cdb_fua_nv_get
+    if _newclass:fua_nv = _swig_property(_libiscsi.scsi_write10_cdb_fua_nv_get, _libiscsi.scsi_write10_cdb_fua_nv_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_write10_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_write10_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_write10_cdb_lba_get, _libiscsi.scsi_write10_cdb_lba_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_write10_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_write10_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_write10_cdb_group_get, _libiscsi.scsi_write10_cdb_group_set)
+    __swig_setmethods__["transfer_length"] = _libiscsi.scsi_write10_cdb_transfer_length_set
+    __swig_getmethods__["transfer_length"] = _libiscsi.scsi_write10_cdb_transfer_length_get
+    if _newclass:transfer_length = _swig_property(_libiscsi.scsi_write10_cdb_transfer_length_get, _libiscsi.scsi_write10_cdb_transfer_length_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_write10_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_write10_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_write10_cdb_control_get, _libiscsi.scsi_write10_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_write10_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_write10_cdb
+    __del__ = lambda self : None;
+scsi_write10_cdb_swigregister = _libiscsi.scsi_write10_cdb_swigregister
+scsi_write10_cdb_swigregister(scsi_write10_cdb)
+
+class scsi_write12_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_write12_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_write12_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_write12_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_write12_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_write12_cdb_opcode_get, _libiscsi.scsi_write12_cdb_opcode_set)
+    __swig_setmethods__["wrprotect"] = _libiscsi.scsi_write12_cdb_wrprotect_set
+    __swig_getmethods__["wrprotect"] = _libiscsi.scsi_write12_cdb_wrprotect_get
+    if _newclass:wrprotect = _swig_property(_libiscsi.scsi_write12_cdb_wrprotect_get, _libiscsi.scsi_write12_cdb_wrprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_write12_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_write12_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_write12_cdb_dpo_get, _libiscsi.scsi_write12_cdb_dpo_set)
+    __swig_setmethods__["fua"] = _libiscsi.scsi_write12_cdb_fua_set
+    __swig_getmethods__["fua"] = _libiscsi.scsi_write12_cdb_fua_get
+    if _newclass:fua = _swig_property(_libiscsi.scsi_write12_cdb_fua_get, _libiscsi.scsi_write12_cdb_fua_set)
+    __swig_setmethods__["fua_nv"] = _libiscsi.scsi_write12_cdb_fua_nv_set
+    __swig_getmethods__["fua_nv"] = _libiscsi.scsi_write12_cdb_fua_nv_get
+    if _newclass:fua_nv = _swig_property(_libiscsi.scsi_write12_cdb_fua_nv_get, _libiscsi.scsi_write12_cdb_fua_nv_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_write12_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_write12_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_write12_cdb_lba_get, _libiscsi.scsi_write12_cdb_lba_set)
+    __swig_setmethods__["transfer_length"] = _libiscsi.scsi_write12_cdb_transfer_length_set
+    __swig_getmethods__["transfer_length"] = _libiscsi.scsi_write12_cdb_transfer_length_get
+    if _newclass:transfer_length = _swig_property(_libiscsi.scsi_write12_cdb_transfer_length_get, _libiscsi.scsi_write12_cdb_transfer_length_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_write12_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_write12_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_write12_cdb_group_get, _libiscsi.scsi_write12_cdb_group_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_write12_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_write12_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_write12_cdb_control_get, _libiscsi.scsi_write12_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_write12_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_write12_cdb
+    __del__ = lambda self : None;
+scsi_write12_cdb_swigregister = _libiscsi.scsi_write12_cdb_swigregister
+scsi_write12_cdb_swigregister(scsi_write12_cdb)
+
+class scsi_write16_cdb(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_write16_cdb, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_write16_cdb, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["opcode"] = _libiscsi.scsi_write16_cdb_opcode_set
+    __swig_getmethods__["opcode"] = _libiscsi.scsi_write16_cdb_opcode_get
+    if _newclass:opcode = _swig_property(_libiscsi.scsi_write16_cdb_opcode_get, _libiscsi.scsi_write16_cdb_opcode_set)
+    __swig_setmethods__["wrprotect"] = _libiscsi.scsi_write16_cdb_wrprotect_set
+    __swig_getmethods__["wrprotect"] = _libiscsi.scsi_write16_cdb_wrprotect_get
+    if _newclass:wrprotect = _swig_property(_libiscsi.scsi_write16_cdb_wrprotect_get, _libiscsi.scsi_write16_cdb_wrprotect_set)
+    __swig_setmethods__["dpo"] = _libiscsi.scsi_write16_cdb_dpo_set
+    __swig_getmethods__["dpo"] = _libiscsi.scsi_write16_cdb_dpo_get
+    if _newclass:dpo = _swig_property(_libiscsi.scsi_write16_cdb_dpo_get, _libiscsi.scsi_write16_cdb_dpo_set)
+    __swig_setmethods__["fua"] = _libiscsi.scsi_write16_cdb_fua_set
+    __swig_getmethods__["fua"] = _libiscsi.scsi_write16_cdb_fua_get
+    if _newclass:fua = _swig_property(_libiscsi.scsi_write16_cdb_fua_get, _libiscsi.scsi_write16_cdb_fua_set)
+    __swig_setmethods__["fua_nv"] = _libiscsi.scsi_write16_cdb_fua_nv_set
+    __swig_getmethods__["fua_nv"] = _libiscsi.scsi_write16_cdb_fua_nv_get
+    if _newclass:fua_nv = _swig_property(_libiscsi.scsi_write16_cdb_fua_nv_get, _libiscsi.scsi_write16_cdb_fua_nv_set)
+    __swig_setmethods__["lba"] = _libiscsi.scsi_write16_cdb_lba_set
+    __swig_getmethods__["lba"] = _libiscsi.scsi_write16_cdb_lba_get
+    if _newclass:lba = _swig_property(_libiscsi.scsi_write16_cdb_lba_get, _libiscsi.scsi_write16_cdb_lba_set)
+    __swig_setmethods__["transfer_length"] = _libiscsi.scsi_write16_cdb_transfer_length_set
+    __swig_getmethods__["transfer_length"] = _libiscsi.scsi_write16_cdb_transfer_length_get
+    if _newclass:transfer_length = _swig_property(_libiscsi.scsi_write16_cdb_transfer_length_get, _libiscsi.scsi_write16_cdb_transfer_length_set)
+    __swig_setmethods__["group"] = _libiscsi.scsi_write16_cdb_group_set
+    __swig_getmethods__["group"] = _libiscsi.scsi_write16_cdb_group_get
+    if _newclass:group = _swig_property(_libiscsi.scsi_write16_cdb_group_get, _libiscsi.scsi_write16_cdb_group_set)
+    __swig_setmethods__["control"] = _libiscsi.scsi_write16_cdb_control_set
+    __swig_getmethods__["control"] = _libiscsi.scsi_write16_cdb_control_get
+    if _newclass:control = _swig_property(_libiscsi.scsi_write16_cdb_control_get, _libiscsi.scsi_write16_cdb_control_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_write16_cdb()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_write16_cdb
+    __del__ = lambda self : None;
+scsi_write16_cdb_swigregister = _libiscsi.scsi_write16_cdb_swigregister
+scsi_write16_cdb_swigregister(scsi_write16_cdb)
+
+
+def scsi_datain_getfullsize(*args):
+  return _libiscsi.scsi_datain_getfullsize(*args)
+scsi_datain_getfullsize = _libiscsi.scsi_datain_getfullsize
+
+def scsi_datain_unmarshall(*args):
+  return _libiscsi.scsi_datain_unmarshall(*args)
+scsi_datain_unmarshall = _libiscsi.scsi_datain_unmarshall
+
+def scsi_cdb_unmarshall(*args):
+  return _libiscsi.scsi_cdb_unmarshall(*args)
+scsi_cdb_unmarshall = _libiscsi.scsi_cdb_unmarshall
+
+def scsi_task_get_data_in_buffer(*args):
+  return _libiscsi.scsi_task_get_data_in_buffer(*args)
+scsi_task_get_data_in_buffer = _libiscsi.scsi_task_get_data_in_buffer
+
+def scsi_task_get_data_out_buffer(*args):
+  return _libiscsi.scsi_task_get_data_out_buffer(*args)
+scsi_task_get_data_out_buffer = _libiscsi.scsi_task_get_data_out_buffer
+
+def scsi_cdb_compareandwrite(*args):
+  return _libiscsi.scsi_cdb_compareandwrite(*args)
+scsi_cdb_compareandwrite = _libiscsi.scsi_cdb_compareandwrite
+
+def scsi_cdb_get_lba_status(*args):
+  return _libiscsi.scsi_cdb_get_lba_status(*args)
+scsi_cdb_get_lba_status = _libiscsi.scsi_cdb_get_lba_status
+
+def scsi_cdb_orwrite(*args):
+  return _libiscsi.scsi_cdb_orwrite(*args)
+scsi_cdb_orwrite = _libiscsi.scsi_cdb_orwrite
+
+def scsi_cdb_persistent_reserve_in(*args):
+  return _libiscsi.scsi_cdb_persistent_reserve_in(*args)
+scsi_cdb_persistent_reserve_in = _libiscsi.scsi_cdb_persistent_reserve_in
+
+def scsi_cdb_persistent_reserve_out(*args):
+  return _libiscsi.scsi_cdb_persistent_reserve_out(*args)
+scsi_cdb_persistent_reserve_out = _libiscsi.scsi_cdb_persistent_reserve_out
+
+def scsi_cdb_prefetch10(*args):
+  return _libiscsi.scsi_cdb_prefetch10(*args)
+scsi_cdb_prefetch10 = _libiscsi.scsi_cdb_prefetch10
+
+def scsi_cdb_prefetch16(*args):
+  return _libiscsi.scsi_cdb_prefetch16(*args)
+scsi_cdb_prefetch16 = _libiscsi.scsi_cdb_prefetch16
+
+def scsi_cdb_preventallow(*args):
+  return _libiscsi.scsi_cdb_preventallow(*args)
+scsi_cdb_preventallow = _libiscsi.scsi_cdb_preventallow
+
+def scsi_cdb_read6(*args):
+  return _libiscsi.scsi_cdb_read6(*args)
+scsi_cdb_read6 = _libiscsi.scsi_cdb_read6
+
+def scsi_cdb_read10(*args):
+  return _libiscsi.scsi_cdb_read10(*args)
+scsi_cdb_read10 = _libiscsi.scsi_cdb_read10
+
+def scsi_cdb_read12(*args):
+  return _libiscsi.scsi_cdb_read12(*args)
+scsi_cdb_read12 = _libiscsi.scsi_cdb_read12
+
+def scsi_cdb_read16(*args):
+  return _libiscsi.scsi_cdb_read16(*args)
+scsi_cdb_read16 = _libiscsi.scsi_cdb_read16
+
+def scsi_cdb_readcapacity16():
+  return _libiscsi.scsi_cdb_readcapacity16()
+scsi_cdb_readcapacity16 = _libiscsi.scsi_cdb_readcapacity16
+
+def scsi_cdb_report_supported_opcodes(*args):
+  return _libiscsi.scsi_cdb_report_supported_opcodes(*args)
+scsi_cdb_report_supported_opcodes = _libiscsi.scsi_cdb_report_supported_opcodes
+
+def scsi_cdb_serviceactionin16(*args):
+  return _libiscsi.scsi_cdb_serviceactionin16(*args)
+scsi_cdb_serviceactionin16 = _libiscsi.scsi_cdb_serviceactionin16
+
+def scsi_cdb_startstopunit(*args):
+  return _libiscsi.scsi_cdb_startstopunit(*args)
+scsi_cdb_startstopunit = _libiscsi.scsi_cdb_startstopunit
+
+def scsi_cdb_synchronizecache10(*args):
+  return _libiscsi.scsi_cdb_synchronizecache10(*args)
+scsi_cdb_synchronizecache10 = _libiscsi.scsi_cdb_synchronizecache10
+
+def scsi_cdb_synchronizecache16(*args):
+  return _libiscsi.scsi_cdb_synchronizecache16(*args)
+scsi_cdb_synchronizecache16 = _libiscsi.scsi_cdb_synchronizecache16
+
+def scsi_cdb_unmap(*args):
+  return _libiscsi.scsi_cdb_unmap(*args)
+scsi_cdb_unmap = _libiscsi.scsi_cdb_unmap
+
+def scsi_cdb_verify10(*args):
+  return _libiscsi.scsi_cdb_verify10(*args)
+scsi_cdb_verify10 = _libiscsi.scsi_cdb_verify10
+
+def scsi_cdb_verify12(*args):
+  return _libiscsi.scsi_cdb_verify12(*args)
+scsi_cdb_verify12 = _libiscsi.scsi_cdb_verify12
+
+def scsi_cdb_verify16(*args):
+  return _libiscsi.scsi_cdb_verify16(*args)
+scsi_cdb_verify16 = _libiscsi.scsi_cdb_verify16
+
+def scsi_cdb_write10(*args):
+  return _libiscsi.scsi_cdb_write10(*args)
+scsi_cdb_write10 = _libiscsi.scsi_cdb_write10
+
+def scsi_cdb_write12(*args):
+  return _libiscsi.scsi_cdb_write12(*args)
+scsi_cdb_write12 = _libiscsi.scsi_cdb_write12
+
+def scsi_cdb_write16(*args):
+  return _libiscsi.scsi_cdb_write16(*args)
+scsi_cdb_write16 = _libiscsi.scsi_cdb_write16
+
+def scsi_cdb_writesame10(*args):
+  return _libiscsi.scsi_cdb_writesame10(*args)
+scsi_cdb_writesame10 = _libiscsi.scsi_cdb_writesame10
+
+def scsi_cdb_writesame16(*args):
+  return _libiscsi.scsi_cdb_writesame16(*args)
+scsi_cdb_writesame16 = _libiscsi.scsi_cdb_writesame16
+
+def scsi_cdb_writeverify10(*args):
+  return _libiscsi.scsi_cdb_writeverify10(*args)
+scsi_cdb_writeverify10 = _libiscsi.scsi_cdb_writeverify10
+
+def scsi_cdb_writeverify12(*args):
+  return _libiscsi.scsi_cdb_writeverify12(*args)
+scsi_cdb_writeverify12 = _libiscsi.scsi_cdb_writeverify12
+
+def scsi_cdb_writeverify16(*args):
+  return _libiscsi.scsi_cdb_writeverify16(*args)
+scsi_cdb_writeverify16 = _libiscsi.scsi_cdb_writeverify16
 # This file is compatible with both classic and new-style classes.
 
 

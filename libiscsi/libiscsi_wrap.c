@@ -2918,17 +2918,51 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_iscsi_target_portal swig_types[5]
 #define SWIGTYPE_p_iscsi_url swig_types[6]
 #define SWIGTYPE_p_long_long swig_types[7]
-#define SWIGTYPE_p_scsi_mode_page swig_types[8]
-#define SWIGTYPE_p_scsi_task swig_types[9]
-#define SWIGTYPE_p_short swig_types[10]
-#define SWIGTYPE_p_signed_char swig_types[11]
-#define SWIGTYPE_p_unmap_list swig_types[12]
-#define SWIGTYPE_p_unsigned_char swig_types[13]
-#define SWIGTYPE_p_unsigned_int swig_types[14]
-#define SWIGTYPE_p_unsigned_long_long swig_types[15]
-#define SWIGTYPE_p_unsigned_short swig_types[16]
-static swig_type_info *swig_types[18];
-static swig_module_info swig_module = {swig_types, 17, 0, 0, 0, 0};
+#define SWIGTYPE_p_scsi_command_descriptor swig_types[8]
+#define SWIGTYPE_p_scsi_data swig_types[9]
+#define SWIGTYPE_p_scsi_get_lba_status swig_types[10]
+#define SWIGTYPE_p_scsi_inquiry_block_device_characteristics swig_types[11]
+#define SWIGTYPE_p_scsi_inquiry_block_limits swig_types[12]
+#define SWIGTYPE_p_scsi_inquiry_device_designator swig_types[13]
+#define SWIGTYPE_p_scsi_inquiry_device_identification swig_types[14]
+#define SWIGTYPE_p_scsi_inquiry_logical_block_provisioning swig_types[15]
+#define SWIGTYPE_p_scsi_inquiry_standard swig_types[16]
+#define SWIGTYPE_p_scsi_inquiry_supported_pages swig_types[17]
+#define SWIGTYPE_p_scsi_inquiry_unit_serial_number swig_types[18]
+#define SWIGTYPE_p_scsi_lba_status_descriptor swig_types[19]
+#define SWIGTYPE_p_scsi_op_timeout_descriptor swig_types[20]
+#define SWIGTYPE_p_scsi_persistent_reserve_in_read_keys swig_types[21]
+#define SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation swig_types[22]
+#define SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities swig_types[23]
+#define SWIGTYPE_p_scsi_persistent_reserve_out_basic swig_types[24]
+#define SWIGTYPE_p_scsi_read10_cdb swig_types[25]
+#define SWIGTYPE_p_scsi_read12_cdb swig_types[26]
+#define SWIGTYPE_p_scsi_read16_cdb swig_types[27]
+#define SWIGTYPE_p_scsi_read6_cdb swig_types[28]
+#define SWIGTYPE_p_scsi_readcapacity10 swig_types[29]
+#define SWIGTYPE_p_scsi_readcapacity16 swig_types[30]
+#define SWIGTYPE_p_scsi_report_supported_op_codes swig_types[31]
+#define SWIGTYPE_p_scsi_report_supported_op_codes_one_command swig_types[32]
+#define SWIGTYPE_p_scsi_reportluns_list swig_types[33]
+#define SWIGTYPE_p_scsi_sense swig_types[34]
+#define SWIGTYPE_p_scsi_task swig_types[35]
+#define SWIGTYPE_p_scsi_verify10_cdb swig_types[36]
+#define SWIGTYPE_p_scsi_verify12_cdb swig_types[37]
+#define SWIGTYPE_p_scsi_verify16_cdb swig_types[38]
+#define SWIGTYPE_p_scsi_write10_cdb swig_types[39]
+#define SWIGTYPE_p_scsi_write12_cdb swig_types[40]
+#define SWIGTYPE_p_scsi_write16_cdb swig_types[41]
+#define SWIGTYPE_p_short swig_types[42]
+#define SWIGTYPE_p_signed_char swig_types[43]
+#define SWIGTYPE_p_ssize_t swig_types[44]
+#define SWIGTYPE_p_unmap_list swig_types[45]
+#define SWIGTYPE_p_unsigned_char swig_types[46]
+#define SWIGTYPE_p_unsigned_int swig_types[47]
+#define SWIGTYPE_p_unsigned_long_long swig_types[48]
+#define SWIGTYPE_p_unsigned_short swig_types[49]
+#define SWIGTYPE_p_void swig_types[50]
+static swig_type_info *swig_types[52];
+static swig_module_info swig_module = {swig_types, 51, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3426,6 +3460,22 @@ SWIGINTERNINLINE PyObject*
 
 
 SWIGINTERN int
+SWIG_AsVal_unsigned_SS_short (PyObject * obj, unsigned short *val)
+{
+  unsigned long v;
+  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v > USHRT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = (unsigned short)(v);
+    }
+  }  
+  return res;
+}
+
+
+SWIGINTERN int
 SWIG_AsVal_unsigned_SS_char (PyObject * obj, unsigned char *val)
 {
   unsigned long v;
@@ -3441,19 +3491,17 @@ SWIG_AsVal_unsigned_SS_char (PyObject * obj, unsigned char *val)
 }
 
 
-SWIGINTERN int
-SWIG_AsVal_unsigned_SS_short (PyObject * obj, unsigned short *val)
-{
-  unsigned long v;
-  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v > USHRT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = (unsigned short)(v);
-    }
-  }  
-  return res;
+SWIGINTERNINLINE PyObject *
+SWIG_From_unsigned_SS_char  (unsigned char value)
+{    
+  return SWIG_From_unsigned_SS_long  (value);
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_unsigned_SS_short  (unsigned short value)
+{    
+  return SWIG_From_unsigned_SS_long  (value);
 }
 
 #ifdef __cplusplus
@@ -5649,283 +5697,6 @@ SWIGINTERN PyObject *_wrap_iscsi_scsi_command_sync(PyObject *SWIGUNUSEDPARM(self
   }
   arg4 = (struct iscsi_data *)(argp4);
   result = (struct scsi_task *)iscsi_scsi_command_sync(arg1,arg2,arg3,arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_iscsi_modeselect6_sync(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  struct iscsi_context *arg1 = (struct iscsi_context *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  struct scsi_mode_page *arg5 = (struct scsi_mode_page *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  void *argp5 = 0 ;
-  int res5 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  struct scsi_task *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:iscsi_modeselect6_sync",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_iscsi_context, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "iscsi_modeselect6_sync" "', argument " "1"" of type '" "struct iscsi_context *""'"); 
-  }
-  arg1 = (struct iscsi_context *)(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "iscsi_modeselect6_sync" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = (int)(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_modeselect6_sync" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = (int)(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "iscsi_modeselect6_sync" "', argument " "4"" of type '" "int""'");
-  } 
-  arg4 = (int)(val4);
-  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_scsi_mode_page, 0 |  0 );
-  if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "iscsi_modeselect6_sync" "', argument " "5"" of type '" "struct scsi_mode_page *""'"); 
-  }
-  arg5 = (struct scsi_mode_page *)(argp5);
-  result = (struct scsi_task *)iscsi_modeselect6_sync(arg1,arg2,arg3,arg4,arg5);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_iscsi_modeselect10_sync(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  struct iscsi_context *arg1 = (struct iscsi_context *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  struct scsi_mode_page *arg5 = (struct scsi_mode_page *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  void *argp5 = 0 ;
-  int res5 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  struct scsi_task *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:iscsi_modeselect10_sync",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_iscsi_context, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "iscsi_modeselect10_sync" "', argument " "1"" of type '" "struct iscsi_context *""'"); 
-  }
-  arg1 = (struct iscsi_context *)(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "iscsi_modeselect10_sync" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = (int)(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_modeselect10_sync" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = (int)(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "iscsi_modeselect10_sync" "', argument " "4"" of type '" "int""'");
-  } 
-  arg4 = (int)(val4);
-  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_scsi_mode_page, 0 |  0 );
-  if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "iscsi_modeselect10_sync" "', argument " "5"" of type '" "struct scsi_mode_page *""'"); 
-  }
-  arg5 = (struct scsi_mode_page *)(argp5);
-  result = (struct scsi_task *)iscsi_modeselect10_sync(arg1,arg2,arg3,arg4,arg5);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_iscsi_modesense6_sync(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  struct iscsi_context *arg1 = (struct iscsi_context *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
-  int arg6 ;
-  unsigned char arg7 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  int val5 ;
-  int ecode5 = 0 ;
-  int val6 ;
-  int ecode6 = 0 ;
-  unsigned char val7 ;
-  int ecode7 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  PyObject * obj6 = 0 ;
-  struct scsi_task *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:iscsi_modesense6_sync",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_iscsi_context, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "iscsi_modesense6_sync" "', argument " "1"" of type '" "struct iscsi_context *""'"); 
-  }
-  arg1 = (struct iscsi_context *)(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "iscsi_modesense6_sync" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = (int)(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_modesense6_sync" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = (int)(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "iscsi_modesense6_sync" "', argument " "4"" of type '" "int""'");
-  } 
-  arg4 = (int)(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_modesense6_sync" "', argument " "5"" of type '" "int""'");
-  } 
-  arg5 = (int)(val5);
-  ecode6 = SWIG_AsVal_int(obj5, &val6);
-  if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "iscsi_modesense6_sync" "', argument " "6"" of type '" "int""'");
-  } 
-  arg6 = (int)(val6);
-  ecode7 = SWIG_AsVal_unsigned_SS_char(obj6, &val7);
-  if (!SWIG_IsOK(ecode7)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "iscsi_modesense6_sync" "', argument " "7"" of type '" "unsigned char""'");
-  } 
-  arg7 = (unsigned char)(val7);
-  result = (struct scsi_task *)iscsi_modesense6_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_iscsi_modesense10_sync(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  struct iscsi_context *arg1 = (struct iscsi_context *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
-  int arg6 ;
-  int arg7 ;
-  unsigned char arg8 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  int val5 ;
-  int ecode5 = 0 ;
-  int val6 ;
-  int ecode6 = 0 ;
-  int val7 ;
-  int ecode7 = 0 ;
-  unsigned char val8 ;
-  int ecode8 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  PyObject * obj6 = 0 ;
-  PyObject * obj7 = 0 ;
-  struct scsi_task *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:iscsi_modesense10_sync",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_iscsi_context, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "iscsi_modesense10_sync" "', argument " "1"" of type '" "struct iscsi_context *""'"); 
-  }
-  arg1 = (struct iscsi_context *)(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "iscsi_modesense10_sync" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = (int)(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_modesense10_sync" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = (int)(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "iscsi_modesense10_sync" "', argument " "4"" of type '" "int""'");
-  } 
-  arg4 = (int)(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_modesense10_sync" "', argument " "5"" of type '" "int""'");
-  } 
-  arg5 = (int)(val5);
-  ecode6 = SWIG_AsVal_int(obj5, &val6);
-  if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "iscsi_modesense10_sync" "', argument " "6"" of type '" "int""'");
-  } 
-  arg6 = (int)(val6);
-  ecode7 = SWIG_AsVal_int(obj6, &val7);
-  if (!SWIG_IsOK(ecode7)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "iscsi_modesense10_sync" "', argument " "7"" of type '" "int""'");
-  } 
-  arg7 = (int)(val7);
-  ecode8 = SWIG_AsVal_unsigned_SS_char(obj7, &val8);
-  if (!SWIG_IsOK(ecode8)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "iscsi_modesense10_sync" "', argument " "8"" of type '" "unsigned char""'");
-  } 
-  arg8 = (unsigned char)(val8);
-  result = (struct scsi_task *)iscsi_modesense10_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
   return resultobj;
 fail:
@@ -9130,6 +8901,16011 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_reservation_key_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_out_basic_reservation_key_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_reservation_key_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_out_basic_reservation_key_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->reservation_key = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_reservation_key_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_out_basic_reservation_key_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_reservation_key_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  result = (uint64_t) ((arg1)->reservation_key);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_service_action_reservation_key_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_out_basic_service_action_reservation_key_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_service_action_reservation_key_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_out_basic_service_action_reservation_key_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->service_action_reservation_key = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_service_action_reservation_key_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_out_basic_service_action_reservation_key_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_service_action_reservation_key_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  result = (uint64_t) ((arg1)->service_action_reservation_key);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_spec_i_pt_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_out_basic_spec_i_pt_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_spec_i_pt_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_out_basic_spec_i_pt_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->spec_i_pt = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_spec_i_pt_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_out_basic_spec_i_pt_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_spec_i_pt_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  result = (uint8_t) ((arg1)->spec_i_pt);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_all_tg_pt_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_out_basic_all_tg_pt_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_all_tg_pt_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_out_basic_all_tg_pt_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->all_tg_pt = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_all_tg_pt_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_out_basic_all_tg_pt_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_all_tg_pt_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  result = (uint8_t) ((arg1)->all_tg_pt);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_aptpl_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_out_basic_aptpl_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_aptpl_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_out_basic_aptpl_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->aptpl = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_out_basic_aptpl_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_out_basic_aptpl_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_out_basic_aptpl_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  result = (uint8_t) ((arg1)->aptpl);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_persistent_reserve_out_basic(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_persistent_reserve_out_basic")) SWIG_fail;
+  result = (struct scsi_persistent_reserve_out_basic *)calloc(1, sizeof(struct scsi_persistent_reserve_out_basic));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_persistent_reserve_out_basic, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_persistent_reserve_out_basic(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_out_basic *arg1 = (struct scsi_persistent_reserve_out_basic *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_persistent_reserve_out_basic",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_out_basic, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_persistent_reserve_out_basic" "', argument " "1"" of type '" "struct scsi_persistent_reserve_out_basic *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_out_basic *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_persistent_reserve_out_basic_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_persistent_reserve_out_basic, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_sense_key_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_sense_key_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_sense_key_str" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (char *)scsi_sense_key_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_sense_ascq_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_sense_ascq_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_sense_ascq_str" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (char *)scsi_sense_ascq_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_pr_type_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_persistent_out_type arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_pr_type_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_pr_type_str" "', argument " "1"" of type '" "enum scsi_persistent_out_type""'");
+  } 
+  arg1 = (enum scsi_persistent_out_type)(val1);
+  result = (char *)scsi_pr_type_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_sense_error_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *arg1 = (struct scsi_sense *) 0 ;
+  unsigned char arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_sense_error_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_sense, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_sense_error_type_set" "', argument " "1"" of type '" "struct scsi_sense *""'"); 
+  }
+  arg1 = (struct scsi_sense *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_sense_error_type_set" "', argument " "2"" of type '" "unsigned char""'");
+  } 
+  arg2 = (unsigned char)(val2);
+  if (arg1) (arg1)->error_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_sense_error_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *arg1 = (struct scsi_sense *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  unsigned char result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_sense_error_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_sense, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_sense_error_type_get" "', argument " "1"" of type '" "struct scsi_sense *""'"); 
+  }
+  arg1 = (struct scsi_sense *)(argp1);
+  result = (unsigned char) ((arg1)->error_type);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_sense_key_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *arg1 = (struct scsi_sense *) 0 ;
+  enum scsi_sense_key arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_sense_key_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_sense, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_sense_key_set" "', argument " "1"" of type '" "struct scsi_sense *""'"); 
+  }
+  arg1 = (struct scsi_sense *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_sense_key_set" "', argument " "2"" of type '" "enum scsi_sense_key""'");
+  } 
+  arg2 = (enum scsi_sense_key)(val2);
+  if (arg1) (arg1)->key = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_sense_key_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *arg1 = (struct scsi_sense *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_sense_key result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_sense_key_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_sense, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_sense_key_get" "', argument " "1"" of type '" "struct scsi_sense *""'"); 
+  }
+  arg1 = (struct scsi_sense *)(argp1);
+  result = (enum scsi_sense_key) ((arg1)->key);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_sense_ascq_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *arg1 = (struct scsi_sense *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_sense_ascq_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_sense, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_sense_ascq_set" "', argument " "1"" of type '" "struct scsi_sense *""'"); 
+  }
+  arg1 = (struct scsi_sense *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_sense_ascq_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->ascq = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_sense_ascq_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *arg1 = (struct scsi_sense *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_sense_ascq_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_sense, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_sense_ascq_get" "', argument " "1"" of type '" "struct scsi_sense *""'"); 
+  }
+  arg1 = (struct scsi_sense *)(argp1);
+  result = (int) ((arg1)->ascq);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_sense(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_sense")) SWIG_fail;
+  result = (struct scsi_sense *)calloc(1, sizeof(struct scsi_sense));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_sense, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_sense(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_sense *arg1 = (struct scsi_sense *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_sense",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_sense, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_sense" "', argument " "1"" of type '" "struct scsi_sense *""'"); 
+  }
+  arg1 = (struct scsi_sense *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_sense_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_sense, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_data_size_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_data *arg1 = (struct scsi_data *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_data_size_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_data, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_data_size_set" "', argument " "1"" of type '" "struct scsi_data *""'"); 
+  }
+  arg1 = (struct scsi_data *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_data_size_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->size = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_data_size_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_data *arg1 = (struct scsi_data *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_data_size_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_data, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_data_size_get" "', argument " "1"" of type '" "struct scsi_data *""'"); 
+  }
+  arg1 = (struct scsi_data *)(argp1);
+  result = (int) ((arg1)->size);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_data_data_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_data *arg1 = (struct scsi_data *) 0 ;
+  unsigned char *arg2 = (unsigned char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_data_data_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_data, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_data_data_set" "', argument " "1"" of type '" "struct scsi_data *""'"); 
+  }
+  arg1 = (struct scsi_data *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_data_data_set" "', argument " "2"" of type '" "unsigned char *""'"); 
+  }
+  arg2 = (unsigned char *)(argp2);
+  if (arg1) (arg1)->data = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_data_data_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_data *arg1 = (struct scsi_data *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  unsigned char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_data_data_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_data, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_data_data_get" "', argument " "1"" of type '" "struct scsi_data *""'"); 
+  }
+  arg1 = (struct scsi_data *)(argp1);
+  result = (unsigned char *) ((arg1)->data);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_data(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_data *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_data")) SWIG_fail;
+  result = (struct scsi_data *)calloc(1, sizeof(struct scsi_data));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_data, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_data(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_data *arg1 = (struct scsi_data *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_data",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_data, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_data" "', argument " "1"" of type '" "struct scsi_data *""'"); 
+  }
+  arg1 = (struct scsi_data *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_data_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_data, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_create_task(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  unsigned char *arg2 = (unsigned char *) 0 ;
+  int arg3 ;
+  int arg4 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:scsi_create_task",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_create_task" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_create_task" "', argument " "2"" of type '" "unsigned char *""'"); 
+  }
+  arg2 = (unsigned char *)(argp2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_create_task" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_create_task" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  result = (struct scsi_task *)scsi_create_task(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_free_scsi_task(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_free_scsi_task",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_free_scsi_task" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  scsi_free_scsi_task(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_set_task_private_ptr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  void *arg2 = (void *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_set_task_private_ptr",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_set_task_private_ptr" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_set_task_private_ptr" "', argument " "2"" of type '" "void *""'"); 
+  }
+  scsi_set_task_private_ptr(arg1,arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_get_task_private_ptr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  void *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_get_task_private_ptr",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_get_task_private_ptr" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  result = (void *)scsi_get_task_private_ptr(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_testunitready(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":scsi_cdb_testunitready")) SWIG_fail;
+  result = (struct scsi_task *)scsi_cdb_testunitready();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_sanitize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:scsi_cdb_sanitize",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_sanitize" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_sanitize" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_sanitize" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_sanitize" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  result = (struct scsi_task *)scsi_cdb_sanitize(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_reportluns_list_num_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_reportluns_list *arg1 = (struct scsi_reportluns_list *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_reportluns_list_num_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_reportluns_list, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_reportluns_list_num_set" "', argument " "1"" of type '" "struct scsi_reportluns_list *""'"); 
+  }
+  arg1 = (struct scsi_reportluns_list *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_reportluns_list_num_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->num = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_reportluns_list_num_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_reportluns_list *arg1 = (struct scsi_reportluns_list *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_reportluns_list_num_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_reportluns_list, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_reportluns_list_num_get" "', argument " "1"" of type '" "struct scsi_reportluns_list *""'"); 
+  }
+  arg1 = (struct scsi_reportluns_list *)(argp1);
+  result = (uint32_t) ((arg1)->num);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_reportluns_list_luns_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_reportluns_list *arg1 = (struct scsi_reportluns_list *) 0 ;
+  uint16_t *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_reportluns_list_luns_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_reportluns_list, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_reportluns_list_luns_set" "', argument " "1"" of type '" "struct scsi_reportluns_list *""'"); 
+  }
+  arg1 = (struct scsi_reportluns_list *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_short, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_reportluns_list_luns_set" "', argument " "2"" of type '" "uint16_t [0]""'"); 
+  } 
+  arg2 = (uint16_t *)(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)0; ++ii) arg1->luns[ii] = arg2[ii];
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""luns""' of type '""uint16_t [0]""'");
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_reportluns_list_luns_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_reportluns_list *arg1 = (struct scsi_reportluns_list *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_reportluns_list_luns_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_reportluns_list, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_reportluns_list_luns_get" "', argument " "1"" of type '" "struct scsi_reportluns_list *""'"); 
+  }
+  arg1 = (struct scsi_reportluns_list *)(argp1);
+  result = (uint16_t *)(uint16_t *) ((arg1)->luns);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_short, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_reportluns_list(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_reportluns_list *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_reportluns_list")) SWIG_fail;
+  result = (struct scsi_reportluns_list *)calloc(1, sizeof(struct scsi_reportluns_list));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_reportluns_list, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_reportluns_list(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_reportluns_list *arg1 = (struct scsi_reportluns_list *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_reportluns_list",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_reportluns_list, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_reportluns_list" "', argument " "1"" of type '" "struct scsi_reportluns_list *""'"); 
+  }
+  arg1 = (struct scsi_reportluns_list *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_reportluns_list_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_reportluns_list, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_reportluns_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_reportluns_cdb",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_reportluns_cdb" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_reportluns_cdb" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (struct scsi_task *)scsi_reportluns_cdb(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_reserve6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":scsi_cdb_reserve6")) SWIG_fail;
+  result = (struct scsi_task *)scsi_cdb_reserve6();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_release6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":scsi_cdb_release6")) SWIG_fail;
+  result = (struct scsi_task *)scsi_cdb_release6();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity10_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity10 *arg1 = (struct scsi_readcapacity10 *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity10_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity10, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity10_lba_set" "', argument " "1"" of type '" "struct scsi_readcapacity10 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity10 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity10_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity10_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity10 *arg1 = (struct scsi_readcapacity10 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity10_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity10, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity10_lba_get" "', argument " "1"" of type '" "struct scsi_readcapacity10 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity10 *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity10_block_size_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity10 *arg1 = (struct scsi_readcapacity10 *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity10_block_size_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity10, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity10_block_size_set" "', argument " "1"" of type '" "struct scsi_readcapacity10 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity10 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity10_block_size_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->block_size = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity10_block_size_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity10 *arg1 = (struct scsi_readcapacity10 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity10_block_size_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity10, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity10_block_size_get" "', argument " "1"" of type '" "struct scsi_readcapacity10 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity10 *)(argp1);
+  result = (uint32_t) ((arg1)->block_size);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_readcapacity10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity10 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_readcapacity10")) SWIG_fail;
+  result = (struct scsi_readcapacity10 *)calloc(1, sizeof(struct scsi_readcapacity10));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_readcapacity10, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_readcapacity10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity10 *arg1 = (struct scsi_readcapacity10 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_readcapacity10",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity10, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_readcapacity10" "', argument " "1"" of type '" "struct scsi_readcapacity10 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity10 *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_readcapacity10_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_readcapacity10, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_readcapacity10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_cdb_readcapacity10",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_readcapacity10" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_readcapacity10" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (struct scsi_task *)scsi_cdb_readcapacity10(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_devqualifier_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_inquiry_peripheral_qualifier arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_devqualifier_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_devqualifier_to_str" "', argument " "1"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg1 = (enum scsi_inquiry_peripheral_qualifier)(val1);
+  result = (char *)scsi_devqualifier_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_devtype_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_inquiry_peripheral_device_type arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_devtype_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_devtype_to_str" "', argument " "1"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg1 = (enum scsi_inquiry_peripheral_device_type)(val1);
+  result = (char *)scsi_devtype_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_version_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_version arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_version_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_version_to_str" "', argument " "1"" of type '" "enum scsi_version""'");
+  } 
+  arg1 = (enum scsi_version)(val1);
+  result = (char *)scsi_version_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_version_descriptor_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_version_descriptor arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_version_descriptor_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_version_descriptor_to_str" "', argument " "1"" of type '" "enum scsi_version_descriptor""'");
+  } 
+  arg1 = (enum scsi_version_descriptor)(val1);
+  result = (char *)scsi_version_descriptor_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_qualifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  enum scsi_inquiry_peripheral_qualifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_qualifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_qualifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_qualifier_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_qualifier)(val2);
+  if (arg1) (arg1)->qualifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_qualifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_qualifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_qualifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_qualifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (enum scsi_inquiry_peripheral_qualifier) ((arg1)->qualifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_device_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  enum scsi_inquiry_peripheral_device_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_device_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_device_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_device_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_device_type)(val2);
+  if (arg1) (arg1)->device_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_device_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_device_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_device_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_device_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (enum scsi_inquiry_peripheral_device_type) ((arg1)->device_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_rmb_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_rmb_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_rmb_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_rmb_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->rmb = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_rmb_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_rmb_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_rmb_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->rmb);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_version_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_version_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_version_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_version_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->version = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_version_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_version_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_version_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->version);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_normaca_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_normaca_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_normaca_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_normaca_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->normaca = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_normaca_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_normaca_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_normaca_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->normaca);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_hisup_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_hisup_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_hisup_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_hisup_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->hisup = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_hisup_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_hisup_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_hisup_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->hisup);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_response_data_format_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_response_data_format_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_response_data_format_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_response_data_format_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->response_data_format = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_response_data_format_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_response_data_format_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_response_data_format_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->response_data_format);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_additional_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_additional_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_additional_length_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_additional_length_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->additional_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_additional_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_additional_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_additional_length_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->additional_length);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_sccs_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_sccs_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_sccs_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_sccs_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->sccs = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_sccs_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_sccs_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_sccs_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->sccs);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_acc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_acc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_acc_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_acc_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->acc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_acc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_acc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_acc_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->acc);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_tpgs_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_tpgs_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_tpgs_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_tpgs_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->tpgs = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_tpgs_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_tpgs_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_tpgs_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->tpgs);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_threepc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_threepc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_threepc_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_threepc_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->threepc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_threepc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_threepc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_threepc_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->threepc);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_protect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_protect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_protect_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_protect_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->protect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_protect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_protect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_protect_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->protect);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_encserv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_encserv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_encserv_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_encserv_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->encserv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_encserv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_encserv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_encserv_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->encserv);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_multip_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_multip_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_multip_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_multip_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->multip = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_multip_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_multip_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_multip_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->multip);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_addr16_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_addr16_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_addr16_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_addr16_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->addr16 = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_addr16_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_addr16_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_addr16_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->addr16);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_wbus16_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_wbus16_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_wbus16_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_wbus16_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->wbus16 = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_wbus16_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_wbus16_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_wbus16_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->wbus16);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_sync_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_sync_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_sync_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_sync_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->sync = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_sync_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_sync_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_sync_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->sync);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_cmdque_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_cmdque_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_cmdque_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_cmdque_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->cmdque = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_cmdque_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_cmdque_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_cmdque_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->cmdque);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_clocking_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_clocking_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_clocking_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_clocking_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->clocking = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_clocking_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_clocking_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_clocking_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->clocking);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_qas_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_qas_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_qas_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_qas_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->qas = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_qas_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_qas_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_qas_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->qas);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_ius_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_ius_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_ius_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_standard_ius_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->ius = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_ius_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_ius_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_ius_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (int) ((arg1)->ius);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_vendor_identification_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  char *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  char temp2[8+1] ;
+  int res2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_vendor_identification_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_vendor_identification_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  res2 = SWIG_AsCharArray(obj1, temp2, 8+1);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_standard_vendor_identification_set" "', argument " "2"" of type '" "char [8+1]""'");
+  }
+  arg2 = (char *)(temp2);
+  if (arg2) memcpy(arg1->vendor_identification,arg2,8+1*sizeof(char));
+  else memset(arg1->vendor_identification,0,8+1*sizeof(char));
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_vendor_identification_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_vendor_identification_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_vendor_identification_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (char *)(char *) ((arg1)->vendor_identification);
+  {
+    size_t size = 8+1;
+    
+    while (size && (result[size - 1] == '\0')) --size;
+    
+    resultobj = SWIG_FromCharPtrAndSize(result, size);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_product_identification_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  char *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  char temp2[16+1] ;
+  int res2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_product_identification_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_product_identification_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  res2 = SWIG_AsCharArray(obj1, temp2, 16+1);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_standard_product_identification_set" "', argument " "2"" of type '" "char [16+1]""'");
+  }
+  arg2 = (char *)(temp2);
+  if (arg2) memcpy(arg1->product_identification,arg2,16+1*sizeof(char));
+  else memset(arg1->product_identification,0,16+1*sizeof(char));
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_product_identification_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_product_identification_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_product_identification_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (char *)(char *) ((arg1)->product_identification);
+  {
+    size_t size = 16+1;
+    
+    while (size && (result[size - 1] == '\0')) --size;
+    
+    resultobj = SWIG_FromCharPtrAndSize(result, size);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_product_revision_level_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  char *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  char temp2[4+1] ;
+  int res2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_product_revision_level_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_product_revision_level_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  res2 = SWIG_AsCharArray(obj1, temp2, 4+1);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_standard_product_revision_level_set" "', argument " "2"" of type '" "char [4+1]""'");
+  }
+  arg2 = (char *)(temp2);
+  if (arg2) memcpy(arg1->product_revision_level,arg2,4+1*sizeof(char));
+  else memset(arg1->product_revision_level,0,4+1*sizeof(char));
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_product_revision_level_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_product_revision_level_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_product_revision_level_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (char *)(char *) ((arg1)->product_revision_level);
+  {
+    size_t size = 4+1;
+    
+    while (size && (result[size - 1] == '\0')) --size;
+    
+    resultobj = SWIG_FromCharPtrAndSize(result, size);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_version_descriptor_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  uint16_t *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_standard_version_descriptor_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_version_descriptor_set" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_short, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_standard_version_descriptor_set" "', argument " "2"" of type '" "uint16_t [8]""'"); 
+  } 
+  arg2 = (uint16_t *)(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)8; ++ii) arg1->version_descriptor[ii] = arg2[ii];
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""version_descriptor""' of type '""uint16_t [8]""'");
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_standard_version_descriptor_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_standard_version_descriptor_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_standard_version_descriptor_get" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  result = (uint16_t *)(uint16_t *) ((arg1)->version_descriptor);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_short, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_standard(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_standard")) SWIG_fail;
+  result = (struct scsi_inquiry_standard *)calloc(1, sizeof(struct scsi_inquiry_standard));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_standard, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_standard(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_standard *arg1 = (struct scsi_inquiry_standard *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_standard",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_standard, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_standard" "', argument " "1"" of type '" "struct scsi_inquiry_standard *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_standard *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_standard_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_standard, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_pagecode_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_pagecode_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_inquiry_pagecode_to_str" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (char *)scsi_inquiry_pagecode_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_qualifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  enum scsi_inquiry_peripheral_qualifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_supported_pages_qualifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_qualifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_supported_pages_qualifier_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_qualifier)(val2);
+  if (arg1) (arg1)->qualifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_qualifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_qualifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_supported_pages_qualifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_qualifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  result = (enum scsi_inquiry_peripheral_qualifier) ((arg1)->qualifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_device_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  enum scsi_inquiry_peripheral_device_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_supported_pages_device_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_device_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_supported_pages_device_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_device_type)(val2);
+  if (arg1) (arg1)->device_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_device_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_device_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_supported_pages_device_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_device_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  result = (enum scsi_inquiry_peripheral_device_type) ((arg1)->device_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_pagecode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  enum scsi_inquiry_pagecode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_supported_pages_pagecode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_pagecode_set" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_supported_pages_pagecode_set" "', argument " "2"" of type '" "enum scsi_inquiry_pagecode""'");
+  } 
+  arg2 = (enum scsi_inquiry_pagecode)(val2);
+  if (arg1) (arg1)->pagecode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_pagecode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_pagecode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_supported_pages_pagecode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_pagecode_get" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  result = (enum scsi_inquiry_pagecode) ((arg1)->pagecode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_num_pages_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_supported_pages_num_pages_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_num_pages_set" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_supported_pages_num_pages_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->num_pages = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_num_pages_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_supported_pages_num_pages_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_num_pages_get" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  result = (int) ((arg1)->num_pages);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_pages_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  unsigned char *arg2 = (unsigned char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_supported_pages_pages_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_pages_set" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_supported_pages_pages_set" "', argument " "2"" of type '" "unsigned char *""'"); 
+  }
+  arg2 = (unsigned char *)(argp2);
+  if (arg1) (arg1)->pages = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_pages_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  unsigned char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_supported_pages_pages_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_pages_get" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  result = (unsigned char *) ((arg1)->pages);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_supported_pages(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_supported_pages")) SWIG_fail;
+  result = (struct scsi_inquiry_supported_pages *)calloc(1, sizeof(struct scsi_inquiry_supported_pages));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_supported_pages, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_supported_pages(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_supported_pages *arg1 = (struct scsi_inquiry_supported_pages *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_supported_pages",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_supported_pages, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_supported_pages" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_supported_pages_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_supported_pages, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_qualifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  enum scsi_inquiry_peripheral_qualifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_qualifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_qualifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_qualifier_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_qualifier)(val2);
+  if (arg1) (arg1)->qualifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_qualifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_qualifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_qualifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_qualifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (enum scsi_inquiry_peripheral_qualifier) ((arg1)->qualifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_device_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  enum scsi_inquiry_peripheral_device_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_device_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_device_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_device_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_device_type)(val2);
+  if (arg1) (arg1)->device_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_device_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_device_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_device_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_device_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (enum scsi_inquiry_peripheral_device_type) ((arg1)->device_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_pagecode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  enum scsi_inquiry_pagecode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_pagecode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_pagecode_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_pagecode_set" "', argument " "2"" of type '" "enum scsi_inquiry_pagecode""'");
+  } 
+  arg2 = (enum scsi_inquiry_pagecode)(val2);
+  if (arg1) (arg1)->pagecode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_pagecode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_pagecode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_pagecode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_pagecode_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (enum scsi_inquiry_pagecode) ((arg1)->pagecode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_wsnz_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_wsnz_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_wsnz_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_wsnz_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->wsnz = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_wsnz_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_wsnz_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_wsnz_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (int) ((arg1)->wsnz);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_cmp_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_max_cmp_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_cmp_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_max_cmp_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->max_cmp = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_cmp_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_max_cmp_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_cmp_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint8_t) ((arg1)->max_cmp);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_opt_gran_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_opt_gran_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_opt_gran_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_opt_gran_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->opt_gran = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_opt_gran_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_opt_gran_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_opt_gran_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint16_t) ((arg1)->opt_gran);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_xfer_len_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_max_xfer_len_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_xfer_len_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_max_xfer_len_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->max_xfer_len = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_xfer_len_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_max_xfer_len_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_xfer_len_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint32_t) ((arg1)->max_xfer_len);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_opt_xfer_len_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_opt_xfer_len_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_opt_xfer_len_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_opt_xfer_len_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->opt_xfer_len = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_opt_xfer_len_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_opt_xfer_len_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_opt_xfer_len_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint32_t) ((arg1)->opt_xfer_len);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_prefetch_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_max_prefetch_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_prefetch_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_max_prefetch_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->max_prefetch = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_prefetch_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_max_prefetch_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_prefetch_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint32_t) ((arg1)->max_prefetch);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_unmap_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_max_unmap_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_unmap_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_max_unmap_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->max_unmap = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_unmap_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_max_unmap_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_unmap_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint32_t) ((arg1)->max_unmap);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_unmap_bdc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_max_unmap_bdc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_unmap_bdc_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_max_unmap_bdc_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->max_unmap_bdc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_unmap_bdc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_max_unmap_bdc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_unmap_bdc_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint32_t) ((arg1)->max_unmap_bdc);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_opt_unmap_gran_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_opt_unmap_gran_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_opt_unmap_gran_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_opt_unmap_gran_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->opt_unmap_gran = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_opt_unmap_gran_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_opt_unmap_gran_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_opt_unmap_gran_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint32_t) ((arg1)->opt_unmap_gran);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_ugavalid_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_ugavalid_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_ugavalid_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_ugavalid_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->ugavalid = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_ugavalid_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_ugavalid_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_ugavalid_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (int) ((arg1)->ugavalid);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_unmap_gran_align_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_unmap_gran_align_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_unmap_gran_align_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_unmap_gran_align_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->unmap_gran_align = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_unmap_gran_align_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_unmap_gran_align_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_unmap_gran_align_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint32_t) ((arg1)->unmap_gran_align);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_ws_len_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_limits_max_ws_len_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_ws_len_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_limits_max_ws_len_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->max_ws_len = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_limits_max_ws_len_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_limits_max_ws_len_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_limits_max_ws_len_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  result = (uint64_t) ((arg1)->max_ws_len);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_block_limits(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_block_limits")) SWIG_fail;
+  result = (struct scsi_inquiry_block_limits *)calloc(1, sizeof(struct scsi_inquiry_block_limits));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_block_limits, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_block_limits(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_limits *arg1 = (struct scsi_inquiry_block_limits *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_block_limits",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_limits, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_block_limits" "', argument " "1"" of type '" "struct scsi_inquiry_block_limits *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_limits *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_block_limits_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_block_limits, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_qualifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  enum scsi_inquiry_peripheral_qualifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_qualifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_qualifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_qualifier_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_qualifier)(val2);
+  if (arg1) (arg1)->qualifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_qualifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_qualifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_qualifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_qualifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (enum scsi_inquiry_peripheral_qualifier) ((arg1)->qualifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_device_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  enum scsi_inquiry_peripheral_device_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_device_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_device_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_device_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_device_type)(val2);
+  if (arg1) (arg1)->device_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_device_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_device_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_device_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_device_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (enum scsi_inquiry_peripheral_device_type) ((arg1)->device_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_pagecode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  enum scsi_inquiry_pagecode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_pagecode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_pagecode_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_pagecode_set" "', argument " "2"" of type '" "enum scsi_inquiry_pagecode""'");
+  } 
+  arg2 = (enum scsi_inquiry_pagecode)(val2);
+  if (arg1) (arg1)->pagecode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_pagecode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_pagecode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_pagecode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_pagecode_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (enum scsi_inquiry_pagecode) ((arg1)->pagecode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_medium_rotation_rate_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_medium_rotation_rate_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_medium_rotation_rate_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_medium_rotation_rate_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->medium_rotation_rate = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_medium_rotation_rate_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_medium_rotation_rate_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_medium_rotation_rate_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (int) ((arg1)->medium_rotation_rate);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_product_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_product_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_product_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_product_type_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->product_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_product_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_product_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_product_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (int) ((arg1)->product_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_wabereq_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_wabereq_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_wabereq_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_wabereq_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->wabereq = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_wabereq_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_wabereq_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_wabereq_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (int) ((arg1)->wabereq);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_wacereq_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_wacereq_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_wacereq_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_wacereq_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->wacereq = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_wacereq_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_wacereq_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_wacereq_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (int) ((arg1)->wacereq);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_nominal_form_factor_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_nominal_form_factor_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_nominal_form_factor_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_nominal_form_factor_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->nominal_form_factor = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_nominal_form_factor_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_nominal_form_factor_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_nominal_form_factor_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (int) ((arg1)->nominal_form_factor);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_fuab_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_fuab_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_fuab_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_fuab_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->fuab = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_fuab_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_fuab_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_fuab_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (int) ((arg1)->fuab);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_vbuls_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_block_device_characteristics_vbuls_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_vbuls_set" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_block_device_characteristics_vbuls_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->vbuls = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_block_device_characteristics_vbuls_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_block_device_characteristics_vbuls_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_block_device_characteristics_vbuls_get" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  result = (int) ((arg1)->vbuls);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_block_device_characteristics(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_block_device_characteristics")) SWIG_fail;
+  result = (struct scsi_inquiry_block_device_characteristics *)calloc(1, sizeof(struct scsi_inquiry_block_device_characteristics));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_block_device_characteristics, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_block_device_characteristics(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_block_device_characteristics *arg1 = (struct scsi_inquiry_block_device_characteristics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_block_device_characteristics",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_block_device_characteristics, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_block_device_characteristics" "', argument " "1"" of type '" "struct scsi_inquiry_block_device_characteristics *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_block_device_characteristics *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_block_device_characteristics_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_block_device_characteristics, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_qualifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  enum scsi_inquiry_peripheral_qualifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_qualifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_qualifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_qualifier_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_qualifier)(val2);
+  if (arg1) (arg1)->qualifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_qualifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_qualifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_qualifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_qualifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (enum scsi_inquiry_peripheral_qualifier) ((arg1)->qualifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_device_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  enum scsi_inquiry_peripheral_device_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_device_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_device_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_device_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_device_type)(val2);
+  if (arg1) (arg1)->device_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_device_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_device_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_device_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_device_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (enum scsi_inquiry_peripheral_device_type) ((arg1)->device_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_pagecode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  enum scsi_inquiry_pagecode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_pagecode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_pagecode_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_pagecode_set" "', argument " "2"" of type '" "enum scsi_inquiry_pagecode""'");
+  } 
+  arg2 = (enum scsi_inquiry_pagecode)(val2);
+  if (arg1) (arg1)->pagecode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_pagecode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_pagecode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_pagecode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_pagecode_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (enum scsi_inquiry_pagecode) ((arg1)->pagecode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_threshold_exponent_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_threshold_exponent_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_threshold_exponent_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_threshold_exponent_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->threshold_exponent = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_threshold_exponent_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_threshold_exponent_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_threshold_exponent_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (int) ((arg1)->threshold_exponent);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbpu_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_lbpu_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbpu_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_lbpu_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->lbpu = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbpu_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_lbpu_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbpu_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (int) ((arg1)->lbpu);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbpws_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_lbpws_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbpws_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_lbpws_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->lbpws = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbpws_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_lbpws_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbpws_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (int) ((arg1)->lbpws);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbpws10_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_lbpws10_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbpws10_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_lbpws10_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->lbpws10 = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbpws10_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_lbpws10_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbpws10_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (int) ((arg1)->lbpws10);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbprz_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_lbprz_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbprz_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_lbprz_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->lbprz = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_lbprz_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_lbprz_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_lbprz_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (int) ((arg1)->lbprz);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_anc_sup_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_anc_sup_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_anc_sup_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_anc_sup_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->anc_sup = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_anc_sup_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_anc_sup_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_anc_sup_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (int) ((arg1)->anc_sup);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_dp_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_dp_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_dp_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_dp_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->dp = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_dp_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_dp_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_dp_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (int) ((arg1)->dp);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_provisioning_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  enum scsi_inquiry_provisioning_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_logical_block_provisioning_provisioning_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_provisioning_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_logical_block_provisioning_provisioning_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_provisioning_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_provisioning_type)(val2);
+  if (arg1) (arg1)->provisioning_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_logical_block_provisioning_provisioning_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_provisioning_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_logical_block_provisioning_provisioning_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_logical_block_provisioning_provisioning_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  result = (enum scsi_inquiry_provisioning_type) ((arg1)->provisioning_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_logical_block_provisioning(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_logical_block_provisioning")) SWIG_fail;
+  result = (struct scsi_inquiry_logical_block_provisioning *)calloc(1, sizeof(struct scsi_inquiry_logical_block_provisioning));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_logical_block_provisioning(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_logical_block_provisioning *arg1 = (struct scsi_inquiry_logical_block_provisioning *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_logical_block_provisioning",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_logical_block_provisioning" "', argument " "1"" of type '" "struct scsi_inquiry_logical_block_provisioning *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_logical_block_provisioning *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_logical_block_provisioning_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_logical_block_provisioning, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_inquiry(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int arg3 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:scsi_cdb_inquiry",&obj0,&obj1,&obj2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_inquiry" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_inquiry" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_inquiry" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  result = (struct scsi_task *)scsi_cdb_inquiry(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_qualifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  enum scsi_inquiry_peripheral_qualifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_unit_serial_number_qualifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_qualifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_unit_serial_number_qualifier_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_qualifier)(val2);
+  if (arg1) (arg1)->qualifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_qualifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_qualifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_unit_serial_number_qualifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_qualifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  result = (enum scsi_inquiry_peripheral_qualifier) ((arg1)->qualifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_device_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  enum scsi_inquiry_peripheral_device_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_unit_serial_number_device_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_device_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_unit_serial_number_device_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_device_type)(val2);
+  if (arg1) (arg1)->device_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_device_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_device_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_unit_serial_number_device_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_device_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  result = (enum scsi_inquiry_peripheral_device_type) ((arg1)->device_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_pagecode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  enum scsi_inquiry_pagecode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_unit_serial_number_pagecode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_pagecode_set" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_unit_serial_number_pagecode_set" "', argument " "2"" of type '" "enum scsi_inquiry_pagecode""'");
+  } 
+  arg2 = (enum scsi_inquiry_pagecode)(val2);
+  if (arg1) (arg1)->pagecode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_pagecode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_pagecode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_unit_serial_number_pagecode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_pagecode_get" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  result = (enum scsi_inquiry_pagecode) ((arg1)->pagecode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_usn_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_unit_serial_number_usn_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_usn_set" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_unit_serial_number_usn_set" "', argument " "2"" of type '" "char *""'");
+  }
+  arg2 = (char *)(buf2);
+  if (arg1->usn) free((char*)arg1->usn);
+  if (arg2) {
+    size_t size = strlen((const char *)(arg2)) + 1;
+    arg1->usn = (char *)(char *)memcpy((char *)malloc((size)*sizeof(char)), (const char *)(arg2), sizeof(char)*(size));
+  } else {
+    arg1->usn = 0;
+  }
+  resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_unit_serial_number_usn_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_unit_serial_number_usn_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_unit_serial_number_usn_get" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  result = (char *) ((arg1)->usn);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_unit_serial_number(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_unit_serial_number")) SWIG_fail;
+  result = (struct scsi_inquiry_unit_serial_number *)calloc(1, sizeof(struct scsi_inquiry_unit_serial_number));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_unit_serial_number, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_unit_serial_number(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_unit_serial_number *arg1 = (struct scsi_inquiry_unit_serial_number *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_unit_serial_number",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_unit_serial_number, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_unit_serial_number" "', argument " "1"" of type '" "struct scsi_inquiry_unit_serial_number *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_unit_serial_number *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_unit_serial_number_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_unit_serial_number, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_protocol_identifier_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_protocol_identifier_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_protocol_identifier_to_str" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (char *)scsi_protocol_identifier_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_codeset_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_codeset_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_codeset_to_str" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (char *)scsi_codeset_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_association_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_association_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_association_to_str" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (char *)scsi_association_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_designator_type_to_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_designator_type_to_str",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_designator_type_to_str" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (char *)scsi_designator_type_to_str(arg1);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_next_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  struct scsi_inquiry_device_designator *arg2 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_next_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_next_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_scsi_inquiry_device_designator, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_device_designator_next_set" "', argument " "2"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg2 = (struct scsi_inquiry_device_designator *)(argp2);
+  if (arg1) (arg1)->next = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_next_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  struct scsi_inquiry_device_designator *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_next_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_next_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (struct scsi_inquiry_device_designator *) ((arg1)->next);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_protocol_identifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  enum scsi_protocol_identifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_protocol_identifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_protocol_identifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_designator_protocol_identifier_set" "', argument " "2"" of type '" "enum scsi_protocol_identifier""'");
+  } 
+  arg2 = (enum scsi_protocol_identifier)(val2);
+  if (arg1) (arg1)->protocol_identifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_protocol_identifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_protocol_identifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_protocol_identifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_protocol_identifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (enum scsi_protocol_identifier) ((arg1)->protocol_identifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_code_set_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  enum scsi_codeset arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_code_set_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_code_set_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_designator_code_set_set" "', argument " "2"" of type '" "enum scsi_codeset""'");
+  } 
+  arg2 = (enum scsi_codeset)(val2);
+  if (arg1) (arg1)->code_set = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_code_set_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_codeset result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_code_set_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_code_set_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (enum scsi_codeset) ((arg1)->code_set);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_piv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_piv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_piv_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_designator_piv_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->piv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_piv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_piv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_piv_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (int) ((arg1)->piv);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_association_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  enum scsi_association arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_association_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_association_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_designator_association_set" "', argument " "2"" of type '" "enum scsi_association""'");
+  } 
+  arg2 = (enum scsi_association)(val2);
+  if (arg1) (arg1)->association = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_association_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_association result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_association_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_association_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (enum scsi_association) ((arg1)->association);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_designator_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  enum scsi_designator_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_designator_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_designator_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_designator_designator_type_set" "', argument " "2"" of type '" "enum scsi_designator_type""'");
+  } 
+  arg2 = (enum scsi_designator_type)(val2);
+  if (arg1) (arg1)->designator_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_designator_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_designator_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_designator_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_designator_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (enum scsi_designator_type) ((arg1)->designator_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_designator_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_designator_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_designator_length_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_designator_designator_length_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->designator_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_designator_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_designator_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_designator_length_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (int) ((arg1)->designator_length);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_designator_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_designator_designator_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_designator_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_device_designator_designator_set" "', argument " "2"" of type '" "char *""'");
+  }
+  arg2 = (char *)(buf2);
+  if (arg1->designator) free((char*)arg1->designator);
+  if (arg2) {
+    size_t size = strlen((const char *)(arg2)) + 1;
+    arg1->designator = (char *)(char *)memcpy((char *)malloc((size)*sizeof(char)), (const char *)(arg2), sizeof(char)*(size));
+  } else {
+    arg1->designator = 0;
+  }
+  resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_designator_designator_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_designator_designator_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_designator_designator_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  result = (char *) ((arg1)->designator);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_device_designator(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_device_designator")) SWIG_fail;
+  result = (struct scsi_inquiry_device_designator *)calloc(1, sizeof(struct scsi_inquiry_device_designator));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_device_designator, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_device_designator(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_designator *arg1 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_device_designator",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_designator, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_device_designator" "', argument " "1"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_designator *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_device_designator_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_device_designator, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_qualifier_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  enum scsi_inquiry_peripheral_qualifier arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_identification_qualifier_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_qualifier_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_identification_qualifier_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_qualifier""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_qualifier)(val2);
+  if (arg1) (arg1)->qualifier = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_qualifier_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_qualifier result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_identification_qualifier_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_qualifier_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  result = (enum scsi_inquiry_peripheral_qualifier) ((arg1)->qualifier);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_device_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  enum scsi_inquiry_peripheral_device_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_identification_device_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_device_type_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_identification_device_type_set" "', argument " "2"" of type '" "enum scsi_inquiry_peripheral_device_type""'");
+  } 
+  arg2 = (enum scsi_inquiry_peripheral_device_type)(val2);
+  if (arg1) (arg1)->device_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_device_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_peripheral_device_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_identification_device_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_device_type_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  result = (enum scsi_inquiry_peripheral_device_type) ((arg1)->device_type);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_pagecode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  enum scsi_inquiry_pagecode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_identification_pagecode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_pagecode_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_inquiry_device_identification_pagecode_set" "', argument " "2"" of type '" "enum scsi_inquiry_pagecode""'");
+  } 
+  arg2 = (enum scsi_inquiry_pagecode)(val2);
+  if (arg1) (arg1)->pagecode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_pagecode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_inquiry_pagecode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_identification_pagecode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_pagecode_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  result = (enum scsi_inquiry_pagecode) ((arg1)->pagecode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_designators_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  struct scsi_inquiry_device_designator *arg2 = (struct scsi_inquiry_device_designator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_inquiry_device_identification_designators_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_designators_set" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_scsi_inquiry_device_designator, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_device_identification_designators_set" "', argument " "2"" of type '" "struct scsi_inquiry_device_designator *""'"); 
+  }
+  arg2 = (struct scsi_inquiry_device_designator *)(argp2);
+  if (arg1) (arg1)->designators = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_inquiry_device_identification_designators_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  struct scsi_inquiry_device_designator *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_inquiry_device_identification_designators_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_device_identification_designators_get" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  result = (struct scsi_inquiry_device_designator *) ((arg1)->designators);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_device_designator, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_inquiry_device_identification(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_inquiry_device_identification")) SWIG_fail;
+  result = (struct scsi_inquiry_device_identification *)calloc(1, sizeof(struct scsi_inquiry_device_identification));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_inquiry_device_identification, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_inquiry_device_identification(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_inquiry_device_identification *arg1 = (struct scsi_inquiry_device_identification *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_inquiry_device_identification",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_inquiry_device_identification, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_inquiry_device_identification" "', argument " "1"" of type '" "struct scsi_inquiry_device_identification *""'"); 
+  }
+  arg1 = (struct scsi_inquiry_device_identification *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_inquiry_device_identification_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_inquiry_device_identification, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_returned_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_returned_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_returned_lba_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_returned_lba_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->returned_lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_returned_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_returned_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_returned_lba_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint64_t) ((arg1)->returned_lba);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_block_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_block_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_block_length_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_block_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->block_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_block_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_block_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_block_length_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint32_t) ((arg1)->block_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_p_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_p_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_p_type_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_p_type_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->p_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_p_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_p_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_p_type_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint8_t) ((arg1)->p_type);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_prot_en_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_prot_en_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_prot_en_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_prot_en_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->prot_en = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_prot_en_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_prot_en_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_prot_en_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint8_t) ((arg1)->prot_en);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_p_i_exp_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_p_i_exp_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_p_i_exp_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_p_i_exp_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->p_i_exp = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_p_i_exp_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_p_i_exp_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_p_i_exp_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint8_t) ((arg1)->p_i_exp);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lbppbe_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_lbppbe_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lbppbe_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_lbppbe_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->lbppbe = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lbppbe_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_lbppbe_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lbppbe_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint8_t) ((arg1)->lbppbe);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lbpme_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_lbpme_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lbpme_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_lbpme_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->lbpme = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lbpme_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_lbpme_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lbpme_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint8_t) ((arg1)->lbpme);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lbprz_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_lbprz_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lbprz_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_lbprz_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->lbprz = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lbprz_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_lbprz_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lbprz_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint8_t) ((arg1)->lbprz);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lalba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_readcapacity16_lalba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lalba_set" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_readcapacity16_lalba_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->lalba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_readcapacity16_lalba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_readcapacity16_lalba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_readcapacity16_lalba_get" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  result = (uint16_t) ((arg1)->lalba);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_readcapacity16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_readcapacity16")) SWIG_fail;
+  result = (struct scsi_readcapacity16 *)calloc(1, sizeof(struct scsi_readcapacity16));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_readcapacity16, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_readcapacity16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_readcapacity16 *arg1 = (struct scsi_readcapacity16 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_readcapacity16",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_readcapacity16, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_readcapacity16" "', argument " "1"" of type '" "struct scsi_readcapacity16 *""'"); 
+  }
+  arg1 = (struct scsi_readcapacity16 *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_readcapacity16_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_readcapacity16, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_lba_status_descriptor_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *arg1 = (struct scsi_lba_status_descriptor *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_lba_status_descriptor_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_lba_status_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_lba_status_descriptor_lba_set" "', argument " "1"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_lba_status_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_lba_status_descriptor_lba_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_lba_status_descriptor_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *arg1 = (struct scsi_lba_status_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_lba_status_descriptor_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_lba_status_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_lba_status_descriptor_lba_get" "', argument " "1"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_lba_status_descriptor *)(argp1);
+  result = (uint64_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_lba_status_descriptor_num_blocks_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *arg1 = (struct scsi_lba_status_descriptor *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_lba_status_descriptor_num_blocks_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_lba_status_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_lba_status_descriptor_num_blocks_set" "', argument " "1"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_lba_status_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_lba_status_descriptor_num_blocks_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->num_blocks = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_lba_status_descriptor_num_blocks_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *arg1 = (struct scsi_lba_status_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_lba_status_descriptor_num_blocks_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_lba_status_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_lba_status_descriptor_num_blocks_get" "', argument " "1"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_lba_status_descriptor *)(argp1);
+  result = (uint32_t) ((arg1)->num_blocks);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_lba_status_descriptor_provisioning_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *arg1 = (struct scsi_lba_status_descriptor *) 0 ;
+  enum scsi_provisioning_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_lba_status_descriptor_provisioning_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_lba_status_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_lba_status_descriptor_provisioning_set" "', argument " "1"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_lba_status_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_lba_status_descriptor_provisioning_set" "', argument " "2"" of type '" "enum scsi_provisioning_type""'");
+  } 
+  arg2 = (enum scsi_provisioning_type)(val2);
+  if (arg1) (arg1)->provisioning = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_lba_status_descriptor_provisioning_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *arg1 = (struct scsi_lba_status_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_provisioning_type result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_lba_status_descriptor_provisioning_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_lba_status_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_lba_status_descriptor_provisioning_get" "', argument " "1"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_lba_status_descriptor *)(argp1);
+  result = (enum scsi_provisioning_type) ((arg1)->provisioning);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_lba_status_descriptor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_lba_status_descriptor")) SWIG_fail;
+  result = (struct scsi_lba_status_descriptor *)calloc(1, sizeof(struct scsi_lba_status_descriptor));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_lba_status_descriptor, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_lba_status_descriptor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_lba_status_descriptor *arg1 = (struct scsi_lba_status_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_lba_status_descriptor",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_lba_status_descriptor, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_lba_status_descriptor" "', argument " "1"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_lba_status_descriptor *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_lba_status_descriptor_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_lba_status_descriptor, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_get_lba_status_num_descriptors_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_get_lba_status *arg1 = (struct scsi_get_lba_status *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_get_lba_status_num_descriptors_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_get_lba_status, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_get_lba_status_num_descriptors_set" "', argument " "1"" of type '" "struct scsi_get_lba_status *""'"); 
+  }
+  arg1 = (struct scsi_get_lba_status *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_get_lba_status_num_descriptors_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->num_descriptors = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_get_lba_status_num_descriptors_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_get_lba_status *arg1 = (struct scsi_get_lba_status *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_get_lba_status_num_descriptors_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_get_lba_status, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_get_lba_status_num_descriptors_get" "', argument " "1"" of type '" "struct scsi_get_lba_status *""'"); 
+  }
+  arg1 = (struct scsi_get_lba_status *)(argp1);
+  result = (uint32_t) ((arg1)->num_descriptors);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_get_lba_status_descriptors_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_get_lba_status *arg1 = (struct scsi_get_lba_status *) 0 ;
+  struct scsi_lba_status_descriptor *arg2 = (struct scsi_lba_status_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_get_lba_status_descriptors_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_get_lba_status, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_get_lba_status_descriptors_set" "', argument " "1"" of type '" "struct scsi_get_lba_status *""'"); 
+  }
+  arg1 = (struct scsi_get_lba_status *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_scsi_lba_status_descriptor, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_get_lba_status_descriptors_set" "', argument " "2"" of type '" "struct scsi_lba_status_descriptor *""'"); 
+  }
+  arg2 = (struct scsi_lba_status_descriptor *)(argp2);
+  if (arg1) (arg1)->descriptors = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_get_lba_status_descriptors_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_get_lba_status *arg1 = (struct scsi_get_lba_status *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  struct scsi_lba_status_descriptor *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_get_lba_status_descriptors_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_get_lba_status, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_get_lba_status_descriptors_get" "', argument " "1"" of type '" "struct scsi_get_lba_status *""'"); 
+  }
+  arg1 = (struct scsi_get_lba_status *)(argp1);
+  result = (struct scsi_lba_status_descriptor *) ((arg1)->descriptors);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_lba_status_descriptor, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_get_lba_status(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_get_lba_status *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_get_lba_status")) SWIG_fail;
+  result = (struct scsi_get_lba_status *)calloc(1, sizeof(struct scsi_get_lba_status));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_get_lba_status, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_get_lba_status(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_get_lba_status *arg1 = (struct scsi_get_lba_status *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_get_lba_status",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_get_lba_status, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_get_lba_status" "', argument " "1"" of type '" "struct scsi_get_lba_status *""'"); 
+  }
+  arg1 = (struct scsi_get_lba_status *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_get_lba_status_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_get_lba_status, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_descriptor_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_op_timeout_descriptor_descriptor_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_descriptor_length_set" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_op_timeout_descriptor_descriptor_length_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->descriptor_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_descriptor_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_op_timeout_descriptor_descriptor_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_descriptor_length_get" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  result = (uint16_t) ((arg1)->descriptor_length);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_command_specific_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_op_timeout_descriptor_command_specific_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_command_specific_set" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_op_timeout_descriptor_command_specific_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->command_specific = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_command_specific_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_op_timeout_descriptor_command_specific_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_command_specific_get" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  result = (uint8_t) ((arg1)->command_specific);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_nominal_processing_timeout_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_op_timeout_descriptor_nominal_processing_timeout_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_nominal_processing_timeout_set" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_op_timeout_descriptor_nominal_processing_timeout_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->nominal_processing_timeout = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_nominal_processing_timeout_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_op_timeout_descriptor_nominal_processing_timeout_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_nominal_processing_timeout_get" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  result = (uint32_t) ((arg1)->nominal_processing_timeout);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_recommended_timeout_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_op_timeout_descriptor_recommended_timeout_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_recommended_timeout_set" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_op_timeout_descriptor_recommended_timeout_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->recommended_timeout = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_op_timeout_descriptor_recommended_timeout_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_op_timeout_descriptor_recommended_timeout_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_op_timeout_descriptor_recommended_timeout_get" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  result = (uint32_t) ((arg1)->recommended_timeout);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_op_timeout_descriptor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_op_timeout_descriptor")) SWIG_fail;
+  result = (struct scsi_op_timeout_descriptor *)calloc(1, sizeof(struct scsi_op_timeout_descriptor));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_op_timeout_descriptor, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_op_timeout_descriptor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_op_timeout_descriptor *arg1 = (struct scsi_op_timeout_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_op_timeout_descriptor",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_op_timeout_descriptor, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_op_timeout_descriptor" "', argument " "1"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_op_timeout_descriptor *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_op_timeout_descriptor_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_op_timeout_descriptor, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_command_descriptor_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_opcode_set" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_command_descriptor_opcode_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_command_descriptor_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_opcode_get" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  result = (uint8_t) ((arg1)->opcode);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_sa_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_command_descriptor_sa_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_sa_set" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_command_descriptor_sa_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->sa = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_sa_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_command_descriptor_sa_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_sa_get" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  result = (uint16_t) ((arg1)->sa);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_ctdp_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_command_descriptor_ctdp_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_ctdp_set" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_command_descriptor_ctdp_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->ctdp = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_ctdp_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_command_descriptor_ctdp_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_ctdp_get" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  result = (uint8_t) ((arg1)->ctdp);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_servactv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_command_descriptor_servactv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_servactv_set" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_command_descriptor_servactv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->servactv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_servactv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_command_descriptor_servactv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_servactv_get" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  result = (uint8_t) ((arg1)->servactv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_cdb_len_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_command_descriptor_cdb_len_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_cdb_len_set" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_command_descriptor_cdb_len_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->cdb_len = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_cdb_len_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_command_descriptor_cdb_len_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_cdb_len_get" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  result = (uint16_t) ((arg1)->cdb_len);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_to_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  struct scsi_op_timeout_descriptor *arg2 = (struct scsi_op_timeout_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_command_descriptor_to_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_to_set" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_command_descriptor_to_set" "', argument " "2"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg2 = (struct scsi_op_timeout_descriptor *)(argp2);
+  if (arg1) (arg1)->to = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_command_descriptor_to_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  struct scsi_op_timeout_descriptor *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_command_descriptor_to_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_command_descriptor_to_get" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  result = (struct scsi_op_timeout_descriptor *)& ((arg1)->to);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_command_descriptor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_command_descriptor")) SWIG_fail;
+  result = (struct scsi_command_descriptor *)calloc(1, sizeof(struct scsi_command_descriptor));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_command_descriptor, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_command_descriptor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_command_descriptor *arg1 = (struct scsi_command_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_command_descriptor",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_command_descriptor, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_command_descriptor" "', argument " "1"" of type '" "struct scsi_command_descriptor *""'"); 
+  }
+  arg1 = (struct scsi_command_descriptor *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_command_descriptor_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_command_descriptor, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_num_descriptors_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes *arg1 = (struct scsi_report_supported_op_codes *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_report_supported_op_codes_num_descriptors_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_num_descriptors_set" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_report_supported_op_codes_num_descriptors_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->num_descriptors = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_num_descriptors_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes *arg1 = (struct scsi_report_supported_op_codes *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_report_supported_op_codes_num_descriptors_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_num_descriptors_get" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes *)(argp1);
+  result = (int) ((arg1)->num_descriptors);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_descriptors_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes *arg1 = (struct scsi_report_supported_op_codes *) 0 ;
+  struct scsi_command_descriptor *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_report_supported_op_codes_descriptors_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_descriptors_set" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_report_supported_op_codes_descriptors_set" "', argument " "2"" of type '" "struct scsi_command_descriptor [0]""'"); 
+  } 
+  arg2 = (struct scsi_command_descriptor *)(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)0; ++ii) arg1->descriptors[ii] = arg2[ii];
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""descriptors""' of type '""struct scsi_command_descriptor [0]""'");
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_descriptors_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes *arg1 = (struct scsi_report_supported_op_codes *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  struct scsi_command_descriptor *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_report_supported_op_codes_descriptors_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_descriptors_get" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes *)(argp1);
+  result = (struct scsi_command_descriptor *)(struct scsi_command_descriptor *) ((arg1)->descriptors);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_command_descriptor, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_report_supported_op_codes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_report_supported_op_codes")) SWIG_fail;
+  result = (struct scsi_report_supported_op_codes *)calloc(1, sizeof(struct scsi_report_supported_op_codes));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_report_supported_op_codes, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_report_supported_op_codes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes *arg1 = (struct scsi_report_supported_op_codes *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_report_supported_op_codes",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_report_supported_op_codes" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_report_supported_op_codes_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_report_supported_op_codes, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_ctdp_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_report_supported_op_codes_one_command_ctdp_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_ctdp_set" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_report_supported_op_codes_one_command_ctdp_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->ctdp = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_ctdp_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_report_supported_op_codes_one_command_ctdp_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_ctdp_get" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  result = (uint8_t) ((arg1)->ctdp);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_support_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_report_supported_op_codes_one_command_support_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_support_set" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_report_supported_op_codes_one_command_support_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->support = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_support_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_report_supported_op_codes_one_command_support_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_support_get" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  result = (uint8_t) ((arg1)->support);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_cdb_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_report_supported_op_codes_one_command_cdb_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_cdb_length_set" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_report_supported_op_codes_one_command_cdb_length_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->cdb_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_cdb_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_report_supported_op_codes_one_command_cdb_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_cdb_length_get" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  result = (uint8_t) ((arg1)->cdb_length);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_cdb_usage_data_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  uint8_t *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_report_supported_op_codes_one_command_cdb_usage_data_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_cdb_usage_data_set" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_report_supported_op_codes_one_command_cdb_usage_data_set" "', argument " "2"" of type '" "uint8_t [16]""'"); 
+  } 
+  arg2 = (uint8_t *)(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)16; ++ii) arg1->cdb_usage_data[ii] = arg2[ii];
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""cdb_usage_data""' of type '""uint8_t [16]""'");
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_cdb_usage_data_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_report_supported_op_codes_one_command_cdb_usage_data_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_cdb_usage_data_get" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  result = (uint8_t *)(uint8_t *) ((arg1)->cdb_usage_data);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_to_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  struct scsi_op_timeout_descriptor *arg2 = (struct scsi_op_timeout_descriptor *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_report_supported_op_codes_one_command_to_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_to_set" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_report_supported_op_codes_one_command_to_set" "', argument " "2"" of type '" "struct scsi_op_timeout_descriptor *""'"); 
+  }
+  arg2 = (struct scsi_op_timeout_descriptor *)(argp2);
+  if (arg1) (arg1)->to = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_report_supported_op_codes_one_command_to_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  struct scsi_op_timeout_descriptor *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_report_supported_op_codes_one_command_to_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_report_supported_op_codes_one_command_to_get" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  result = (struct scsi_op_timeout_descriptor *)& ((arg1)->to);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_op_timeout_descriptor, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_report_supported_op_codes_one_command(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_report_supported_op_codes_one_command")) SWIG_fail;
+  result = (struct scsi_report_supported_op_codes_one_command *)calloc(1, sizeof(struct scsi_report_supported_op_codes_one_command));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_report_supported_op_codes_one_command, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_report_supported_op_codes_one_command(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_report_supported_op_codes_one_command *arg1 = (struct scsi_report_supported_op_codes_one_command *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_report_supported_op_codes_one_command",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_report_supported_op_codes_one_command, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_report_supported_op_codes_one_command" "', argument " "1"" of type '" "struct scsi_report_supported_op_codes_one_command *""'"); 
+  }
+  arg1 = (struct scsi_report_supported_op_codes_one_command *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_report_supported_op_codes_one_command_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_report_supported_op_codes_one_command, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_prgeneration_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_keys_prgeneration_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_prgeneration_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_keys_prgeneration_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->prgeneration = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_prgeneration_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_keys_prgeneration_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_prgeneration_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  result = (uint32_t) ((arg1)->prgeneration);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_additional_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_keys_additional_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_additional_length_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_keys_additional_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->additional_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_additional_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_keys_additional_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_additional_length_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  result = (uint32_t) ((arg1)->additional_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_num_keys_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_keys_num_keys_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_num_keys_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_keys_num_keys_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->num_keys = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_num_keys_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_keys_num_keys_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_num_keys_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  result = (int) ((arg1)->num_keys);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_keys_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  uint64_t *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_keys_keys_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_keys_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_long_long, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_persistent_reserve_in_read_keys_keys_set" "', argument " "2"" of type '" "uint64_t [0]""'"); 
+  } 
+  arg2 = (uint64_t *)(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)0; ++ii) arg1->keys[ii] = arg2[ii];
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""keys""' of type '""uint64_t [0]""'");
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_keys_keys_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_keys_keys_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_keys_keys_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  result = (uint64_t *)(uint64_t *) ((arg1)->keys);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_long_long, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_persistent_reserve_in_read_keys(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_persistent_reserve_in_read_keys")) SWIG_fail;
+  result = (struct scsi_persistent_reserve_in_read_keys *)calloc(1, sizeof(struct scsi_persistent_reserve_in_read_keys));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_persistent_reserve_in_read_keys(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_keys *arg1 = (struct scsi_persistent_reserve_in_read_keys *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_persistent_reserve_in_read_keys",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_persistent_reserve_in_read_keys" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_keys *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_keys *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_persistent_reserve_in_read_keys_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_persistent_reserve_in_read_keys, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_prgeneration_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_reservation_prgeneration_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_prgeneration_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_reservation_prgeneration_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->prgeneration = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_prgeneration_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_reservation_prgeneration_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_prgeneration_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  result = (uint32_t) ((arg1)->prgeneration);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_additional_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_reservation_additional_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_additional_length_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_reservation_additional_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->additional_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_additional_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_reservation_additional_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_additional_length_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  result = (uint32_t) ((arg1)->additional_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_reserved_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_reservation_reserved_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_reserved_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_reservation_reserved_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->reserved = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_reserved_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_reservation_reserved_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_reserved_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  result = (int) ((arg1)->reserved);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_reservation_key_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_reservation_reservation_key_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_reservation_key_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_reservation_reservation_key_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->reservation_key = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_reservation_key_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_reservation_reservation_key_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_reservation_key_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  result = (uint64_t) ((arg1)->reservation_key);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_pr_scope_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  unsigned char arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_reservation_pr_scope_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_pr_scope_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_reservation_pr_scope_set" "', argument " "2"" of type '" "unsigned char""'");
+  } 
+  arg2 = (unsigned char)(val2);
+  if (arg1) (arg1)->pr_scope = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_pr_scope_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  unsigned char result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_reservation_pr_scope_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_pr_scope_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  result = (unsigned char) ((arg1)->pr_scope);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_pr_type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  unsigned char arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_read_reservation_pr_type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_pr_type_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_read_reservation_pr_type_set" "', argument " "2"" of type '" "unsigned char""'");
+  } 
+  arg2 = (unsigned char)(val2);
+  if (arg1) (arg1)->pr_type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_read_reservation_pr_type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  unsigned char result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_read_reservation_pr_type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_read_reservation_pr_type_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  result = (unsigned char) ((arg1)->pr_type);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_persistent_reserve_in_read_reservation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_persistent_reserve_in_read_reservation")) SWIG_fail;
+  result = (struct scsi_persistent_reserve_in_read_reservation *)calloc(1, sizeof(struct scsi_persistent_reserve_in_read_reservation));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_persistent_reserve_in_read_reservation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_read_reservation *arg1 = (struct scsi_persistent_reserve_in_read_reservation *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_persistent_reserve_in_read_reservation",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_persistent_reserve_in_read_reservation" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_read_reservation *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_read_reservation *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_persistent_reserve_in_read_reservation_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_persistent_reserve_in_read_reservation, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_length_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_length_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_length_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint16_t) ((arg1)->length);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_crh_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_crh_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_crh_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_crh_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->crh = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_crh_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_crh_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_crh_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint8_t) ((arg1)->crh);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_sip_c_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_sip_c_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_sip_c_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_sip_c_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->sip_c = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_sip_c_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_sip_c_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_sip_c_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint8_t) ((arg1)->sip_c);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_atp_c_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_atp_c_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_atp_c_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_atp_c_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->atp_c = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_atp_c_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_atp_c_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_atp_c_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint8_t) ((arg1)->atp_c);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_c_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_ptpl_c_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_ptpl_c_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_ptpl_c_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->ptpl_c = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_c_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_ptpl_c_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_ptpl_c_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint8_t) ((arg1)->ptpl_c);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_tmv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_tmv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_tmv_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_tmv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->tmv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_tmv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_tmv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_tmv_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint8_t) ((arg1)->tmv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_allow_commands_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_allow_commands_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_allow_commands_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_allow_commands_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->allow_commands = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_allow_commands_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_allow_commands_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_allow_commands_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint8_t) ((arg1)->allow_commands);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_a_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_ptpl_a_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_ptpl_a_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_ptpl_a_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->ptpl_a = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_a_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_ptpl_a_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_ptpl_a_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint8_t) ((arg1)->ptpl_a);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->persistent_reservation_type_mask = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_get" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  result = (uint16_t) ((arg1)->persistent_reservation_type_mask);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_persistent_reserve_in_report_capabilities(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_persistent_reserve_in_report_capabilities")) SWIG_fail;
+  result = (struct scsi_persistent_reserve_in_report_capabilities *)calloc(1, sizeof(struct scsi_persistent_reserve_in_report_capabilities));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_persistent_reserve_in_report_capabilities(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_persistent_reserve_in_report_capabilities *arg1 = (struct scsi_persistent_reserve_in_report_capabilities *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_persistent_reserve_in_report_capabilities",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_persistent_reserve_in_report_capabilities" "', argument " "1"" of type '" "struct scsi_persistent_reserve_in_report_capabilities *""'"); 
+  }
+  arg1 = (struct scsi_persistent_reserve_in_report_capabilities *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_persistent_reserve_in_report_capabilities_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_persistent_reserve_in_report_capabilities, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read6_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read6_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read6_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read6_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read6_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read6_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_transfer_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read6_cdb_transfer_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_transfer_length_set" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read6_cdb_transfer_length_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->transfer_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_transfer_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read6_cdb_transfer_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_transfer_length_get" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  result = (uint16_t) ((arg1)->transfer_length);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read6_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_control_set" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read6_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read6_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read6_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read6_cdb_control_get" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_read6_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_read6_cdb")) SWIG_fail;
+  result = (struct scsi_read6_cdb *)calloc(1, sizeof(struct scsi_read6_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_read6_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_read6_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read6_cdb *arg1 = (struct scsi_read6_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_read6_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read6_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_read6_cdb" "', argument " "1"" of type '" "struct scsi_read6_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read6_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_read6_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_read6_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_rdprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_rdprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_rdprotect_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_rdprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->rdprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_rdprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_rdprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_rdprotect_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->rdprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_fua_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_fua_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_fua_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_fua_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_fua_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_fua_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_fua_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_fua_nv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_fua_nv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_fua_nv_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_fua_nv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua_nv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_fua_nv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_fua_nv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_fua_nv_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua_nv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_group_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_group_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_transfer_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_transfer_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_transfer_length_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_transfer_length_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->transfer_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_transfer_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_transfer_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_transfer_length_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint16_t) ((arg1)->transfer_length);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read10_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_control_set" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read10_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read10_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read10_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read10_cdb_control_get" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_read10_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_read10_cdb")) SWIG_fail;
+  result = (struct scsi_read10_cdb *)calloc(1, sizeof(struct scsi_read10_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_read10_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_read10_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read10_cdb *arg1 = (struct scsi_read10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_read10_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read10_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_read10_cdb" "', argument " "1"" of type '" "struct scsi_read10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read10_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_read10_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_read10_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_rdprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_rdprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_rdprotect_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_rdprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->rdprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_rdprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_rdprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_rdprotect_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->rdprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_fua_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_fua_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_fua_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_fua_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_fua_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_fua_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_fua_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_rarc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_rarc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_rarc_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_rarc_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->rarc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_rarc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_rarc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_rarc_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->rarc);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_fua_nv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_fua_nv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_fua_nv_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_fua_nv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua_nv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_fua_nv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_fua_nv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_fua_nv_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua_nv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_transfer_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_transfer_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_transfer_length_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_transfer_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->transfer_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_transfer_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_transfer_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_transfer_length_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->transfer_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_group_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_group_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read12_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_control_set" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read12_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read12_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read12_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read12_cdb_control_get" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_read12_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_read12_cdb")) SWIG_fail;
+  result = (struct scsi_read12_cdb *)calloc(1, sizeof(struct scsi_read12_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_read12_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_read12_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read12_cdb *arg1 = (struct scsi_read12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_read12_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read12_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_read12_cdb" "', argument " "1"" of type '" "struct scsi_read12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read12_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_read12_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_read12_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_rdprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_rdprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_rdprotect_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_rdprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->rdprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_rdprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_rdprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_rdprotect_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->rdprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_fua_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_fua_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_fua_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_fua_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_fua_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_fua_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_fua_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_rarc_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_rarc_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_rarc_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_rarc_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->rarc = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_rarc_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_rarc_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_rarc_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->rarc);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_fua_nv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_fua_nv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_fua_nv_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_fua_nv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua_nv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_fua_nv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_fua_nv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_fua_nv_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua_nv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_lba_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint64_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_transfer_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_transfer_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_transfer_length_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_transfer_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->transfer_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_transfer_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_transfer_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_transfer_length_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->transfer_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_group_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_group_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_read16_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_control_set" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_read16_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_read16_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_read16_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_read16_cdb_control_get" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_read16_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_read16_cdb")) SWIG_fail;
+  result = (struct scsi_read16_cdb *)calloc(1, sizeof(struct scsi_read16_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_read16_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_read16_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_read16_cdb *arg1 = (struct scsi_read16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_read16_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_read16_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_read16_cdb" "', argument " "1"" of type '" "struct scsi_read16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_read16_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_read16_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_read16_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_vrprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_vrprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_vrprotect_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_vrprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->vrprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_vrprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_vrprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_vrprotect_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->vrprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_bytchk_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_bytchk_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_bytchk_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_bytchk_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->bytchk = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_bytchk_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_bytchk_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_bytchk_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->bytchk);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_group_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_group_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_verification_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_verification_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_verification_length_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_verification_length_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->verification_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_verification_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_verification_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_verification_length_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (uint16_t) ((arg1)->verification_length);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify10_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_control_set" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify10_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify10_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify10_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify10_cdb_control_get" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_verify10_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_verify10_cdb")) SWIG_fail;
+  result = (struct scsi_verify10_cdb *)calloc(1, sizeof(struct scsi_verify10_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_verify10_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_verify10_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify10_cdb *arg1 = (struct scsi_verify10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_verify10_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify10_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_verify10_cdb" "', argument " "1"" of type '" "struct scsi_verify10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify10_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_verify10_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_verify10_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_vrprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_vrprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_vrprotect_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_vrprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->vrprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_vrprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_vrprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_vrprotect_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->vrprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_bytchk_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_bytchk_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_bytchk_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_bytchk_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->bytchk = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_bytchk_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_bytchk_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_bytchk_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->bytchk);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_verification_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_verification_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_verification_length_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_verification_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->verification_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_verification_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_verification_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_verification_length_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->verification_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_group_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_group_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify12_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_control_set" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify12_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify12_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify12_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify12_cdb_control_get" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_verify12_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_verify12_cdb")) SWIG_fail;
+  result = (struct scsi_verify12_cdb *)calloc(1, sizeof(struct scsi_verify12_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_verify12_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_verify12_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify12_cdb *arg1 = (struct scsi_verify12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_verify12_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify12_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_verify12_cdb" "', argument " "1"" of type '" "struct scsi_verify12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify12_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_verify12_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_verify12_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_vrprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_vrprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_vrprotect_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_vrprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->vrprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_vrprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_vrprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_vrprotect_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->vrprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_bytchk_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_bytchk_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_bytchk_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_bytchk_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->bytchk = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_bytchk_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_bytchk_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_bytchk_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->bytchk);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_lba_set" "', argument " "2"" of type '" "uint64_t""'");
+  } 
+  arg2 = (uint64_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint64_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (uint64_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_verification_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_verification_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_verification_length_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_verification_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->verification_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_verification_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_verification_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_verification_length_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->verification_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_group_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_group_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_verify16_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_control_set" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_verify16_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_verify16_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_verify16_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_verify16_cdb_control_get" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_verify16_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_verify16_cdb")) SWIG_fail;
+  result = (struct scsi_verify16_cdb *)calloc(1, sizeof(struct scsi_verify16_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_verify16_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_verify16_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_verify16_cdb *arg1 = (struct scsi_verify16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_verify16_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_verify16_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_verify16_cdb" "', argument " "1"" of type '" "struct scsi_verify16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_verify16_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_verify16_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_verify16_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_wrprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_wrprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_wrprotect_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_wrprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->wrprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_wrprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_wrprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_wrprotect_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->wrprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_fua_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_fua_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_fua_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_fua_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_fua_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_fua_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_fua_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_fua_nv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_fua_nv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_fua_nv_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_fua_nv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua_nv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_fua_nv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_fua_nv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_fua_nv_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua_nv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_group_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_group_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_transfer_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint16_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_transfer_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_transfer_length_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_transfer_length_set" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  if (arg1) (arg1)->transfer_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_transfer_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint16_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_transfer_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_transfer_length_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint16_t) ((arg1)->transfer_length);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write10_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_control_set" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write10_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write10_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write10_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write10_cdb_control_get" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_write10_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_write10_cdb")) SWIG_fail;
+  result = (struct scsi_write10_cdb *)calloc(1, sizeof(struct scsi_write10_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_write10_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_write10_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write10_cdb *arg1 = (struct scsi_write10_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_write10_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write10_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_write10_cdb" "', argument " "1"" of type '" "struct scsi_write10_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write10_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_write10_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_write10_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_wrprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_wrprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_wrprotect_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_wrprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->wrprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_wrprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_wrprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_wrprotect_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->wrprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_fua_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_fua_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_fua_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_fua_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_fua_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_fua_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_fua_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_fua_nv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_fua_nv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_fua_nv_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_fua_nv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua_nv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_fua_nv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_fua_nv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_fua_nv_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua_nv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_transfer_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_transfer_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_transfer_length_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_transfer_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->transfer_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_transfer_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_transfer_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_transfer_length_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->transfer_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_group_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_group_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write12_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_control_set" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write12_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write12_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write12_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write12_cdb_control_get" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_write12_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_write12_cdb")) SWIG_fail;
+  result = (struct scsi_write12_cdb *)calloc(1, sizeof(struct scsi_write12_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_write12_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_write12_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write12_cdb *arg1 = (struct scsi_write12_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_write12_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write12_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_write12_cdb" "', argument " "1"" of type '" "struct scsi_write12_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write12_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_write12_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_write12_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_opcode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_opcode_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_opcode_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_opcode_set" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  if (arg1) (arg1)->opcode = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_opcode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  enum scsi_opcode result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_opcode_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_opcode_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (enum scsi_opcode) ((arg1)->opcode);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_wrprotect_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_wrprotect_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_wrprotect_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_wrprotect_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->wrprotect = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_wrprotect_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_wrprotect_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_wrprotect_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->wrprotect);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_dpo_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_dpo_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_dpo_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_dpo_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->dpo = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_dpo_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_dpo_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_dpo_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->dpo);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_fua_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_fua_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_fua_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_fua_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_fua_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_fua_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_fua_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_fua_nv_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_fua_nv_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_fua_nv_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_fua_nv_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->fua_nv = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_fua_nv_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_fua_nv_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_fua_nv_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->fua_nv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_lba_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_lba_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_lba_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_lba_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->lba = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_lba_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_lba_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_lba_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->lba);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_transfer_length_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_transfer_length_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_transfer_length_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_transfer_length_set" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  if (arg1) (arg1)->transfer_length = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_transfer_length_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint32_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_transfer_length_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_transfer_length_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint32_t) ((arg1)->transfer_length);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_group_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_group_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_group_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_group_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->group = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_group_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_group_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_group_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->group);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_control_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  uint8_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_write16_cdb_control_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_control_set" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_write16_cdb_control_set" "', argument " "2"" of type '" "uint8_t""'");
+  } 
+  arg2 = (uint8_t)(val2);
+  if (arg1) (arg1)->control = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_write16_cdb_control_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  uint8_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_write16_cdb_control_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_write16_cdb_control_get" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  result = (uint8_t) ((arg1)->control);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_scsi_write16_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_scsi_write16_cdb")) SWIG_fail;
+  result = (struct scsi_write16_cdb *)calloc(1, sizeof(struct scsi_write16_cdb));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_write16_cdb, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_scsi_write16_cdb(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_write16_cdb *arg1 = (struct scsi_write16_cdb *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_scsi_write16_cdb",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_write16_cdb, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_scsi_write16_cdb" "', argument " "1"" of type '" "struct scsi_write16_cdb *""'"); 
+  }
+  arg1 = (struct scsi_write16_cdb *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *scsi_write16_cdb_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_scsi_write16_cdb, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_scsi_datain_getfullsize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_datain_getfullsize",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_datain_getfullsize" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  result = (int)scsi_datain_getfullsize(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_datain_unmarshall(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  void *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_datain_unmarshall",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_datain_unmarshall" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  result = (void *)scsi_datain_unmarshall(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_unmarshall(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  enum scsi_opcode arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  void *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_cdb_unmarshall",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_cdb_unmarshall" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_unmarshall" "', argument " "2"" of type '" "enum scsi_opcode""'");
+  } 
+  arg2 = (enum scsi_opcode)(val2);
+  result = (void *)scsi_cdb_unmarshall(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_task_get_data_in_buffer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  uint32_t arg2 ;
+  ssize_t *arg3 = (ssize_t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  unsigned char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:scsi_task_get_data_in_buffer",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_task_get_data_in_buffer" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_task_get_data_in_buffer" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_ssize_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "scsi_task_get_data_in_buffer" "', argument " "3"" of type '" "ssize_t *""'"); 
+  }
+  arg3 = (ssize_t *)(argp3);
+  result = (unsigned char *)scsi_task_get_data_in_buffer(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_task_get_data_out_buffer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
+  uint32_t arg2 ;
+  ssize_t *arg3 = (ssize_t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  unsigned char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:scsi_task_get_data_out_buffer",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_task_get_data_out_buffer" "', argument " "1"" of type '" "struct scsi_task *""'"); 
+  }
+  arg1 = (struct scsi_task *)(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_task_get_data_out_buffer" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_ssize_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "scsi_task_get_data_out_buffer" "', argument " "3"" of type '" "ssize_t *""'"); 
+  }
+  arg3 = (ssize_t *)(argp3);
+  result = (unsigned char *)scsi_task_get_data_out_buffer(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_compareandwrite(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_compareandwrite",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_compareandwrite" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_compareandwrite" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_compareandwrite" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_compareandwrite" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_compareandwrite" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_compareandwrite" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_compareandwrite" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_compareandwrite" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_compareandwrite(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_get_lba_status(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_cdb_get_lba_status",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_get_lba_status" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_get_lba_status" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  result = (struct scsi_task *)scsi_cdb_get_lba_status(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_orwrite(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_orwrite",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_orwrite" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_orwrite" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_orwrite" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_orwrite" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_orwrite" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_orwrite" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_orwrite" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_orwrite" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_orwrite(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_persistent_reserve_in(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_persistent_in_sa arg1 ;
+  uint16_t arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  unsigned short val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_cdb_persistent_reserve_in",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_persistent_reserve_in" "', argument " "1"" of type '" "enum scsi_persistent_in_sa""'");
+  } 
+  arg1 = (enum scsi_persistent_in_sa)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_short(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_persistent_reserve_in" "', argument " "2"" of type '" "uint16_t""'");
+  } 
+  arg2 = (uint16_t)(val2);
+  result = (struct scsi_task *)scsi_cdb_persistent_reserve_in(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_persistent_reserve_out(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_persistent_out_sa arg1 ;
+  enum scsi_persistent_out_scope arg2 ;
+  enum scsi_persistent_out_type arg3 ;
+  void *arg4 = (void *) 0 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int res4 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:scsi_cdb_persistent_reserve_out",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_persistent_reserve_out" "', argument " "1"" of type '" "enum scsi_persistent_out_sa""'");
+  } 
+  arg1 = (enum scsi_persistent_out_sa)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_persistent_reserve_out" "', argument " "2"" of type '" "enum scsi_persistent_out_scope""'");
+  } 
+  arg2 = (enum scsi_persistent_out_scope)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_persistent_reserve_out" "', argument " "3"" of type '" "enum scsi_persistent_out_type""'");
+  } 
+  arg3 = (enum scsi_persistent_out_type)(val3);
+  res4 = SWIG_ConvertPtr(obj3,SWIG_as_voidptrptr(&arg4), 0, 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "scsi_cdb_persistent_reserve_out" "', argument " "4"" of type '" "void *""'"); 
+  }
+  result = (struct scsi_task *)scsi_cdb_persistent_reserve_out(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_prefetch10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:scsi_cdb_prefetch10",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_prefetch10" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_prefetch10" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_prefetch10" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_prefetch10" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  result = (struct scsi_task *)scsi_cdb_prefetch10(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_prefetch16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:scsi_cdb_prefetch16",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_prefetch16" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_prefetch16" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_prefetch16" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_prefetch16" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  result = (struct scsi_task *)scsi_cdb_prefetch16(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_preventallow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:scsi_cdb_preventallow",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_preventallow" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  result = (struct scsi_task *)scsi_cdb_preventallow(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_read6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:scsi_cdb_read6",&obj0,&obj1,&obj2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_read6" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_read6" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_read6" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  result = (struct scsi_task *)scsi_cdb_read6(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_read10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_read10",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_read10" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_read10" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_read10" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_read10" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_read10" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_read10" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_read10" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_read10" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_read10(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_read12(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_read12",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_read12" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_read12" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_read12" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_read12" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_read12" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_read12" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_read12" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_read12" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_read12(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_read16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_read16",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_read16" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_read16" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_read16" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_read16" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_read16" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_read16" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_read16" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_read16" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_read16(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_readcapacity16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":scsi_cdb_readcapacity16")) SWIG_fail;
+  result = (struct scsi_task *)scsi_cdb_readcapacity16();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_report_supported_opcodes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  enum scsi_opcode arg3 ;
+  int arg4 ;
+  uint32_t arg5 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  unsigned int val5 ;
+  int ecode5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:scsi_cdb_report_supported_opcodes",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_report_supported_opcodes" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_report_supported_opcodes" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_report_supported_opcodes" "', argument " "3"" of type '" "enum scsi_opcode""'");
+  } 
+  arg3 = (enum scsi_opcode)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_report_supported_opcodes" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_report_supported_opcodes" "', argument " "5"" of type '" "uint32_t""'");
+  } 
+  arg5 = (uint32_t)(val5);
+  result = (struct scsi_task *)scsi_cdb_report_supported_opcodes(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_serviceactionin16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  enum scsi_service_action_in arg1 ;
+  uint32_t arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:scsi_cdb_serviceactionin16",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_serviceactionin16" "', argument " "1"" of type '" "enum scsi_service_action_in""'");
+  } 
+  arg1 = (enum scsi_service_action_in)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_serviceactionin16" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  result = (struct scsi_task *)scsi_cdb_serviceactionin16(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_startstopunit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOO:scsi_cdb_startstopunit",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_startstopunit" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_startstopunit" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_startstopunit" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_startstopunit" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_startstopunit" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_startstopunit" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  result = (struct scsi_task *)scsi_cdb_startstopunit(arg1,arg2,arg3,arg4,arg5,arg6);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_synchronizecache10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:scsi_cdb_synchronizecache10",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_synchronizecache10" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_synchronizecache10" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_synchronizecache10" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_synchronizecache10" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  result = (struct scsi_task *)scsi_cdb_synchronizecache10(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_synchronizecache16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:scsi_cdb_synchronizecache16",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_synchronizecache16" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_synchronizecache16" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_synchronizecache16" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_synchronizecache16" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  result = (struct scsi_task *)scsi_cdb_synchronizecache16(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_unmap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  uint16_t arg3 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  unsigned short val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:scsi_cdb_unmap",&obj0,&obj1,&obj2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_unmap" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_unmap" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_unsigned_SS_short(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_unmap" "', argument " "3"" of type '" "uint16_t""'");
+  } 
+  arg3 = (uint16_t)(val3);
+  result = (struct scsi_task *)scsi_cdb_unmap(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_verify10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOO:scsi_cdb_verify10",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_verify10" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_verify10" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_verify10" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_verify10" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_verify10" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_verify10" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  result = (struct scsi_task *)scsi_cdb_verify10(arg1,arg2,arg3,arg4,arg5,arg6);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_verify12(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOO:scsi_cdb_verify12",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_verify12" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_verify12" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_verify12" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_verify12" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_verify12" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_verify12" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  result = (struct scsi_task *)scsi_cdb_verify12(arg1,arg2,arg3,arg4,arg5,arg6);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_verify16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOO:scsi_cdb_verify16",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_verify16" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_verify16" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_verify16" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_verify16" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_verify16" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_verify16" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  result = (struct scsi_task *)scsi_cdb_verify16(arg1,arg2,arg3,arg4,arg5,arg6);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_write10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_write10",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_write10" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_write10" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_write10" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_write10" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_write10" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_write10" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_write10" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_write10" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_write10(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_write12(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_write12",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_write12" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_write12" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_write12" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_write12" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_write12" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_write12" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_write12" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_write12" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_write12(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_write16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  int arg8 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  int val8 ;
+  int ecode8 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:scsi_cdb_write16",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_write16" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_write16" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_write16" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_write16" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_write16" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_write16" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_write16" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "scsi_cdb_write16" "', argument " "8"" of type '" "int""'");
+  } 
+  arg8 = (int)(val8);
+  result = (struct scsi_task *)scsi_cdb_write16(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_writesame10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int arg3 ;
+  uint32_t arg4 ;
+  int arg5 ;
+  uint16_t arg6 ;
+  uint32_t arg7 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  unsigned int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  unsigned short val6 ;
+  int ecode6 = 0 ;
+  unsigned int val7 ;
+  int ecode7 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:scsi_cdb_writesame10",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_writesame10" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_writesame10" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_writesame10" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_writesame10" "', argument " "4"" of type '" "uint32_t""'");
+  } 
+  arg4 = (uint32_t)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_writesame10" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_unsigned_SS_short(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_writesame10" "', argument " "6"" of type '" "uint16_t""'");
+  } 
+  arg6 = (uint16_t)(val6);
+  ecode7 = SWIG_AsVal_unsigned_SS_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_writesame10" "', argument " "7"" of type '" "uint32_t""'");
+  } 
+  arg7 = (uint32_t)(val7);
+  result = (struct scsi_task *)scsi_cdb_writesame10(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_writesame16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int arg3 ;
+  uint64_t arg4 ;
+  int arg5 ;
+  uint32_t arg6 ;
+  uint32_t arg7 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  unsigned long long val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  unsigned int val6 ;
+  int ecode6 = 0 ;
+  unsigned int val7 ;
+  int ecode7 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:scsi_cdb_writesame16",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_writesame16" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_writesame16" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_writesame16" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_unsigned_SS_long_SS_long(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_writesame16" "', argument " "4"" of type '" "uint64_t""'");
+  } 
+  arg4 = (uint64_t)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_writesame16" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_unsigned_SS_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_writesame16" "', argument " "6"" of type '" "uint32_t""'");
+  } 
+  arg6 = (uint32_t)(val6);
+  ecode7 = SWIG_AsVal_unsigned_SS_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_writesame16" "', argument " "7"" of type '" "uint32_t""'");
+  } 
+  arg7 = (uint32_t)(val7);
+  result = (struct scsi_task *)scsi_cdb_writesame16(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_writeverify10(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:scsi_cdb_writeverify10",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_writeverify10" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_writeverify10" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_writeverify10" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_writeverify10" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_writeverify10" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_writeverify10" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_writeverify10" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  result = (struct scsi_task *)scsi_cdb_writeverify10(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_writeverify12(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint32_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:scsi_cdb_writeverify12",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_writeverify12" "', argument " "1"" of type '" "uint32_t""'");
+  } 
+  arg1 = (uint32_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_writeverify12" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_writeverify12" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_writeverify12" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_writeverify12" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_writeverify12" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_writeverify12" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  result = (struct scsi_task *)scsi_cdb_writeverify12(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_scsi_cdb_writeverify16(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  uint64_t arg1 ;
+  uint32_t arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  int arg7 ;
+  unsigned long long val1 ;
+  int ecode1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  struct scsi_task *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:scsi_cdb_writeverify16",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_cdb_writeverify16" "', argument " "1"" of type '" "uint64_t""'");
+  } 
+  arg1 = (uint64_t)(val1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_cdb_writeverify16" "', argument " "2"" of type '" "uint32_t""'");
+  } 
+  arg2 = (uint32_t)(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_cdb_writeverify16" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "scsi_cdb_writeverify16" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "scsi_cdb_writeverify16" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "scsi_cdb_writeverify16" "', argument " "6"" of type '" "int""'");
+  } 
+  arg6 = (int)(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "scsi_cdb_writeverify16" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  result = (struct scsi_task *)scsi_cdb_writeverify16(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"iscsi_get_fd", _wrap_iscsi_get_fd, METH_VARARGS, NULL},
@@ -9215,10 +24991,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"delete_unmap_list", _wrap_delete_unmap_list, METH_VARARGS, NULL},
 	 { (char *)"unmap_list_swigregister", unmap_list_swigregister, METH_VARARGS, NULL},
 	 { (char *)"iscsi_scsi_command_sync", _wrap_iscsi_scsi_command_sync, METH_VARARGS, NULL},
-	 { (char *)"iscsi_modeselect6_sync", _wrap_iscsi_modeselect6_sync, METH_VARARGS, NULL},
-	 { (char *)"iscsi_modeselect10_sync", _wrap_iscsi_modeselect10_sync, METH_VARARGS, NULL},
-	 { (char *)"iscsi_modesense6_sync", _wrap_iscsi_modesense6_sync, METH_VARARGS, NULL},
-	 { (char *)"iscsi_modesense10_sync", _wrap_iscsi_modesense10_sync, METH_VARARGS, NULL},
 	 { (char *)"iscsi_reportluns_sync", _wrap_iscsi_reportluns_sync, METH_VARARGS, NULL},
 	 { (char *)"iscsi_testunitready_sync", _wrap_iscsi_testunitready_sync, METH_VARARGS, NULL},
 	 { (char *)"iscsi_inquiry_sync", _wrap_iscsi_inquiry_sync, METH_VARARGS, NULL},
@@ -9266,6 +25038,625 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"iscsi_set_tcp_syncnt", _wrap_iscsi_set_tcp_syncnt, METH_VARARGS, NULL},
 	 { (char *)"iscsi_set_bind_interfaces", _wrap_iscsi_set_bind_interfaces, METH_VARARGS, NULL},
 	 { (char *)"iscsi_set_reconnect_max_retries", _wrap_iscsi_set_reconnect_max_retries, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_reservation_key_set", _wrap_scsi_persistent_reserve_out_basic_reservation_key_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_reservation_key_get", _wrap_scsi_persistent_reserve_out_basic_reservation_key_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_service_action_reservation_key_set", _wrap_scsi_persistent_reserve_out_basic_service_action_reservation_key_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_service_action_reservation_key_get", _wrap_scsi_persistent_reserve_out_basic_service_action_reservation_key_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_spec_i_pt_set", _wrap_scsi_persistent_reserve_out_basic_spec_i_pt_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_spec_i_pt_get", _wrap_scsi_persistent_reserve_out_basic_spec_i_pt_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_all_tg_pt_set", _wrap_scsi_persistent_reserve_out_basic_all_tg_pt_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_all_tg_pt_get", _wrap_scsi_persistent_reserve_out_basic_all_tg_pt_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_aptpl_set", _wrap_scsi_persistent_reserve_out_basic_aptpl_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_aptpl_get", _wrap_scsi_persistent_reserve_out_basic_aptpl_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_persistent_reserve_out_basic", _wrap_new_scsi_persistent_reserve_out_basic, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_persistent_reserve_out_basic", _wrap_delete_scsi_persistent_reserve_out_basic, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_out_basic_swigregister", scsi_persistent_reserve_out_basic_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_key_str", _wrap_scsi_sense_key_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_ascq_str", _wrap_scsi_sense_ascq_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_pr_type_str", _wrap_scsi_pr_type_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_error_type_set", _wrap_scsi_sense_error_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_error_type_get", _wrap_scsi_sense_error_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_key_set", _wrap_scsi_sense_key_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_key_get", _wrap_scsi_sense_key_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_ascq_set", _wrap_scsi_sense_ascq_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_ascq_get", _wrap_scsi_sense_ascq_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_sense", _wrap_new_scsi_sense, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_sense", _wrap_delete_scsi_sense, METH_VARARGS, NULL},
+	 { (char *)"scsi_sense_swigregister", scsi_sense_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_data_size_set", _wrap_scsi_data_size_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_data_size_get", _wrap_scsi_data_size_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_data_data_set", _wrap_scsi_data_data_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_data_data_get", _wrap_scsi_data_data_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_data", _wrap_new_scsi_data, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_data", _wrap_delete_scsi_data, METH_VARARGS, NULL},
+	 { (char *)"scsi_data_swigregister", scsi_data_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_create_task", _wrap_scsi_create_task, METH_VARARGS, NULL},
+	 { (char *)"scsi_free_scsi_task", _wrap_scsi_free_scsi_task, METH_VARARGS, NULL},
+	 { (char *)"scsi_set_task_private_ptr", _wrap_scsi_set_task_private_ptr, METH_VARARGS, NULL},
+	 { (char *)"scsi_get_task_private_ptr", _wrap_scsi_get_task_private_ptr, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_testunitready", _wrap_scsi_cdb_testunitready, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_sanitize", _wrap_scsi_cdb_sanitize, METH_VARARGS, NULL},
+	 { (char *)"scsi_reportluns_list_num_set", _wrap_scsi_reportluns_list_num_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_reportluns_list_num_get", _wrap_scsi_reportluns_list_num_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_reportluns_list_luns_set", _wrap_scsi_reportluns_list_luns_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_reportluns_list_luns_get", _wrap_scsi_reportluns_list_luns_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_reportluns_list", _wrap_new_scsi_reportluns_list, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_reportluns_list", _wrap_delete_scsi_reportluns_list, METH_VARARGS, NULL},
+	 { (char *)"scsi_reportluns_list_swigregister", scsi_reportluns_list_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_reportluns_cdb", _wrap_scsi_reportluns_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_reserve6", _wrap_scsi_cdb_reserve6, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_release6", _wrap_scsi_cdb_release6, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity10_lba_set", _wrap_scsi_readcapacity10_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity10_lba_get", _wrap_scsi_readcapacity10_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity10_block_size_set", _wrap_scsi_readcapacity10_block_size_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity10_block_size_get", _wrap_scsi_readcapacity10_block_size_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_readcapacity10", _wrap_new_scsi_readcapacity10, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_readcapacity10", _wrap_delete_scsi_readcapacity10, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity10_swigregister", scsi_readcapacity10_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_readcapacity10", _wrap_scsi_cdb_readcapacity10, METH_VARARGS, NULL},
+	 { (char *)"scsi_devqualifier_to_str", _wrap_scsi_devqualifier_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_devtype_to_str", _wrap_scsi_devtype_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_version_to_str", _wrap_scsi_version_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_version_descriptor_to_str", _wrap_scsi_version_descriptor_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_qualifier_set", _wrap_scsi_inquiry_standard_qualifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_qualifier_get", _wrap_scsi_inquiry_standard_qualifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_device_type_set", _wrap_scsi_inquiry_standard_device_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_device_type_get", _wrap_scsi_inquiry_standard_device_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_rmb_set", _wrap_scsi_inquiry_standard_rmb_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_rmb_get", _wrap_scsi_inquiry_standard_rmb_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_version_set", _wrap_scsi_inquiry_standard_version_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_version_get", _wrap_scsi_inquiry_standard_version_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_normaca_set", _wrap_scsi_inquiry_standard_normaca_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_normaca_get", _wrap_scsi_inquiry_standard_normaca_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_hisup_set", _wrap_scsi_inquiry_standard_hisup_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_hisup_get", _wrap_scsi_inquiry_standard_hisup_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_response_data_format_set", _wrap_scsi_inquiry_standard_response_data_format_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_response_data_format_get", _wrap_scsi_inquiry_standard_response_data_format_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_additional_length_set", _wrap_scsi_inquiry_standard_additional_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_additional_length_get", _wrap_scsi_inquiry_standard_additional_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_sccs_set", _wrap_scsi_inquiry_standard_sccs_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_sccs_get", _wrap_scsi_inquiry_standard_sccs_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_acc_set", _wrap_scsi_inquiry_standard_acc_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_acc_get", _wrap_scsi_inquiry_standard_acc_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_tpgs_set", _wrap_scsi_inquiry_standard_tpgs_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_tpgs_get", _wrap_scsi_inquiry_standard_tpgs_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_threepc_set", _wrap_scsi_inquiry_standard_threepc_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_threepc_get", _wrap_scsi_inquiry_standard_threepc_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_protect_set", _wrap_scsi_inquiry_standard_protect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_protect_get", _wrap_scsi_inquiry_standard_protect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_encserv_set", _wrap_scsi_inquiry_standard_encserv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_encserv_get", _wrap_scsi_inquiry_standard_encserv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_multip_set", _wrap_scsi_inquiry_standard_multip_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_multip_get", _wrap_scsi_inquiry_standard_multip_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_addr16_set", _wrap_scsi_inquiry_standard_addr16_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_addr16_get", _wrap_scsi_inquiry_standard_addr16_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_wbus16_set", _wrap_scsi_inquiry_standard_wbus16_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_wbus16_get", _wrap_scsi_inquiry_standard_wbus16_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_sync_set", _wrap_scsi_inquiry_standard_sync_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_sync_get", _wrap_scsi_inquiry_standard_sync_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_cmdque_set", _wrap_scsi_inquiry_standard_cmdque_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_cmdque_get", _wrap_scsi_inquiry_standard_cmdque_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_clocking_set", _wrap_scsi_inquiry_standard_clocking_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_clocking_get", _wrap_scsi_inquiry_standard_clocking_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_qas_set", _wrap_scsi_inquiry_standard_qas_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_qas_get", _wrap_scsi_inquiry_standard_qas_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_ius_set", _wrap_scsi_inquiry_standard_ius_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_ius_get", _wrap_scsi_inquiry_standard_ius_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_vendor_identification_set", _wrap_scsi_inquiry_standard_vendor_identification_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_vendor_identification_get", _wrap_scsi_inquiry_standard_vendor_identification_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_product_identification_set", _wrap_scsi_inquiry_standard_product_identification_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_product_identification_get", _wrap_scsi_inquiry_standard_product_identification_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_product_revision_level_set", _wrap_scsi_inquiry_standard_product_revision_level_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_product_revision_level_get", _wrap_scsi_inquiry_standard_product_revision_level_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_version_descriptor_set", _wrap_scsi_inquiry_standard_version_descriptor_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_version_descriptor_get", _wrap_scsi_inquiry_standard_version_descriptor_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_standard", _wrap_new_scsi_inquiry_standard, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_standard", _wrap_delete_scsi_inquiry_standard, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_standard_swigregister", scsi_inquiry_standard_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_pagecode_to_str", _wrap_scsi_inquiry_pagecode_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_qualifier_set", _wrap_scsi_inquiry_supported_pages_qualifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_qualifier_get", _wrap_scsi_inquiry_supported_pages_qualifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_device_type_set", _wrap_scsi_inquiry_supported_pages_device_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_device_type_get", _wrap_scsi_inquiry_supported_pages_device_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_pagecode_set", _wrap_scsi_inquiry_supported_pages_pagecode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_pagecode_get", _wrap_scsi_inquiry_supported_pages_pagecode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_num_pages_set", _wrap_scsi_inquiry_supported_pages_num_pages_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_num_pages_get", _wrap_scsi_inquiry_supported_pages_num_pages_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_pages_set", _wrap_scsi_inquiry_supported_pages_pages_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_pages_get", _wrap_scsi_inquiry_supported_pages_pages_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_supported_pages", _wrap_new_scsi_inquiry_supported_pages, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_supported_pages", _wrap_delete_scsi_inquiry_supported_pages, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_supported_pages_swigregister", scsi_inquiry_supported_pages_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_qualifier_set", _wrap_scsi_inquiry_block_limits_qualifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_qualifier_get", _wrap_scsi_inquiry_block_limits_qualifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_device_type_set", _wrap_scsi_inquiry_block_limits_device_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_device_type_get", _wrap_scsi_inquiry_block_limits_device_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_pagecode_set", _wrap_scsi_inquiry_block_limits_pagecode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_pagecode_get", _wrap_scsi_inquiry_block_limits_pagecode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_wsnz_set", _wrap_scsi_inquiry_block_limits_wsnz_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_wsnz_get", _wrap_scsi_inquiry_block_limits_wsnz_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_cmp_set", _wrap_scsi_inquiry_block_limits_max_cmp_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_cmp_get", _wrap_scsi_inquiry_block_limits_max_cmp_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_opt_gran_set", _wrap_scsi_inquiry_block_limits_opt_gran_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_opt_gran_get", _wrap_scsi_inquiry_block_limits_opt_gran_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_xfer_len_set", _wrap_scsi_inquiry_block_limits_max_xfer_len_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_xfer_len_get", _wrap_scsi_inquiry_block_limits_max_xfer_len_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_opt_xfer_len_set", _wrap_scsi_inquiry_block_limits_opt_xfer_len_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_opt_xfer_len_get", _wrap_scsi_inquiry_block_limits_opt_xfer_len_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_prefetch_set", _wrap_scsi_inquiry_block_limits_max_prefetch_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_prefetch_get", _wrap_scsi_inquiry_block_limits_max_prefetch_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_unmap_set", _wrap_scsi_inquiry_block_limits_max_unmap_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_unmap_get", _wrap_scsi_inquiry_block_limits_max_unmap_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_unmap_bdc_set", _wrap_scsi_inquiry_block_limits_max_unmap_bdc_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_unmap_bdc_get", _wrap_scsi_inquiry_block_limits_max_unmap_bdc_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_opt_unmap_gran_set", _wrap_scsi_inquiry_block_limits_opt_unmap_gran_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_opt_unmap_gran_get", _wrap_scsi_inquiry_block_limits_opt_unmap_gran_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_ugavalid_set", _wrap_scsi_inquiry_block_limits_ugavalid_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_ugavalid_get", _wrap_scsi_inquiry_block_limits_ugavalid_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_unmap_gran_align_set", _wrap_scsi_inquiry_block_limits_unmap_gran_align_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_unmap_gran_align_get", _wrap_scsi_inquiry_block_limits_unmap_gran_align_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_ws_len_set", _wrap_scsi_inquiry_block_limits_max_ws_len_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_max_ws_len_get", _wrap_scsi_inquiry_block_limits_max_ws_len_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_block_limits", _wrap_new_scsi_inquiry_block_limits, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_block_limits", _wrap_delete_scsi_inquiry_block_limits, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_limits_swigregister", scsi_inquiry_block_limits_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_qualifier_set", _wrap_scsi_inquiry_block_device_characteristics_qualifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_qualifier_get", _wrap_scsi_inquiry_block_device_characteristics_qualifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_device_type_set", _wrap_scsi_inquiry_block_device_characteristics_device_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_device_type_get", _wrap_scsi_inquiry_block_device_characteristics_device_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_pagecode_set", _wrap_scsi_inquiry_block_device_characteristics_pagecode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_pagecode_get", _wrap_scsi_inquiry_block_device_characteristics_pagecode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_medium_rotation_rate_set", _wrap_scsi_inquiry_block_device_characteristics_medium_rotation_rate_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_medium_rotation_rate_get", _wrap_scsi_inquiry_block_device_characteristics_medium_rotation_rate_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_product_type_set", _wrap_scsi_inquiry_block_device_characteristics_product_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_product_type_get", _wrap_scsi_inquiry_block_device_characteristics_product_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_wabereq_set", _wrap_scsi_inquiry_block_device_characteristics_wabereq_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_wabereq_get", _wrap_scsi_inquiry_block_device_characteristics_wabereq_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_wacereq_set", _wrap_scsi_inquiry_block_device_characteristics_wacereq_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_wacereq_get", _wrap_scsi_inquiry_block_device_characteristics_wacereq_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_nominal_form_factor_set", _wrap_scsi_inquiry_block_device_characteristics_nominal_form_factor_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_nominal_form_factor_get", _wrap_scsi_inquiry_block_device_characteristics_nominal_form_factor_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_fuab_set", _wrap_scsi_inquiry_block_device_characteristics_fuab_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_fuab_get", _wrap_scsi_inquiry_block_device_characteristics_fuab_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_vbuls_set", _wrap_scsi_inquiry_block_device_characteristics_vbuls_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_vbuls_get", _wrap_scsi_inquiry_block_device_characteristics_vbuls_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_block_device_characteristics", _wrap_new_scsi_inquiry_block_device_characteristics, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_block_device_characteristics", _wrap_delete_scsi_inquiry_block_device_characteristics, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_block_device_characteristics_swigregister", scsi_inquiry_block_device_characteristics_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_qualifier_set", _wrap_scsi_inquiry_logical_block_provisioning_qualifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_qualifier_get", _wrap_scsi_inquiry_logical_block_provisioning_qualifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_device_type_set", _wrap_scsi_inquiry_logical_block_provisioning_device_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_device_type_get", _wrap_scsi_inquiry_logical_block_provisioning_device_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_pagecode_set", _wrap_scsi_inquiry_logical_block_provisioning_pagecode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_pagecode_get", _wrap_scsi_inquiry_logical_block_provisioning_pagecode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_threshold_exponent_set", _wrap_scsi_inquiry_logical_block_provisioning_threshold_exponent_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_threshold_exponent_get", _wrap_scsi_inquiry_logical_block_provisioning_threshold_exponent_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbpu_set", _wrap_scsi_inquiry_logical_block_provisioning_lbpu_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbpu_get", _wrap_scsi_inquiry_logical_block_provisioning_lbpu_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbpws_set", _wrap_scsi_inquiry_logical_block_provisioning_lbpws_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbpws_get", _wrap_scsi_inquiry_logical_block_provisioning_lbpws_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbpws10_set", _wrap_scsi_inquiry_logical_block_provisioning_lbpws10_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbpws10_get", _wrap_scsi_inquiry_logical_block_provisioning_lbpws10_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbprz_set", _wrap_scsi_inquiry_logical_block_provisioning_lbprz_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_lbprz_get", _wrap_scsi_inquiry_logical_block_provisioning_lbprz_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_anc_sup_set", _wrap_scsi_inquiry_logical_block_provisioning_anc_sup_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_anc_sup_get", _wrap_scsi_inquiry_logical_block_provisioning_anc_sup_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_dp_set", _wrap_scsi_inquiry_logical_block_provisioning_dp_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_dp_get", _wrap_scsi_inquiry_logical_block_provisioning_dp_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_provisioning_type_set", _wrap_scsi_inquiry_logical_block_provisioning_provisioning_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_provisioning_type_get", _wrap_scsi_inquiry_logical_block_provisioning_provisioning_type_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_logical_block_provisioning", _wrap_new_scsi_inquiry_logical_block_provisioning, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_logical_block_provisioning", _wrap_delete_scsi_inquiry_logical_block_provisioning, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_logical_block_provisioning_swigregister", scsi_inquiry_logical_block_provisioning_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_inquiry", _wrap_scsi_cdb_inquiry, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_qualifier_set", _wrap_scsi_inquiry_unit_serial_number_qualifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_qualifier_get", _wrap_scsi_inquiry_unit_serial_number_qualifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_device_type_set", _wrap_scsi_inquiry_unit_serial_number_device_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_device_type_get", _wrap_scsi_inquiry_unit_serial_number_device_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_pagecode_set", _wrap_scsi_inquiry_unit_serial_number_pagecode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_pagecode_get", _wrap_scsi_inquiry_unit_serial_number_pagecode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_usn_set", _wrap_scsi_inquiry_unit_serial_number_usn_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_usn_get", _wrap_scsi_inquiry_unit_serial_number_usn_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_unit_serial_number", _wrap_new_scsi_inquiry_unit_serial_number, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_unit_serial_number", _wrap_delete_scsi_inquiry_unit_serial_number, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_unit_serial_number_swigregister", scsi_inquiry_unit_serial_number_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_protocol_identifier_to_str", _wrap_scsi_protocol_identifier_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_codeset_to_str", _wrap_scsi_codeset_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_association_to_str", _wrap_scsi_association_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_designator_type_to_str", _wrap_scsi_designator_type_to_str, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_next_set", _wrap_scsi_inquiry_device_designator_next_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_next_get", _wrap_scsi_inquiry_device_designator_next_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_protocol_identifier_set", _wrap_scsi_inquiry_device_designator_protocol_identifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_protocol_identifier_get", _wrap_scsi_inquiry_device_designator_protocol_identifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_code_set_set", _wrap_scsi_inquiry_device_designator_code_set_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_code_set_get", _wrap_scsi_inquiry_device_designator_code_set_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_piv_set", _wrap_scsi_inquiry_device_designator_piv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_piv_get", _wrap_scsi_inquiry_device_designator_piv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_association_set", _wrap_scsi_inquiry_device_designator_association_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_association_get", _wrap_scsi_inquiry_device_designator_association_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_designator_type_set", _wrap_scsi_inquiry_device_designator_designator_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_designator_type_get", _wrap_scsi_inquiry_device_designator_designator_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_designator_length_set", _wrap_scsi_inquiry_device_designator_designator_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_designator_length_get", _wrap_scsi_inquiry_device_designator_designator_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_designator_set", _wrap_scsi_inquiry_device_designator_designator_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_designator_get", _wrap_scsi_inquiry_device_designator_designator_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_device_designator", _wrap_new_scsi_inquiry_device_designator, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_device_designator", _wrap_delete_scsi_inquiry_device_designator, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_designator_swigregister", scsi_inquiry_device_designator_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_qualifier_set", _wrap_scsi_inquiry_device_identification_qualifier_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_qualifier_get", _wrap_scsi_inquiry_device_identification_qualifier_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_device_type_set", _wrap_scsi_inquiry_device_identification_device_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_device_type_get", _wrap_scsi_inquiry_device_identification_device_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_pagecode_set", _wrap_scsi_inquiry_device_identification_pagecode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_pagecode_get", _wrap_scsi_inquiry_device_identification_pagecode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_designators_set", _wrap_scsi_inquiry_device_identification_designators_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_designators_get", _wrap_scsi_inquiry_device_identification_designators_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_inquiry_device_identification", _wrap_new_scsi_inquiry_device_identification, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_inquiry_device_identification", _wrap_delete_scsi_inquiry_device_identification, METH_VARARGS, NULL},
+	 { (char *)"scsi_inquiry_device_identification_swigregister", scsi_inquiry_device_identification_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_returned_lba_set", _wrap_scsi_readcapacity16_returned_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_returned_lba_get", _wrap_scsi_readcapacity16_returned_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_block_length_set", _wrap_scsi_readcapacity16_block_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_block_length_get", _wrap_scsi_readcapacity16_block_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_p_type_set", _wrap_scsi_readcapacity16_p_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_p_type_get", _wrap_scsi_readcapacity16_p_type_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_prot_en_set", _wrap_scsi_readcapacity16_prot_en_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_prot_en_get", _wrap_scsi_readcapacity16_prot_en_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_p_i_exp_set", _wrap_scsi_readcapacity16_p_i_exp_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_p_i_exp_get", _wrap_scsi_readcapacity16_p_i_exp_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lbppbe_set", _wrap_scsi_readcapacity16_lbppbe_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lbppbe_get", _wrap_scsi_readcapacity16_lbppbe_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lbpme_set", _wrap_scsi_readcapacity16_lbpme_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lbpme_get", _wrap_scsi_readcapacity16_lbpme_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lbprz_set", _wrap_scsi_readcapacity16_lbprz_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lbprz_get", _wrap_scsi_readcapacity16_lbprz_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lalba_set", _wrap_scsi_readcapacity16_lalba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_lalba_get", _wrap_scsi_readcapacity16_lalba_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_readcapacity16", _wrap_new_scsi_readcapacity16, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_readcapacity16", _wrap_delete_scsi_readcapacity16, METH_VARARGS, NULL},
+	 { (char *)"scsi_readcapacity16_swigregister", scsi_readcapacity16_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_lba_status_descriptor_lba_set", _wrap_scsi_lba_status_descriptor_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_lba_status_descriptor_lba_get", _wrap_scsi_lba_status_descriptor_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_lba_status_descriptor_num_blocks_set", _wrap_scsi_lba_status_descriptor_num_blocks_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_lba_status_descriptor_num_blocks_get", _wrap_scsi_lba_status_descriptor_num_blocks_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_lba_status_descriptor_provisioning_set", _wrap_scsi_lba_status_descriptor_provisioning_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_lba_status_descriptor_provisioning_get", _wrap_scsi_lba_status_descriptor_provisioning_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_lba_status_descriptor", _wrap_new_scsi_lba_status_descriptor, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_lba_status_descriptor", _wrap_delete_scsi_lba_status_descriptor, METH_VARARGS, NULL},
+	 { (char *)"scsi_lba_status_descriptor_swigregister", scsi_lba_status_descriptor_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_get_lba_status_num_descriptors_set", _wrap_scsi_get_lba_status_num_descriptors_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_get_lba_status_num_descriptors_get", _wrap_scsi_get_lba_status_num_descriptors_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_get_lba_status_descriptors_set", _wrap_scsi_get_lba_status_descriptors_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_get_lba_status_descriptors_get", _wrap_scsi_get_lba_status_descriptors_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_get_lba_status", _wrap_new_scsi_get_lba_status, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_get_lba_status", _wrap_delete_scsi_get_lba_status, METH_VARARGS, NULL},
+	 { (char *)"scsi_get_lba_status_swigregister", scsi_get_lba_status_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_descriptor_length_set", _wrap_scsi_op_timeout_descriptor_descriptor_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_descriptor_length_get", _wrap_scsi_op_timeout_descriptor_descriptor_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_command_specific_set", _wrap_scsi_op_timeout_descriptor_command_specific_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_command_specific_get", _wrap_scsi_op_timeout_descriptor_command_specific_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_nominal_processing_timeout_set", _wrap_scsi_op_timeout_descriptor_nominal_processing_timeout_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_nominal_processing_timeout_get", _wrap_scsi_op_timeout_descriptor_nominal_processing_timeout_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_recommended_timeout_set", _wrap_scsi_op_timeout_descriptor_recommended_timeout_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_recommended_timeout_get", _wrap_scsi_op_timeout_descriptor_recommended_timeout_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_op_timeout_descriptor", _wrap_new_scsi_op_timeout_descriptor, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_op_timeout_descriptor", _wrap_delete_scsi_op_timeout_descriptor, METH_VARARGS, NULL},
+	 { (char *)"scsi_op_timeout_descriptor_swigregister", scsi_op_timeout_descriptor_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_opcode_set", _wrap_scsi_command_descriptor_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_opcode_get", _wrap_scsi_command_descriptor_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_sa_set", _wrap_scsi_command_descriptor_sa_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_sa_get", _wrap_scsi_command_descriptor_sa_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_ctdp_set", _wrap_scsi_command_descriptor_ctdp_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_ctdp_get", _wrap_scsi_command_descriptor_ctdp_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_servactv_set", _wrap_scsi_command_descriptor_servactv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_servactv_get", _wrap_scsi_command_descriptor_servactv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_cdb_len_set", _wrap_scsi_command_descriptor_cdb_len_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_cdb_len_get", _wrap_scsi_command_descriptor_cdb_len_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_to_set", _wrap_scsi_command_descriptor_to_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_to_get", _wrap_scsi_command_descriptor_to_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_command_descriptor", _wrap_new_scsi_command_descriptor, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_command_descriptor", _wrap_delete_scsi_command_descriptor, METH_VARARGS, NULL},
+	 { (char *)"scsi_command_descriptor_swigregister", scsi_command_descriptor_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_num_descriptors_set", _wrap_scsi_report_supported_op_codes_num_descriptors_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_num_descriptors_get", _wrap_scsi_report_supported_op_codes_num_descriptors_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_descriptors_set", _wrap_scsi_report_supported_op_codes_descriptors_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_descriptors_get", _wrap_scsi_report_supported_op_codes_descriptors_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_report_supported_op_codes", _wrap_new_scsi_report_supported_op_codes, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_report_supported_op_codes", _wrap_delete_scsi_report_supported_op_codes, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_swigregister", scsi_report_supported_op_codes_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_ctdp_set", _wrap_scsi_report_supported_op_codes_one_command_ctdp_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_ctdp_get", _wrap_scsi_report_supported_op_codes_one_command_ctdp_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_support_set", _wrap_scsi_report_supported_op_codes_one_command_support_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_support_get", _wrap_scsi_report_supported_op_codes_one_command_support_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_cdb_length_set", _wrap_scsi_report_supported_op_codes_one_command_cdb_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_cdb_length_get", _wrap_scsi_report_supported_op_codes_one_command_cdb_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_cdb_usage_data_set", _wrap_scsi_report_supported_op_codes_one_command_cdb_usage_data_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_cdb_usage_data_get", _wrap_scsi_report_supported_op_codes_one_command_cdb_usage_data_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_to_set", _wrap_scsi_report_supported_op_codes_one_command_to_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_to_get", _wrap_scsi_report_supported_op_codes_one_command_to_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_report_supported_op_codes_one_command", _wrap_new_scsi_report_supported_op_codes_one_command, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_report_supported_op_codes_one_command", _wrap_delete_scsi_report_supported_op_codes_one_command, METH_VARARGS, NULL},
+	 { (char *)"scsi_report_supported_op_codes_one_command_swigregister", scsi_report_supported_op_codes_one_command_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_prgeneration_set", _wrap_scsi_persistent_reserve_in_read_keys_prgeneration_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_prgeneration_get", _wrap_scsi_persistent_reserve_in_read_keys_prgeneration_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_additional_length_set", _wrap_scsi_persistent_reserve_in_read_keys_additional_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_additional_length_get", _wrap_scsi_persistent_reserve_in_read_keys_additional_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_num_keys_set", _wrap_scsi_persistent_reserve_in_read_keys_num_keys_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_num_keys_get", _wrap_scsi_persistent_reserve_in_read_keys_num_keys_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_keys_set", _wrap_scsi_persistent_reserve_in_read_keys_keys_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_keys_get", _wrap_scsi_persistent_reserve_in_read_keys_keys_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_persistent_reserve_in_read_keys", _wrap_new_scsi_persistent_reserve_in_read_keys, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_persistent_reserve_in_read_keys", _wrap_delete_scsi_persistent_reserve_in_read_keys, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_keys_swigregister", scsi_persistent_reserve_in_read_keys_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_prgeneration_set", _wrap_scsi_persistent_reserve_in_read_reservation_prgeneration_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_prgeneration_get", _wrap_scsi_persistent_reserve_in_read_reservation_prgeneration_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_additional_length_set", _wrap_scsi_persistent_reserve_in_read_reservation_additional_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_additional_length_get", _wrap_scsi_persistent_reserve_in_read_reservation_additional_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_reserved_set", _wrap_scsi_persistent_reserve_in_read_reservation_reserved_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_reserved_get", _wrap_scsi_persistent_reserve_in_read_reservation_reserved_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_reservation_key_set", _wrap_scsi_persistent_reserve_in_read_reservation_reservation_key_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_reservation_key_get", _wrap_scsi_persistent_reserve_in_read_reservation_reservation_key_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_pr_scope_set", _wrap_scsi_persistent_reserve_in_read_reservation_pr_scope_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_pr_scope_get", _wrap_scsi_persistent_reserve_in_read_reservation_pr_scope_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_pr_type_set", _wrap_scsi_persistent_reserve_in_read_reservation_pr_type_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_pr_type_get", _wrap_scsi_persistent_reserve_in_read_reservation_pr_type_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_persistent_reserve_in_read_reservation", _wrap_new_scsi_persistent_reserve_in_read_reservation, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_persistent_reserve_in_read_reservation", _wrap_delete_scsi_persistent_reserve_in_read_reservation, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_read_reservation_swigregister", scsi_persistent_reserve_in_read_reservation_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_length_set", _wrap_scsi_persistent_reserve_in_report_capabilities_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_length_get", _wrap_scsi_persistent_reserve_in_report_capabilities_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_crh_set", _wrap_scsi_persistent_reserve_in_report_capabilities_crh_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_crh_get", _wrap_scsi_persistent_reserve_in_report_capabilities_crh_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_sip_c_set", _wrap_scsi_persistent_reserve_in_report_capabilities_sip_c_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_sip_c_get", _wrap_scsi_persistent_reserve_in_report_capabilities_sip_c_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_atp_c_set", _wrap_scsi_persistent_reserve_in_report_capabilities_atp_c_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_atp_c_get", _wrap_scsi_persistent_reserve_in_report_capabilities_atp_c_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_ptpl_c_set", _wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_c_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_ptpl_c_get", _wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_c_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_tmv_set", _wrap_scsi_persistent_reserve_in_report_capabilities_tmv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_tmv_get", _wrap_scsi_persistent_reserve_in_report_capabilities_tmv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_allow_commands_set", _wrap_scsi_persistent_reserve_in_report_capabilities_allow_commands_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_allow_commands_get", _wrap_scsi_persistent_reserve_in_report_capabilities_allow_commands_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_ptpl_a_set", _wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_a_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_ptpl_a_get", _wrap_scsi_persistent_reserve_in_report_capabilities_ptpl_a_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set", _wrap_scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_get", _wrap_scsi_persistent_reserve_in_report_capabilities_persistent_reservation_type_mask_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_persistent_reserve_in_report_capabilities", _wrap_new_scsi_persistent_reserve_in_report_capabilities, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_persistent_reserve_in_report_capabilities", _wrap_delete_scsi_persistent_reserve_in_report_capabilities, METH_VARARGS, NULL},
+	 { (char *)"scsi_persistent_reserve_in_report_capabilities_swigregister", scsi_persistent_reserve_in_report_capabilities_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_opcode_set", _wrap_scsi_read6_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_opcode_get", _wrap_scsi_read6_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_lba_set", _wrap_scsi_read6_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_lba_get", _wrap_scsi_read6_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_transfer_length_set", _wrap_scsi_read6_cdb_transfer_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_transfer_length_get", _wrap_scsi_read6_cdb_transfer_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_control_set", _wrap_scsi_read6_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_control_get", _wrap_scsi_read6_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_read6_cdb", _wrap_new_scsi_read6_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_read6_cdb", _wrap_delete_scsi_read6_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_read6_cdb_swigregister", scsi_read6_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_opcode_set", _wrap_scsi_read10_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_opcode_get", _wrap_scsi_read10_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_rdprotect_set", _wrap_scsi_read10_cdb_rdprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_rdprotect_get", _wrap_scsi_read10_cdb_rdprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_dpo_set", _wrap_scsi_read10_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_dpo_get", _wrap_scsi_read10_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_fua_set", _wrap_scsi_read10_cdb_fua_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_fua_get", _wrap_scsi_read10_cdb_fua_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_fua_nv_set", _wrap_scsi_read10_cdb_fua_nv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_fua_nv_get", _wrap_scsi_read10_cdb_fua_nv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_lba_set", _wrap_scsi_read10_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_lba_get", _wrap_scsi_read10_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_group_set", _wrap_scsi_read10_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_group_get", _wrap_scsi_read10_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_transfer_length_set", _wrap_scsi_read10_cdb_transfer_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_transfer_length_get", _wrap_scsi_read10_cdb_transfer_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_control_set", _wrap_scsi_read10_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_control_get", _wrap_scsi_read10_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_read10_cdb", _wrap_new_scsi_read10_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_read10_cdb", _wrap_delete_scsi_read10_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_read10_cdb_swigregister", scsi_read10_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_opcode_set", _wrap_scsi_read12_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_opcode_get", _wrap_scsi_read12_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_rdprotect_set", _wrap_scsi_read12_cdb_rdprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_rdprotect_get", _wrap_scsi_read12_cdb_rdprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_dpo_set", _wrap_scsi_read12_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_dpo_get", _wrap_scsi_read12_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_fua_set", _wrap_scsi_read12_cdb_fua_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_fua_get", _wrap_scsi_read12_cdb_fua_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_rarc_set", _wrap_scsi_read12_cdb_rarc_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_rarc_get", _wrap_scsi_read12_cdb_rarc_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_fua_nv_set", _wrap_scsi_read12_cdb_fua_nv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_fua_nv_get", _wrap_scsi_read12_cdb_fua_nv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_lba_set", _wrap_scsi_read12_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_lba_get", _wrap_scsi_read12_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_transfer_length_set", _wrap_scsi_read12_cdb_transfer_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_transfer_length_get", _wrap_scsi_read12_cdb_transfer_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_group_set", _wrap_scsi_read12_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_group_get", _wrap_scsi_read12_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_control_set", _wrap_scsi_read12_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_control_get", _wrap_scsi_read12_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_read12_cdb", _wrap_new_scsi_read12_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_read12_cdb", _wrap_delete_scsi_read12_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_read12_cdb_swigregister", scsi_read12_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_opcode_set", _wrap_scsi_read16_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_opcode_get", _wrap_scsi_read16_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_rdprotect_set", _wrap_scsi_read16_cdb_rdprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_rdprotect_get", _wrap_scsi_read16_cdb_rdprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_dpo_set", _wrap_scsi_read16_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_dpo_get", _wrap_scsi_read16_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_fua_set", _wrap_scsi_read16_cdb_fua_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_fua_get", _wrap_scsi_read16_cdb_fua_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_rarc_set", _wrap_scsi_read16_cdb_rarc_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_rarc_get", _wrap_scsi_read16_cdb_rarc_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_fua_nv_set", _wrap_scsi_read16_cdb_fua_nv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_fua_nv_get", _wrap_scsi_read16_cdb_fua_nv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_lba_set", _wrap_scsi_read16_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_lba_get", _wrap_scsi_read16_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_transfer_length_set", _wrap_scsi_read16_cdb_transfer_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_transfer_length_get", _wrap_scsi_read16_cdb_transfer_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_group_set", _wrap_scsi_read16_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_group_get", _wrap_scsi_read16_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_control_set", _wrap_scsi_read16_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_control_get", _wrap_scsi_read16_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_read16_cdb", _wrap_new_scsi_read16_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_read16_cdb", _wrap_delete_scsi_read16_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_read16_cdb_swigregister", scsi_read16_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_opcode_set", _wrap_scsi_verify10_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_opcode_get", _wrap_scsi_verify10_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_vrprotect_set", _wrap_scsi_verify10_cdb_vrprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_vrprotect_get", _wrap_scsi_verify10_cdb_vrprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_dpo_set", _wrap_scsi_verify10_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_dpo_get", _wrap_scsi_verify10_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_bytchk_set", _wrap_scsi_verify10_cdb_bytchk_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_bytchk_get", _wrap_scsi_verify10_cdb_bytchk_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_lba_set", _wrap_scsi_verify10_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_lba_get", _wrap_scsi_verify10_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_group_set", _wrap_scsi_verify10_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_group_get", _wrap_scsi_verify10_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_verification_length_set", _wrap_scsi_verify10_cdb_verification_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_verification_length_get", _wrap_scsi_verify10_cdb_verification_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_control_set", _wrap_scsi_verify10_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_control_get", _wrap_scsi_verify10_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_verify10_cdb", _wrap_new_scsi_verify10_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_verify10_cdb", _wrap_delete_scsi_verify10_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify10_cdb_swigregister", scsi_verify10_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_opcode_set", _wrap_scsi_verify12_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_opcode_get", _wrap_scsi_verify12_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_vrprotect_set", _wrap_scsi_verify12_cdb_vrprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_vrprotect_get", _wrap_scsi_verify12_cdb_vrprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_dpo_set", _wrap_scsi_verify12_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_dpo_get", _wrap_scsi_verify12_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_bytchk_set", _wrap_scsi_verify12_cdb_bytchk_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_bytchk_get", _wrap_scsi_verify12_cdb_bytchk_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_lba_set", _wrap_scsi_verify12_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_lba_get", _wrap_scsi_verify12_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_verification_length_set", _wrap_scsi_verify12_cdb_verification_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_verification_length_get", _wrap_scsi_verify12_cdb_verification_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_group_set", _wrap_scsi_verify12_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_group_get", _wrap_scsi_verify12_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_control_set", _wrap_scsi_verify12_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_control_get", _wrap_scsi_verify12_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_verify12_cdb", _wrap_new_scsi_verify12_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_verify12_cdb", _wrap_delete_scsi_verify12_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify12_cdb_swigregister", scsi_verify12_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_opcode_set", _wrap_scsi_verify16_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_opcode_get", _wrap_scsi_verify16_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_vrprotect_set", _wrap_scsi_verify16_cdb_vrprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_vrprotect_get", _wrap_scsi_verify16_cdb_vrprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_dpo_set", _wrap_scsi_verify16_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_dpo_get", _wrap_scsi_verify16_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_bytchk_set", _wrap_scsi_verify16_cdb_bytchk_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_bytchk_get", _wrap_scsi_verify16_cdb_bytchk_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_lba_set", _wrap_scsi_verify16_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_lba_get", _wrap_scsi_verify16_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_verification_length_set", _wrap_scsi_verify16_cdb_verification_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_verification_length_get", _wrap_scsi_verify16_cdb_verification_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_group_set", _wrap_scsi_verify16_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_group_get", _wrap_scsi_verify16_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_control_set", _wrap_scsi_verify16_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_control_get", _wrap_scsi_verify16_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_verify16_cdb", _wrap_new_scsi_verify16_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_verify16_cdb", _wrap_delete_scsi_verify16_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_verify16_cdb_swigregister", scsi_verify16_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_opcode_set", _wrap_scsi_write10_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_opcode_get", _wrap_scsi_write10_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_wrprotect_set", _wrap_scsi_write10_cdb_wrprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_wrprotect_get", _wrap_scsi_write10_cdb_wrprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_dpo_set", _wrap_scsi_write10_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_dpo_get", _wrap_scsi_write10_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_fua_set", _wrap_scsi_write10_cdb_fua_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_fua_get", _wrap_scsi_write10_cdb_fua_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_fua_nv_set", _wrap_scsi_write10_cdb_fua_nv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_fua_nv_get", _wrap_scsi_write10_cdb_fua_nv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_lba_set", _wrap_scsi_write10_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_lba_get", _wrap_scsi_write10_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_group_set", _wrap_scsi_write10_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_group_get", _wrap_scsi_write10_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_transfer_length_set", _wrap_scsi_write10_cdb_transfer_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_transfer_length_get", _wrap_scsi_write10_cdb_transfer_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_control_set", _wrap_scsi_write10_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_control_get", _wrap_scsi_write10_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_write10_cdb", _wrap_new_scsi_write10_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_write10_cdb", _wrap_delete_scsi_write10_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_write10_cdb_swigregister", scsi_write10_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_opcode_set", _wrap_scsi_write12_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_opcode_get", _wrap_scsi_write12_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_wrprotect_set", _wrap_scsi_write12_cdb_wrprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_wrprotect_get", _wrap_scsi_write12_cdb_wrprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_dpo_set", _wrap_scsi_write12_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_dpo_get", _wrap_scsi_write12_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_fua_set", _wrap_scsi_write12_cdb_fua_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_fua_get", _wrap_scsi_write12_cdb_fua_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_fua_nv_set", _wrap_scsi_write12_cdb_fua_nv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_fua_nv_get", _wrap_scsi_write12_cdb_fua_nv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_lba_set", _wrap_scsi_write12_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_lba_get", _wrap_scsi_write12_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_transfer_length_set", _wrap_scsi_write12_cdb_transfer_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_transfer_length_get", _wrap_scsi_write12_cdb_transfer_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_group_set", _wrap_scsi_write12_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_group_get", _wrap_scsi_write12_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_control_set", _wrap_scsi_write12_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_control_get", _wrap_scsi_write12_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_write12_cdb", _wrap_new_scsi_write12_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_write12_cdb", _wrap_delete_scsi_write12_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_write12_cdb_swigregister", scsi_write12_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_opcode_set", _wrap_scsi_write16_cdb_opcode_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_opcode_get", _wrap_scsi_write16_cdb_opcode_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_wrprotect_set", _wrap_scsi_write16_cdb_wrprotect_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_wrprotect_get", _wrap_scsi_write16_cdb_wrprotect_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_dpo_set", _wrap_scsi_write16_cdb_dpo_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_dpo_get", _wrap_scsi_write16_cdb_dpo_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_fua_set", _wrap_scsi_write16_cdb_fua_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_fua_get", _wrap_scsi_write16_cdb_fua_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_fua_nv_set", _wrap_scsi_write16_cdb_fua_nv_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_fua_nv_get", _wrap_scsi_write16_cdb_fua_nv_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_lba_set", _wrap_scsi_write16_cdb_lba_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_lba_get", _wrap_scsi_write16_cdb_lba_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_transfer_length_set", _wrap_scsi_write16_cdb_transfer_length_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_transfer_length_get", _wrap_scsi_write16_cdb_transfer_length_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_group_set", _wrap_scsi_write16_cdb_group_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_group_get", _wrap_scsi_write16_cdb_group_get, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_control_set", _wrap_scsi_write16_cdb_control_set, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_control_get", _wrap_scsi_write16_cdb_control_get, METH_VARARGS, NULL},
+	 { (char *)"new_scsi_write16_cdb", _wrap_new_scsi_write16_cdb, METH_VARARGS, NULL},
+	 { (char *)"delete_scsi_write16_cdb", _wrap_delete_scsi_write16_cdb, METH_VARARGS, NULL},
+	 { (char *)"scsi_write16_cdb_swigregister", scsi_write16_cdb_swigregister, METH_VARARGS, NULL},
+	 { (char *)"scsi_datain_getfullsize", _wrap_scsi_datain_getfullsize, METH_VARARGS, NULL},
+	 { (char *)"scsi_datain_unmarshall", _wrap_scsi_datain_unmarshall, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_unmarshall", _wrap_scsi_cdb_unmarshall, METH_VARARGS, NULL},
+	 { (char *)"scsi_task_get_data_in_buffer", _wrap_scsi_task_get_data_in_buffer, METH_VARARGS, NULL},
+	 { (char *)"scsi_task_get_data_out_buffer", _wrap_scsi_task_get_data_out_buffer, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_compareandwrite", _wrap_scsi_cdb_compareandwrite, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_get_lba_status", _wrap_scsi_cdb_get_lba_status, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_orwrite", _wrap_scsi_cdb_orwrite, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_persistent_reserve_in", _wrap_scsi_cdb_persistent_reserve_in, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_persistent_reserve_out", _wrap_scsi_cdb_persistent_reserve_out, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_prefetch10", _wrap_scsi_cdb_prefetch10, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_prefetch16", _wrap_scsi_cdb_prefetch16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_preventallow", _wrap_scsi_cdb_preventallow, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_read6", _wrap_scsi_cdb_read6, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_read10", _wrap_scsi_cdb_read10, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_read12", _wrap_scsi_cdb_read12, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_read16", _wrap_scsi_cdb_read16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_readcapacity16", _wrap_scsi_cdb_readcapacity16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_report_supported_opcodes", _wrap_scsi_cdb_report_supported_opcodes, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_serviceactionin16", _wrap_scsi_cdb_serviceactionin16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_startstopunit", _wrap_scsi_cdb_startstopunit, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_synchronizecache10", _wrap_scsi_cdb_synchronizecache10, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_synchronizecache16", _wrap_scsi_cdb_synchronizecache16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_unmap", _wrap_scsi_cdb_unmap, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_verify10", _wrap_scsi_cdb_verify10, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_verify12", _wrap_scsi_cdb_verify12, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_verify16", _wrap_scsi_cdb_verify16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_write10", _wrap_scsi_cdb_write10, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_write12", _wrap_scsi_cdb_write12, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_write16", _wrap_scsi_cdb_write16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_writesame10", _wrap_scsi_cdb_writesame10, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_writesame16", _wrap_scsi_cdb_writesame16, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_writeverify10", _wrap_scsi_cdb_writeverify10, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_writeverify12", _wrap_scsi_cdb_writeverify12, METH_VARARGS, NULL},
+	 { (char *)"scsi_cdb_writeverify16", _wrap_scsi_cdb_writeverify16, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -9280,15 +25671,49 @@ static swig_type_info _swigt__p_iscsi_discovery_address = {"_p_iscsi_discovery_a
 static swig_type_info _swigt__p_iscsi_target_portal = {"_p_iscsi_target_portal", "struct iscsi_target_portal *|iscsi_target_portal *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_iscsi_url = {"_p_iscsi_url", "struct iscsi_url *|iscsi_url *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int_least64_t *|int_fast64_t *|int64_t *|long long *|intmax_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_scsi_mode_page = {"_p_scsi_mode_page", "struct scsi_mode_page *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_command_descriptor = {"_p_scsi_command_descriptor", "struct scsi_command_descriptor *|scsi_command_descriptor *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_data = {"_p_scsi_data", "struct scsi_data *|scsi_data *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_get_lba_status = {"_p_scsi_get_lba_status", "struct scsi_get_lba_status *|scsi_get_lba_status *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_block_device_characteristics = {"_p_scsi_inquiry_block_device_characteristics", "struct scsi_inquiry_block_device_characteristics *|scsi_inquiry_block_device_characteristics *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_block_limits = {"_p_scsi_inquiry_block_limits", "struct scsi_inquiry_block_limits *|scsi_inquiry_block_limits *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_device_designator = {"_p_scsi_inquiry_device_designator", "struct scsi_inquiry_device_designator *|scsi_inquiry_device_designator *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_device_identification = {"_p_scsi_inquiry_device_identification", "struct scsi_inquiry_device_identification *|scsi_inquiry_device_identification *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_logical_block_provisioning = {"_p_scsi_inquiry_logical_block_provisioning", "struct scsi_inquiry_logical_block_provisioning *|scsi_inquiry_logical_block_provisioning *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_standard = {"_p_scsi_inquiry_standard", "struct scsi_inquiry_standard *|scsi_inquiry_standard *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_supported_pages = {"_p_scsi_inquiry_supported_pages", "struct scsi_inquiry_supported_pages *|scsi_inquiry_supported_pages *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_inquiry_unit_serial_number = {"_p_scsi_inquiry_unit_serial_number", "struct scsi_inquiry_unit_serial_number *|scsi_inquiry_unit_serial_number *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_lba_status_descriptor = {"_p_scsi_lba_status_descriptor", "struct scsi_lba_status_descriptor *|scsi_lba_status_descriptor *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_op_timeout_descriptor = {"_p_scsi_op_timeout_descriptor", "struct scsi_op_timeout_descriptor *|scsi_op_timeout_descriptor *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_persistent_reserve_in_read_keys = {"_p_scsi_persistent_reserve_in_read_keys", "struct scsi_persistent_reserve_in_read_keys *|scsi_persistent_reserve_in_read_keys *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_persistent_reserve_in_read_reservation = {"_p_scsi_persistent_reserve_in_read_reservation", "scsi_persistent_reserve_in_read_reservation *|struct scsi_persistent_reserve_in_read_reservation *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_persistent_reserve_in_report_capabilities = {"_p_scsi_persistent_reserve_in_report_capabilities", "scsi_persistent_reserve_in_report_capabilities *|struct scsi_persistent_reserve_in_report_capabilities *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_persistent_reserve_out_basic = {"_p_scsi_persistent_reserve_out_basic", "struct scsi_persistent_reserve_out_basic *|scsi_persistent_reserve_out_basic *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_read10_cdb = {"_p_scsi_read10_cdb", "struct scsi_read10_cdb *|scsi_read10_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_read12_cdb = {"_p_scsi_read12_cdb", "struct scsi_read12_cdb *|scsi_read12_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_read16_cdb = {"_p_scsi_read16_cdb", "struct scsi_read16_cdb *|scsi_read16_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_read6_cdb = {"_p_scsi_read6_cdb", "struct scsi_read6_cdb *|scsi_read6_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_readcapacity10 = {"_p_scsi_readcapacity10", "struct scsi_readcapacity10 *|scsi_readcapacity10 *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_readcapacity16 = {"_p_scsi_readcapacity16", "struct scsi_readcapacity16 *|scsi_readcapacity16 *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_report_supported_op_codes = {"_p_scsi_report_supported_op_codes", "struct scsi_report_supported_op_codes *|scsi_report_supported_op_codes *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_report_supported_op_codes_one_command = {"_p_scsi_report_supported_op_codes_one_command", "struct scsi_report_supported_op_codes_one_command *|scsi_report_supported_op_codes_one_command *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_reportluns_list = {"_p_scsi_reportluns_list", "struct scsi_reportluns_list *|scsi_reportluns_list *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_sense = {"_p_scsi_sense", "struct scsi_sense *|scsi_sense *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_scsi_task = {"_p_scsi_task", "struct scsi_task *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_verify10_cdb = {"_p_scsi_verify10_cdb", "struct scsi_verify10_cdb *|scsi_verify10_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_verify12_cdb = {"_p_scsi_verify12_cdb", "struct scsi_verify12_cdb *|scsi_verify12_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_verify16_cdb = {"_p_scsi_verify16_cdb", "struct scsi_verify16_cdb *|scsi_verify16_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_write10_cdb = {"_p_scsi_write10_cdb", "struct scsi_write10_cdb *|scsi_write10_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_write12_cdb = {"_p_scsi_write12_cdb", "struct scsi_write12_cdb *|scsi_write12_cdb *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_scsi_write16_cdb = {"_p_scsi_write16_cdb", "struct scsi_write16_cdb *|scsi_write16_cdb *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_short = {"_p_short", "short *|int_least16_t *|int16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "signed char *|int_least8_t *|int_fast8_t *|int8_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ssize_t = {"_p_ssize_t", "ssize_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unmap_list = {"_p_unmap_list", "struct unmap_list *|unmap_list *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *|uint_least8_t *|uint_fast8_t *|uint8_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uintptr_t *|uint_least32_t *|uint_fast32_t *|uint32_t *|unsigned int *|uint_fast16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "uint_least64_t *|uint_fast64_t *|uint64_t *|unsigned long long *|uintmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "unsigned short *|uint_least16_t *|uint16_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_char,
@@ -9299,15 +25724,49 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_iscsi_target_portal,
   &_swigt__p_iscsi_url,
   &_swigt__p_long_long,
-  &_swigt__p_scsi_mode_page,
+  &_swigt__p_scsi_command_descriptor,
+  &_swigt__p_scsi_data,
+  &_swigt__p_scsi_get_lba_status,
+  &_swigt__p_scsi_inquiry_block_device_characteristics,
+  &_swigt__p_scsi_inquiry_block_limits,
+  &_swigt__p_scsi_inquiry_device_designator,
+  &_swigt__p_scsi_inquiry_device_identification,
+  &_swigt__p_scsi_inquiry_logical_block_provisioning,
+  &_swigt__p_scsi_inquiry_standard,
+  &_swigt__p_scsi_inquiry_supported_pages,
+  &_swigt__p_scsi_inquiry_unit_serial_number,
+  &_swigt__p_scsi_lba_status_descriptor,
+  &_swigt__p_scsi_op_timeout_descriptor,
+  &_swigt__p_scsi_persistent_reserve_in_read_keys,
+  &_swigt__p_scsi_persistent_reserve_in_read_reservation,
+  &_swigt__p_scsi_persistent_reserve_in_report_capabilities,
+  &_swigt__p_scsi_persistent_reserve_out_basic,
+  &_swigt__p_scsi_read10_cdb,
+  &_swigt__p_scsi_read12_cdb,
+  &_swigt__p_scsi_read16_cdb,
+  &_swigt__p_scsi_read6_cdb,
+  &_swigt__p_scsi_readcapacity10,
+  &_swigt__p_scsi_readcapacity16,
+  &_swigt__p_scsi_report_supported_op_codes,
+  &_swigt__p_scsi_report_supported_op_codes_one_command,
+  &_swigt__p_scsi_reportluns_list,
+  &_swigt__p_scsi_sense,
   &_swigt__p_scsi_task,
+  &_swigt__p_scsi_verify10_cdb,
+  &_swigt__p_scsi_verify12_cdb,
+  &_swigt__p_scsi_verify16_cdb,
+  &_swigt__p_scsi_write10_cdb,
+  &_swigt__p_scsi_write12_cdb,
+  &_swigt__p_scsi_write16_cdb,
   &_swigt__p_short,
   &_swigt__p_signed_char,
+  &_swigt__p_ssize_t,
   &_swigt__p_unmap_list,
   &_swigt__p_unsigned_char,
   &_swigt__p_unsigned_int,
   &_swigt__p_unsigned_long_long,
   &_swigt__p_unsigned_short,
+  &_swigt__p_void,
 };
 
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -9318,15 +25777,49 @@ static swig_cast_info _swigc__p_iscsi_discovery_address[] = {  {&_swigt__p_iscsi
 static swig_cast_info _swigc__p_iscsi_target_portal[] = {  {&_swigt__p_iscsi_target_portal, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_iscsi_url[] = {  {&_swigt__p_iscsi_url, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_scsi_mode_page[] = {  {&_swigt__p_scsi_mode_page, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_command_descriptor[] = {  {&_swigt__p_scsi_command_descriptor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_data[] = {  {&_swigt__p_scsi_data, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_get_lba_status[] = {  {&_swigt__p_scsi_get_lba_status, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_block_device_characteristics[] = {  {&_swigt__p_scsi_inquiry_block_device_characteristics, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_block_limits[] = {  {&_swigt__p_scsi_inquiry_block_limits, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_device_designator[] = {  {&_swigt__p_scsi_inquiry_device_designator, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_device_identification[] = {  {&_swigt__p_scsi_inquiry_device_identification, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_logical_block_provisioning[] = {  {&_swigt__p_scsi_inquiry_logical_block_provisioning, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_standard[] = {  {&_swigt__p_scsi_inquiry_standard, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_supported_pages[] = {  {&_swigt__p_scsi_inquiry_supported_pages, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_inquiry_unit_serial_number[] = {  {&_swigt__p_scsi_inquiry_unit_serial_number, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_lba_status_descriptor[] = {  {&_swigt__p_scsi_lba_status_descriptor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_op_timeout_descriptor[] = {  {&_swigt__p_scsi_op_timeout_descriptor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_persistent_reserve_in_read_keys[] = {  {&_swigt__p_scsi_persistent_reserve_in_read_keys, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_persistent_reserve_in_read_reservation[] = {  {&_swigt__p_scsi_persistent_reserve_in_read_reservation, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_persistent_reserve_in_report_capabilities[] = {  {&_swigt__p_scsi_persistent_reserve_in_report_capabilities, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_persistent_reserve_out_basic[] = {  {&_swigt__p_scsi_persistent_reserve_out_basic, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_read10_cdb[] = {  {&_swigt__p_scsi_read10_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_read12_cdb[] = {  {&_swigt__p_scsi_read12_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_read16_cdb[] = {  {&_swigt__p_scsi_read16_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_read6_cdb[] = {  {&_swigt__p_scsi_read6_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_readcapacity10[] = {  {&_swigt__p_scsi_readcapacity10, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_readcapacity16[] = {  {&_swigt__p_scsi_readcapacity16, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_report_supported_op_codes[] = {  {&_swigt__p_scsi_report_supported_op_codes, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_report_supported_op_codes_one_command[] = {  {&_swigt__p_scsi_report_supported_op_codes_one_command, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_reportluns_list[] = {  {&_swigt__p_scsi_reportluns_list, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_sense[] = {  {&_swigt__p_scsi_sense, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_scsi_task[] = {  {&_swigt__p_scsi_task, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_verify10_cdb[] = {  {&_swigt__p_scsi_verify10_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_verify12_cdb[] = {  {&_swigt__p_scsi_verify12_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_verify16_cdb[] = {  {&_swigt__p_scsi_verify16_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_write10_cdb[] = {  {&_swigt__p_scsi_write10_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_write12_cdb[] = {  {&_swigt__p_scsi_write12_cdb, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_scsi_write16_cdb[] = {  {&_swigt__p_scsi_write16_cdb, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ssize_t[] = {  {&_swigt__p_ssize_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unmap_list[] = {  {&_swigt__p_unmap_list, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_long_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_char,
@@ -9337,15 +25830,49 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_iscsi_target_portal,
   _swigc__p_iscsi_url,
   _swigc__p_long_long,
-  _swigc__p_scsi_mode_page,
+  _swigc__p_scsi_command_descriptor,
+  _swigc__p_scsi_data,
+  _swigc__p_scsi_get_lba_status,
+  _swigc__p_scsi_inquiry_block_device_characteristics,
+  _swigc__p_scsi_inquiry_block_limits,
+  _swigc__p_scsi_inquiry_device_designator,
+  _swigc__p_scsi_inquiry_device_identification,
+  _swigc__p_scsi_inquiry_logical_block_provisioning,
+  _swigc__p_scsi_inquiry_standard,
+  _swigc__p_scsi_inquiry_supported_pages,
+  _swigc__p_scsi_inquiry_unit_serial_number,
+  _swigc__p_scsi_lba_status_descriptor,
+  _swigc__p_scsi_op_timeout_descriptor,
+  _swigc__p_scsi_persistent_reserve_in_read_keys,
+  _swigc__p_scsi_persistent_reserve_in_read_reservation,
+  _swigc__p_scsi_persistent_reserve_in_report_capabilities,
+  _swigc__p_scsi_persistent_reserve_out_basic,
+  _swigc__p_scsi_read10_cdb,
+  _swigc__p_scsi_read12_cdb,
+  _swigc__p_scsi_read16_cdb,
+  _swigc__p_scsi_read6_cdb,
+  _swigc__p_scsi_readcapacity10,
+  _swigc__p_scsi_readcapacity16,
+  _swigc__p_scsi_report_supported_op_codes,
+  _swigc__p_scsi_report_supported_op_codes_one_command,
+  _swigc__p_scsi_reportluns_list,
+  _swigc__p_scsi_sense,
   _swigc__p_scsi_task,
+  _swigc__p_scsi_verify10_cdb,
+  _swigc__p_scsi_verify12_cdb,
+  _swigc__p_scsi_verify16_cdb,
+  _swigc__p_scsi_write10_cdb,
+  _swigc__p_scsi_write12_cdb,
+  _swigc__p_scsi_write16_cdb,
   _swigc__p_short,
   _swigc__p_signed_char,
+  _swigc__p_ssize_t,
   _swigc__p_unmap_list,
   _swigc__p_unsigned_char,
   _swigc__p_unsigned_int,
   _swigc__p_unsigned_long_long,
   _swigc__p_unsigned_short,
+  _swigc__p_void,
 };
 
 
@@ -10062,6 +26589,242 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ISCSI_TM_TARGET_WARM_RESET",SWIG_From_int((int)(ISCSI_TM_TARGET_WARM_RESET)));
   SWIG_Python_SetConstant(d, "ISCSI_TM_TARGET_COLD_RESET",SWIG_From_int((int)(ISCSI_TM_TARGET_COLD_RESET)));
   SWIG_Python_SetConstant(d, "ISCSI_TM_TASK_REASSIGN",SWIG_From_int((int)(ISCSI_TM_TASK_REASSIGN)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_TESTUNITREADY",SWIG_From_int((int)(SCSI_OPCODE_TESTUNITREADY)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_READ6",SWIG_From_int((int)(SCSI_OPCODE_READ6)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_INQUIRY",SWIG_From_int((int)(SCSI_OPCODE_INQUIRY)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_MODESELECT6",SWIG_From_int((int)(SCSI_OPCODE_MODESELECT6)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_RESERVE6",SWIG_From_int((int)(SCSI_OPCODE_RESERVE6)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_RELEASE6",SWIG_From_int((int)(SCSI_OPCODE_RELEASE6)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_MODESENSE6",SWIG_From_int((int)(SCSI_OPCODE_MODESENSE6)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_STARTSTOPUNIT",SWIG_From_int((int)(SCSI_OPCODE_STARTSTOPUNIT)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_PREVENTALLOW",SWIG_From_int((int)(SCSI_OPCODE_PREVENTALLOW)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_READCAPACITY10",SWIG_From_int((int)(SCSI_OPCODE_READCAPACITY10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_READ10",SWIG_From_int((int)(SCSI_OPCODE_READ10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE10",SWIG_From_int((int)(SCSI_OPCODE_WRITE10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE_VERIFY10",SWIG_From_int((int)(SCSI_OPCODE_WRITE_VERIFY10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_VERIFY10",SWIG_From_int((int)(SCSI_OPCODE_VERIFY10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_PREFETCH10",SWIG_From_int((int)(SCSI_OPCODE_PREFETCH10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_SYNCHRONIZECACHE10",SWIG_From_int((int)(SCSI_OPCODE_SYNCHRONIZECACHE10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE_SAME10",SWIG_From_int((int)(SCSI_OPCODE_WRITE_SAME10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_UNMAP",SWIG_From_int((int)(SCSI_OPCODE_UNMAP)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_READTOC",SWIG_From_int((int)(SCSI_OPCODE_READTOC)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_SANITIZE",SWIG_From_int((int)(SCSI_OPCODE_SANITIZE)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_MODESELECT10",SWIG_From_int((int)(SCSI_OPCODE_MODESELECT10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_MODESENSE10",SWIG_From_int((int)(SCSI_OPCODE_MODESENSE10)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_PERSISTENT_RESERVE_IN",SWIG_From_int((int)(SCSI_OPCODE_PERSISTENT_RESERVE_IN)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_PERSISTENT_RESERVE_OUT",SWIG_From_int((int)(SCSI_OPCODE_PERSISTENT_RESERVE_OUT)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_READ16",SWIG_From_int((int)(SCSI_OPCODE_READ16)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_COMPARE_AND_WRITE",SWIG_From_int((int)(SCSI_OPCODE_COMPARE_AND_WRITE)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE16",SWIG_From_int((int)(SCSI_OPCODE_WRITE16)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_ORWRITE",SWIG_From_int((int)(SCSI_OPCODE_ORWRITE)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE_VERIFY16",SWIG_From_int((int)(SCSI_OPCODE_WRITE_VERIFY16)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_VERIFY16",SWIG_From_int((int)(SCSI_OPCODE_VERIFY16)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_PREFETCH16",SWIG_From_int((int)(SCSI_OPCODE_PREFETCH16)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_SYNCHRONIZECACHE16",SWIG_From_int((int)(SCSI_OPCODE_SYNCHRONIZECACHE16)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE_SAME16",SWIG_From_int((int)(SCSI_OPCODE_WRITE_SAME16)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_SERVICE_ACTION_IN",SWIG_From_int((int)(SCSI_OPCODE_SERVICE_ACTION_IN)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_REPORTLUNS",SWIG_From_int((int)(SCSI_OPCODE_REPORTLUNS)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_MAINTENANCE_IN",SWIG_From_int((int)(SCSI_OPCODE_MAINTENANCE_IN)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_READ12",SWIG_From_int((int)(SCSI_OPCODE_READ12)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE12",SWIG_From_int((int)(SCSI_OPCODE_WRITE12)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_WRITE_VERIFY12",SWIG_From_int((int)(SCSI_OPCODE_WRITE_VERIFY12)));
+  SWIG_Python_SetConstant(d, "SCSI_OPCODE_VERIFY12",SWIG_From_int((int)(SCSI_OPCODE_VERIFY12)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_READ_KEYS",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_READ_KEYS)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_READ_RESERVATION",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_READ_RESERVATION)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_REPORT_CAPABILITIES",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_REPORT_CAPABILITIES)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_READ_FULL_STATUS",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_READ_FULL_STATUS)));
+  SWIG_Python_SetConstant(d, "SCSI_READCAPACITY16",SWIG_From_int((int)(SCSI_READCAPACITY16)));
+  SWIG_Python_SetConstant(d, "SCSI_GET_LBA_STATUS",SWIG_From_int((int)(SCSI_GET_LBA_STATUS)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_REGISTER",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_REGISTER)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_RESERVE",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_RESERVE)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_RELEASE",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_RELEASE)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_CLEAR",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_CLEAR)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_PREEMPT",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_PREEMPT)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_PREEMPT_AND_ABORT",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_PREEMPT_AND_ABORT)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_REGISTER_AND_IGNORE_EXISTING_KEY",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_REGISTER_AND_IGNORE_EXISTING_KEY)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_REGISTER_AND_MOVE",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_REGISTER_AND_MOVE)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_SCOPE_LU",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_SCOPE_LU)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_REGISTRANTS_ONLY",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_REGISTRANTS_ONLY)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_ALL_REGISTRANTS",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_TYPE_WRITE_EXCLUSIVE_ALL_REGISTRANTS)));
+  SWIG_Python_SetConstant(d, "SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_ALL_REGISTRANTS",SWIG_From_int((int)(SCSI_PERSISTENT_RESERVE_TYPE_EXCLUSIVE_ACCESS_ALL_REGISTRANTS)));
+  SWIG_Python_SetConstant(d, "SCSI_REPORT_SUPPORTED_OP_CODES",SWIG_From_int((int)(SCSI_REPORT_SUPPORTED_OP_CODES)));
+  SWIG_Python_SetConstant(d, "SCSI_REPORT_SUPPORTING_OPS_ALL",SWIG_From_int((int)(SCSI_REPORT_SUPPORTING_OPS_ALL)));
+  SWIG_Python_SetConstant(d, "SCSI_REPORT_SUPPORTING_OPCODE",SWIG_From_int((int)(SCSI_REPORT_SUPPORTING_OPCODE)));
+  SWIG_Python_SetConstant(d, "SCSI_REPORT_SUPPORTING_SERVICEACTION",SWIG_From_int((int)(SCSI_REPORT_SUPPORTING_SERVICEACTION)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_NO_SENSE",SWIG_From_int((int)(SCSI_SENSE_NO_SENSE)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_RECOVERED_ERROR",SWIG_From_int((int)(SCSI_SENSE_RECOVERED_ERROR)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_NOT_READY",SWIG_From_int((int)(SCSI_SENSE_NOT_READY)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_MEDIUM_ERROR",SWIG_From_int((int)(SCSI_SENSE_MEDIUM_ERROR)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_HARDWARE_ERROR",SWIG_From_int((int)(SCSI_SENSE_HARDWARE_ERROR)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ILLEGAL_REQUEST",SWIG_From_int((int)(SCSI_SENSE_ILLEGAL_REQUEST)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_UNIT_ATTENTION",SWIG_From_int((int)(SCSI_SENSE_UNIT_ATTENTION)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_DATA_PROTECTION",SWIG_From_int((int)(SCSI_SENSE_DATA_PROTECTION)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_BLANK_CHECK",SWIG_From_int((int)(SCSI_SENSE_BLANK_CHECK)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_VENDOR_SPECIFIC",SWIG_From_int((int)(SCSI_SENSE_VENDOR_SPECIFIC)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_COPY_ABORTED",SWIG_From_int((int)(SCSI_SENSE_COPY_ABORTED)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_COMMAND_ABORTED",SWIG_From_int((int)(SCSI_SENSE_COMMAND_ABORTED)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_OBSOLETE_ERROR_CODE",SWIG_From_int((int)(SCSI_SENSE_OBSOLETE_ERROR_CODE)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_OVERFLOW_COMMAND",SWIG_From_int((int)(SCSI_SENSE_OVERFLOW_COMMAND)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_MISCOMPARE",SWIG_From_int((int)(SCSI_SENSE_MISCOMPARE)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_SANITIZE_IN_PROGRESS",SWIG_From_int((int)(0x041b)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_WRITE_AFTER_SANITIZE_REQUIRED",SWIG_From_int((int)(0x1115)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_PARAMETER_LIST_LENGTH_ERROR",SWIG_From_int((int)(0x1a00)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MISCOMPARE_DURING_VERIFY",SWIG_From_int((int)(0x1d00)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MISCOMPARE_VERIFY_OF_UNMAPPED_LBA",SWIG_From_int((int)(0x1d01)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_INVALID_OPERATION_CODE",SWIG_From_int((int)(0x2000)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_LBA_OUT_OF_RANGE",SWIG_From_int((int)(0x2100)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_INVALID_FIELD_IN_CDB",SWIG_From_int((int)(0x2400)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_LOGICAL_UNIT_NOT_SUPPORTED",SWIG_From_int((int)(0x2500)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_INVALID_FIELD_IN_PARAMETER_LIST",SWIG_From_int((int)(0x2600)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_WRITE_PROTECTED",SWIG_From_int((int)(0x2700)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_BUS_RESET",SWIG_From_int((int)(0x2900)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_POWER_ON_OCCURED",SWIG_From_int((int)(0x2901)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_SCSI_BUS_RESET_OCCURED",SWIG_From_int((int)(0x2902)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_BUS_DEVICE_RESET_FUNCTION_OCCURED",SWIG_From_int((int)(0x2903)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_DEVICE_INTERNAL_RESET",SWIG_From_int((int)(0x2904)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_TRANSCEIVER_MODE_CHANGED_TO_SINGLE_ENDED",SWIG_From_int((int)(0x2905)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_TRANSCEIVER_MODE_CHANGED_TO_LVD",SWIG_From_int((int)(0x2906)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_NEXUS_LOSS",SWIG_From_int((int)(0x2907)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MODE_PARAMETERS_CHANGED",SWIG_From_int((int)(0x2a01)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_CAPACITY_DATA_HAS_CHANGED",SWIG_From_int((int)(0x2a09)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_THIN_PROVISION_SOFT_THRES_REACHED",SWIG_From_int((int)(0x3807)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT",SWIG_From_int((int)(0x3a00)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT_TRAY_CLOSED",SWIG_From_int((int)(0x3a01)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MEDIUM_NOT_PRESENT_TRAY_OPEN",SWIG_From_int((int)(0x3a02)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_INQUIRY_DATA_HAS_CHANGED",SWIG_From_int((int)(0x3f03)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_INTERNAL_TARGET_FAILURE",SWIG_From_int((int)(0x4400)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MEDIUM_LOAD_OR_EJECT_FAILED",SWIG_From_int((int)(0x5300)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_MEDIUM_REMOVAL_PREVENTED",SWIG_From_int((int)(0x5302)));
+  SWIG_Python_SetConstant(d, "SCSI_SENSE_ASCQ_INVALID_FIELD_IN_INFORMATION_UNIT",SWIG_From_int((int)(0x0e03)));
+  SWIG_Python_SetConstant(d, "SCSI_XFER_NONE",SWIG_From_int((int)(SCSI_XFER_NONE)));
+  SWIG_Python_SetConstant(d, "SCSI_XFER_READ",SWIG_From_int((int)(SCSI_XFER_READ)));
+  SWIG_Python_SetConstant(d, "SCSI_XFER_WRITE",SWIG_From_int((int)(SCSI_XFER_WRITE)));
+  SWIG_Python_SetConstant(d, "SCSI_RESIDUAL_NO_RESIDUAL",SWIG_From_int((int)(SCSI_RESIDUAL_NO_RESIDUAL)));
+  SWIG_Python_SetConstant(d, "SCSI_RESIDUAL_UNDERFLOW",SWIG_From_int((int)(SCSI_RESIDUAL_UNDERFLOW)));
+  SWIG_Python_SetConstant(d, "SCSI_RESIDUAL_OVERFLOW",SWIG_From_int((int)(SCSI_RESIDUAL_OVERFLOW)));
+  SWIG_Python_SetConstant(d, "SCSI_SANITIZE_OVERWRITE",SWIG_From_int((int)(0x01)));
+  SWIG_Python_SetConstant(d, "SCSI_SANITIZE_BLOCK_ERASE",SWIG_From_int((int)(0x02)));
+  SWIG_Python_SetConstant(d, "SCSI_SANITIZE_CRYPTO_ERASE",SWIG_From_int((int)(0x03)));
+  SWIG_Python_SetConstant(d, "SCSI_SANITIZE_EXIT_FAILURE_MODE",SWIG_From_int((int)(0x1f)));
+  SWIG_Python_SetConstant(d, "SCSI_REPORTLUNS_REPORT_ALL_LUNS",SWIG_From_int((int)(0x00)));
+  SWIG_Python_SetConstant(d, "SCSI_REPORTLUNS_REPORT_WELL_KNOWN_ONLY",SWIG_From_int((int)(0x01)));
+  SWIG_Python_SetConstant(d, "SCSI_REPORTLUNS_REPORT_AVAILABLE_LUNS_ONLY",SWIG_From_int((int)(0x02)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_QUALIFIER_CONNECTED",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_QUALIFIER_CONNECTED)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_QUALIFIER_DISCONNECTED",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_QUALIFIER_DISCONNECTED)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_QUALIFIER_NOT_SUPPORTED",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_QUALIFIER_NOT_SUPPORTED)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_DIRECT_ACCESS",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_DIRECT_ACCESS)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQUENTIAL_ACCESS",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQUENTIAL_ACCESS)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PRINTER",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PRINTER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PROCESSOR",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_PROCESSOR)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WRITE_ONCE",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WRITE_ONCE)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MMC",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MMC)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SCANNER",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SCANNER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_MEMORY",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_MEMORY)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MEDIA_CHANGER",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_MEDIA_CHANGER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_COMMUNICATIONS",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_COMMUNICATIONS)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_STORAGE_ARRAY_CONTROLLER",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_STORAGE_ARRAY_CONTROLLER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_ENCLOSURE_SERVICES",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_ENCLOSURE_SERVICES)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SIMPLIFIED_DIRECT_ACCESS",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SIMPLIFIED_DIRECT_ACCESS)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_CARD_READER",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OPTICAL_CARD_READER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_BRIDGE_CONTROLLER",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_BRIDGE_CONTROLLER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OSD",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_OSD)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_AUTOMATION",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_AUTOMATION)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQURITY_MANAGER",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_SEQURITY_MANAGER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WELL_KNOWN_LUN",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_WELL_KNOWN_LUN)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_UNKNOWN",SWIG_From_int((int)(SCSI_INQUIRY_PERIPHERAL_DEVICE_TYPE_UNKNOWN)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_SPC",SWIG_From_int((int)(SCSI_VERSION_SPC)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_SPC2",SWIG_From_int((int)(SCSI_VERSION_SPC2)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_SPC3",SWIG_From_int((int)(SCSI_VERSION_SPC3)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_ISCSI",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_ISCSI)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_ANSI_INCITS_306_1998",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_ANSI_INCITS_306_1998)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_T10_0996_D_R08C",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_T10_0996_D_R08C)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_2",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_2)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_2_ISO_IEC_14776_322",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_2_ISO_IEC_14776_322)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_2_ANSI_INCITS_405_2005",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_2_ANSI_INCITS_405_2005)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R16",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R16)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R5A",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R5A)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R15",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_2_T10_1417_D_R15)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SBC_3",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SBC_3)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_ANSI_INCITS_301_1997",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_ANSI_INCITS_301_1997)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_T10_0995_D_R11A",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_T10_0995_D_R11A)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_2",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_2)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_2_ISO_IEC_14776_452",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_2_ISO_IEC_14776_452)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_2_ANSI_INCITS_351_2001",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_2_ANSI_INCITS_351_2001)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R20",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R20)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R12",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R12)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R18",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R18)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R19",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_2_T10_1236_D_R19)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_3",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_3)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_3_ISO_IEC_14776_453",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_3_ISO_IEC_14776_453)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_3_ANSI_INCITS_408_2005",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_3_ANSI_INCITS_408_2005)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R7",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R7)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R21",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R21)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R22",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R22)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R23",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_3_T10_1416_D_R23)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_4",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_4)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R16",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R16)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R18",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R18)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R23",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SPC_4_T10_1731_D_R23)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_SSC",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_SSC)));
+  SWIG_Python_SetConstant(d, "SCSI_VERSION_DESCRIPTOR_UAS_T10_2095D_R04",SWIG_From_int((int)(SCSI_VERSION_DESCRIPTOR_UAS_T10_2095D_R04)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_TPGS_NO_SUPPORT",SWIG_From_int((int)(SCSI_INQUIRY_TPGS_NO_SUPPORT)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_TPGS_IMPLICIT",SWIG_From_int((int)(SCSI_INQUIRY_TPGS_IMPLICIT)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_TPGS_EXPLICIT",SWIG_From_int((int)(SCSI_INQUIRY_TPGS_EXPLICIT)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_TPGS_IMPLICIT_AND_EXPLICIT",SWIG_From_int((int)(SCSI_INQUIRY_TPGS_IMPLICIT_AND_EXPLICIT)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PAGECODE_SUPPORTED_VPD_PAGES",SWIG_From_int((int)(SCSI_INQUIRY_PAGECODE_SUPPORTED_VPD_PAGES)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PAGECODE_UNIT_SERIAL_NUMBER",SWIG_From_int((int)(SCSI_INQUIRY_PAGECODE_UNIT_SERIAL_NUMBER)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PAGECODE_DEVICE_IDENTIFICATION",SWIG_From_int((int)(SCSI_INQUIRY_PAGECODE_DEVICE_IDENTIFICATION)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PAGECODE_BLOCK_LIMITS",SWIG_From_int((int)(SCSI_INQUIRY_PAGECODE_BLOCK_LIMITS)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PAGECODE_BLOCK_DEVICE_CHARACTERISTICS",SWIG_From_int((int)(SCSI_INQUIRY_PAGECODE_BLOCK_DEVICE_CHARACTERISTICS)));
+  SWIG_Python_SetConstant(d, "SCSI_INQUIRY_PAGECODE_LOGICAL_BLOCK_PROVISIONING",SWIG_From_int((int)(SCSI_INQUIRY_PAGECODE_LOGICAL_BLOCK_PROVISIONING)));
+  SWIG_Python_SetConstant(d, "PROVISIONING_TYPE_NONE",SWIG_From_int((int)(PROVISIONING_TYPE_NONE)));
+  SWIG_Python_SetConstant(d, "PROVISIONING_TYPE_RESOURCE",SWIG_From_int((int)(PROVISIONING_TYPE_RESOURCE)));
+  SWIG_Python_SetConstant(d, "PROVISIONING_TYPE_THIN",SWIG_From_int((int)(PROVISIONING_TYPE_THIN)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_FIBRE_CHANNEL",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_FIBRE_CHANNEL)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_PARALLEL_SCSI",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_PARALLEL_SCSI)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_SSA",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_SSA)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_IEEE_1394",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_IEEE_1394)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_RDMA",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_RDMA)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_ISCSI",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_ISCSI)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_SAS",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_SAS)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_ADT",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_ADT)));
+  SWIG_Python_SetConstant(d, "SCSI_PROTOCOL_IDENTIFIER_ATA",SWIG_From_int((int)(SCSI_PROTOCOL_IDENTIFIER_ATA)));
+  SWIG_Python_SetConstant(d, "SCSI_CODESET_BINARY",SWIG_From_int((int)(SCSI_CODESET_BINARY)));
+  SWIG_Python_SetConstant(d, "SCSI_CODESET_ASCII",SWIG_From_int((int)(SCSI_CODESET_ASCII)));
+  SWIG_Python_SetConstant(d, "SCSI_CODESET_UTF8",SWIG_From_int((int)(SCSI_CODESET_UTF8)));
+  SWIG_Python_SetConstant(d, "SCSI_ASSOCIATION_LOGICAL_UNIT",SWIG_From_int((int)(SCSI_ASSOCIATION_LOGICAL_UNIT)));
+  SWIG_Python_SetConstant(d, "SCSI_ASSOCIATION_TARGET_PORT",SWIG_From_int((int)(SCSI_ASSOCIATION_TARGET_PORT)));
+  SWIG_Python_SetConstant(d, "SCSI_ASSOCIATION_TARGET_DEVICE",SWIG_From_int((int)(SCSI_ASSOCIATION_TARGET_DEVICE)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_VENDOR_SPECIFIC",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_VENDOR_SPECIFIC)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_T10_VENDORT_ID",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_T10_VENDORT_ID)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_EUI_64",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_EUI_64)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_NAA",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_NAA)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_RELATIVE_TARGET_PORT",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_RELATIVE_TARGET_PORT)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_TARGET_PORT_GROUP",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_TARGET_PORT_GROUP)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_LOGICAL_UNIT_GROUP",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_LOGICAL_UNIT_GROUP)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_MD5_LOGICAL_UNIT_IDENTIFIER",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_MD5_LOGICAL_UNIT_IDENTIFIER)));
+  SWIG_Python_SetConstant(d, "SCSI_DESIGNATOR_TYPE_SCSI_NAME_STRING",SWIG_From_int((int)(SCSI_DESIGNATOR_TYPE_SCSI_NAME_STRING)));
+  SWIG_Python_SetConstant(d, "SCSI_MODESENSE_PC_CURRENT",SWIG_From_int((int)(SCSI_MODESENSE_PC_CURRENT)));
+  SWIG_Python_SetConstant(d, "SCSI_MODESENSE_PC_CHANGEABLE",SWIG_From_int((int)(SCSI_MODESENSE_PC_CHANGEABLE)));
+  SWIG_Python_SetConstant(d, "SCSI_MODESENSE_PC_DEFAULT",SWIG_From_int((int)(SCSI_MODESENSE_PC_DEFAULT)));
+  SWIG_Python_SetConstant(d, "SCSI_MODESENSE_PC_SAVED",SWIG_From_int((int)(SCSI_MODESENSE_PC_SAVED)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_READ_WRITE_ERROR_RECOVERY",SWIG_From_int((int)(SCSI_MODEPAGE_READ_WRITE_ERROR_RECOVERY)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_DISCONNECT_RECONNECT",SWIG_From_int((int)(SCSI_MODEPAGE_DISCONNECT_RECONNECT)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_VERIFY_ERROR_RECOVERY",SWIG_From_int((int)(SCSI_MODEPAGE_VERIFY_ERROR_RECOVERY)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_CACHING",SWIG_From_int((int)(SCSI_MODEPAGE_CACHING)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_XOR_CONTROL",SWIG_From_int((int)(SCSI_MODEPAGE_XOR_CONTROL)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_CONTROL",SWIG_From_int((int)(SCSI_MODEPAGE_CONTROL)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_POWER_CONDITION",SWIG_From_int((int)(SCSI_MODEPAGE_POWER_CONDITION)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_INFORMATIONAL_EXCEPTIONS_CONTROL",SWIG_From_int((int)(SCSI_MODEPAGE_INFORMATIONAL_EXCEPTIONS_CONTROL)));
+  SWIG_Python_SetConstant(d, "SCSI_MODEPAGE_RETURN_ALL_PAGES",SWIG_From_int((int)(SCSI_MODEPAGE_RETURN_ALL_PAGES)));
+  SWIG_Python_SetConstant(d, "SCSI_PROVISIONING_TYPE_MAPPED",SWIG_From_int((int)(SCSI_PROVISIONING_TYPE_MAPPED)));
+  SWIG_Python_SetConstant(d, "SCSI_PROVISIONING_TYPE_DEALLOCATED",SWIG_From_int((int)(SCSI_PROVISIONING_TYPE_DEALLOCATED)));
+  SWIG_Python_SetConstant(d, "SCSI_PROVISIONING_TYPE_ANCHORED",SWIG_From_int((int)(SCSI_PROVISIONING_TYPE_ANCHORED)));
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else
