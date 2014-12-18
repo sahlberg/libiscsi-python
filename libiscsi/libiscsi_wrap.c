@@ -2954,15 +2954,14 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_scsi_write16_cdb swig_types[41]
 #define SWIGTYPE_p_short swig_types[42]
 #define SWIGTYPE_p_signed_char swig_types[43]
-#define SWIGTYPE_p_ssize_t swig_types[44]
-#define SWIGTYPE_p_unmap_list swig_types[45]
-#define SWIGTYPE_p_unsigned_char swig_types[46]
-#define SWIGTYPE_p_unsigned_int swig_types[47]
-#define SWIGTYPE_p_unsigned_long_long swig_types[48]
-#define SWIGTYPE_p_unsigned_short swig_types[49]
-#define SWIGTYPE_p_void swig_types[50]
-static swig_type_info *swig_types[52];
-static swig_module_info swig_module = {swig_types, 51, 0, 0, 0, 0};
+#define SWIGTYPE_p_unmap_list swig_types[44]
+#define SWIGTYPE_p_unsigned_char swig_types[45]
+#define SWIGTYPE_p_unsigned_int swig_types[46]
+#define SWIGTYPE_p_unsigned_long_long swig_types[47]
+#define SWIGTYPE_p_unsigned_short swig_types[48]
+#define SWIGTYPE_p_void swig_types[49]
+static swig_type_info *swig_types[51];
+static swig_module_info swig_module = {swig_types, 50, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -22989,86 +22988,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_scsi_task_get_data_in_buffer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
-  uint32_t arg2 ;
-  ssize_t *arg3 = (ssize_t *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  unsigned char *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:scsi_task_get_data_in_buffer",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_task_get_data_in_buffer" "', argument " "1"" of type '" "struct scsi_task *""'"); 
-  }
-  arg1 = (struct scsi_task *)(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_task_get_data_in_buffer" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = (uint32_t)(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_ssize_t, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "scsi_task_get_data_in_buffer" "', argument " "3"" of type '" "ssize_t *""'"); 
-  }
-  arg3 = (ssize_t *)(argp3);
-  result = (unsigned char *)scsi_task_get_data_in_buffer(arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_scsi_task_get_data_out_buffer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  struct scsi_task *arg1 = (struct scsi_task *) 0 ;
-  uint32_t arg2 ;
-  ssize_t *arg3 = (ssize_t *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  unsigned char *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:scsi_task_get_data_out_buffer",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_scsi_task, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_task_get_data_out_buffer" "', argument " "1"" of type '" "struct scsi_task *""'"); 
-  }
-  arg1 = (struct scsi_task *)(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "scsi_task_get_data_out_buffer" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = (uint32_t)(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_ssize_t, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "scsi_task_get_data_out_buffer" "', argument " "3"" of type '" "ssize_t *""'"); 
-  }
-  arg3 = (ssize_t *)(argp3);
-  result = (unsigned char *)scsi_task_get_data_out_buffer(arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_scsi_cdb_compareandwrite(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   uint64_t arg1 ;
@@ -25625,8 +25544,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"scsi_datain_getfullsize", _wrap_scsi_datain_getfullsize, METH_VARARGS, NULL},
 	 { (char *)"scsi_datain_unmarshall", _wrap_scsi_datain_unmarshall, METH_VARARGS, NULL},
 	 { (char *)"scsi_cdb_unmarshall", _wrap_scsi_cdb_unmarshall, METH_VARARGS, NULL},
-	 { (char *)"scsi_task_get_data_in_buffer", _wrap_scsi_task_get_data_in_buffer, METH_VARARGS, NULL},
-	 { (char *)"scsi_task_get_data_out_buffer", _wrap_scsi_task_get_data_out_buffer, METH_VARARGS, NULL},
 	 { (char *)"scsi_cdb_compareandwrite", _wrap_scsi_cdb_compareandwrite, METH_VARARGS, NULL},
 	 { (char *)"scsi_cdb_get_lba_status", _wrap_scsi_cdb_get_lba_status, METH_VARARGS, NULL},
 	 { (char *)"scsi_cdb_orwrite", _wrap_scsi_cdb_orwrite, METH_VARARGS, NULL},
@@ -25707,7 +25624,6 @@ static swig_type_info _swigt__p_scsi_write12_cdb = {"_p_scsi_write12_cdb", "stru
 static swig_type_info _swigt__p_scsi_write16_cdb = {"_p_scsi_write16_cdb", "struct scsi_write16_cdb *|scsi_write16_cdb *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_short = {"_p_short", "short *|int_least16_t *|int16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "signed char *|int_least8_t *|int_fast8_t *|int8_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_ssize_t = {"_p_ssize_t", "ssize_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unmap_list = {"_p_unmap_list", "struct unmap_list *|unmap_list *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *|uint_least8_t *|uint_fast8_t *|uint8_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uintptr_t *|uint_least32_t *|uint_fast32_t *|uint32_t *|unsigned int *|uint_fast16_t *", 0, 0, (void*)0, 0};
@@ -25760,7 +25676,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_scsi_write16_cdb,
   &_swigt__p_short,
   &_swigt__p_signed_char,
-  &_swigt__p_ssize_t,
   &_swigt__p_unmap_list,
   &_swigt__p_unsigned_char,
   &_swigt__p_unsigned_int,
@@ -25813,7 +25728,6 @@ static swig_cast_info _swigc__p_scsi_write12_cdb[] = {  {&_swigt__p_scsi_write12
 static swig_cast_info _swigc__p_scsi_write16_cdb[] = {  {&_swigt__p_scsi_write16_cdb, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_ssize_t[] = {  {&_swigt__p_ssize_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unmap_list[] = {  {&_swigt__p_unmap_list, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
@@ -25866,7 +25780,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_scsi_write16_cdb,
   _swigc__p_short,
   _swigc__p_signed_char,
-  _swigc__p_ssize_t,
   _swigc__p_unmap_list,
   _swigc__p_unsigned_char,
   _swigc__p_unsigned_int,

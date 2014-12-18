@@ -2090,14 +2090,6 @@ def scsi_cdb_unmarshall(*args):
   return _libiscsi.scsi_cdb_unmarshall(*args)
 scsi_cdb_unmarshall = _libiscsi.scsi_cdb_unmarshall
 
-def scsi_task_get_data_in_buffer(*args):
-  return _libiscsi.scsi_task_get_data_in_buffer(*args)
-scsi_task_get_data_in_buffer = _libiscsi.scsi_task_get_data_in_buffer
-
-def scsi_task_get_data_out_buffer(*args):
-  return _libiscsi.scsi_task_get_data_out_buffer(*args)
-scsi_task_get_data_out_buffer = _libiscsi.scsi_task_get_data_out_buffer
-
 def scsi_cdb_compareandwrite(*args):
   return _libiscsi.scsi_cdb_compareandwrite(*args)
 scsi_cdb_compareandwrite = _libiscsi.scsi_cdb_compareandwrite

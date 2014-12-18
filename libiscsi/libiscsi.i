@@ -1159,9 +1159,6 @@ extern int scsi_datain_getfullsize(struct scsi_task *task);
 extern void *scsi_datain_unmarshall(struct scsi_task *task);
 extern void *scsi_cdb_unmarshall(struct scsi_task *task, enum scsi_opcode opcode);
 
-extern unsigned char *scsi_task_get_data_in_buffer(struct scsi_task *task, uint32_t pos, ssize_t *count);
-extern unsigned char *scsi_task_get_data_out_buffer(struct scsi_task *task, uint32_t pos, ssize_t *count);
-
 extern struct scsi_task *scsi_cdb_compareandwrite(uint64_t lba, uint32_t xferlen, int blocksize, int wrprotect, int dpo, int fua, int fua_nv, int group_number);
 extern struct scsi_task *scsi_cdb_get_lba_status(uint64_t starting_lba, uint32_t alloc_len);
 extern struct scsi_task *scsi_cdb_orwrite(uint64_t lba, uint32_t xferlen, int blocksize, int wrprotect, int dpo, int fua, int fua_nv, int group_number);
