@@ -5280,8 +5280,9 @@ SWIGINTERN PyObject *_wrap_iscsi_data_data_set(PyObject *SWIGUNUSEDPARM(self), P
   unsigned char *arg2 = (unsigned char *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -5291,15 +5292,23 @@ SWIGINTERN PyObject *_wrap_iscsi_data_data_set(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "iscsi_data_data_set" "', argument " "1"" of type '" "struct iscsi_data *""'"); 
   }
   arg1 = (struct iscsi_data *)(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "iscsi_data_data_set" "', argument " "2"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "iscsi_data_data_set" "', argument " "2"" of type '" "unsigned char *""'");
   }
-  arg2 = (unsigned char *)(argp2);
-  if (arg1) (arg1)->data = arg2;
+  arg2 = (unsigned char *)(buf2);
+  if (arg1->data) free((char*)arg1->data);
+  if (arg2) {
+    size_t size = strlen((const char *)(arg2)) + 1;
+    arg1->data = (unsigned char *)(char *)memcpy((char *)malloc((size)*sizeof(char)), (const char *)(arg2), sizeof(char)*(size));
+  } else {
+    arg1->data = 0;
+  }
   resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return resultobj;
 fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return NULL;
 }
 
@@ -5319,7 +5328,7 @@ SWIGINTERN PyObject *_wrap_iscsi_data_data_get(PyObject *SWIGUNUSEDPARM(self), P
   }
   arg1 = (struct iscsi_data *)(argp1);
   result = (unsigned char *) ((arg1)->data);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  resultobj = SWIG_FromCharPtr((const char *)result);
   return resultobj;
 fail:
   return NULL;
@@ -6012,8 +6021,9 @@ SWIGINTERN PyObject *_wrap_iscsi_write10_sync(PyObject *SWIGUNUSEDPARM(self), Py
   int ecode2 = 0 ;
   unsigned int val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -6057,11 +6067,11 @@ SWIGINTERN PyObject *_wrap_iscsi_write10_sync(PyObject *SWIGUNUSEDPARM(self), Py
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_write10_sync" "', argument " "3"" of type '" "uint32_t""'");
   } 
   arg3 = (uint32_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_write10_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_write10_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_write10_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -6099,8 +6109,10 @@ SWIGINTERN PyObject *_wrap_iscsi_write10_sync(PyObject *SWIGUNUSEDPARM(self), Py
   arg11 = (int)(val11);
   result = (struct scsi_task *)iscsi_write10_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -6123,8 +6135,9 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify10_sync(PyObject *SWIGUNUSEDPARM(sel
   int ecode2 = 0 ;
   unsigned int val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -6165,11 +6178,11 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify10_sync(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_writeverify10_sync" "', argument " "3"" of type '" "uint32_t""'");
   } 
   arg3 = (uint32_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writeverify10_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writeverify10_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_writeverify10_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -6202,8 +6215,10 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify10_sync(PyObject *SWIGUNUSEDPARM(sel
   arg10 = (int)(val10);
   result = (struct scsi_task *)iscsi_writeverify10_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -6330,8 +6345,9 @@ SWIGINTERN PyObject *_wrap_iscsi_write12_sync(PyObject *SWIGUNUSEDPARM(self), Py
   int ecode2 = 0 ;
   unsigned int val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -6375,11 +6391,11 @@ SWIGINTERN PyObject *_wrap_iscsi_write12_sync(PyObject *SWIGUNUSEDPARM(self), Py
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_write12_sync" "', argument " "3"" of type '" "uint32_t""'");
   } 
   arg3 = (uint32_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_write12_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_write12_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_write12_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -6417,8 +6433,10 @@ SWIGINTERN PyObject *_wrap_iscsi_write12_sync(PyObject *SWIGUNUSEDPARM(self), Py
   arg11 = (int)(val11);
   result = (struct scsi_task *)iscsi_write12_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -6441,8 +6459,9 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify12_sync(PyObject *SWIGUNUSEDPARM(sel
   int ecode2 = 0 ;
   unsigned int val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -6483,11 +6502,11 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify12_sync(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_writeverify12_sync" "', argument " "3"" of type '" "uint32_t""'");
   } 
   arg3 = (uint32_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writeverify12_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writeverify12_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_writeverify12_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -6520,8 +6539,10 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify12_sync(PyObject *SWIGUNUSEDPARM(sel
   arg10 = (int)(val10);
   result = (struct scsi_task *)iscsi_writeverify12_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -6648,8 +6669,9 @@ SWIGINTERN PyObject *_wrap_iscsi_write16_sync(PyObject *SWIGUNUSEDPARM(self), Py
   int ecode2 = 0 ;
   unsigned long long val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -6693,11 +6715,11 @@ SWIGINTERN PyObject *_wrap_iscsi_write16_sync(PyObject *SWIGUNUSEDPARM(self), Py
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_write16_sync" "', argument " "3"" of type '" "uint64_t""'");
   } 
   arg3 = (uint64_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_write16_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_write16_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_write16_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -6735,8 +6757,10 @@ SWIGINTERN PyObject *_wrap_iscsi_write16_sync(PyObject *SWIGUNUSEDPARM(self), Py
   arg11 = (int)(val11);
   result = (struct scsi_task *)iscsi_write16_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -6760,8 +6784,9 @@ SWIGINTERN PyObject *_wrap_iscsi_orwrite_sync(PyObject *SWIGUNUSEDPARM(self), Py
   int ecode2 = 0 ;
   unsigned long long val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -6805,11 +6830,11 @@ SWIGINTERN PyObject *_wrap_iscsi_orwrite_sync(PyObject *SWIGUNUSEDPARM(self), Py
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_orwrite_sync" "', argument " "3"" of type '" "uint64_t""'");
   } 
   arg3 = (uint64_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_orwrite_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_orwrite_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_orwrite_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -6847,8 +6872,10 @@ SWIGINTERN PyObject *_wrap_iscsi_orwrite_sync(PyObject *SWIGUNUSEDPARM(self), Py
   arg11 = (int)(val11);
   result = (struct scsi_task *)iscsi_orwrite_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -6997,8 +7024,9 @@ SWIGINTERN PyObject *_wrap_iscsi_compareandwrite_sync(PyObject *SWIGUNUSEDPARM(s
   int ecode2 = 0 ;
   unsigned long long val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -7042,11 +7070,11 @@ SWIGINTERN PyObject *_wrap_iscsi_compareandwrite_sync(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_compareandwrite_sync" "', argument " "3"" of type '" "uint64_t""'");
   } 
   arg3 = (uint64_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_compareandwrite_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_compareandwrite_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_compareandwrite_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -7084,8 +7112,10 @@ SWIGINTERN PyObject *_wrap_iscsi_compareandwrite_sync(PyObject *SWIGUNUSEDPARM(s
   arg11 = (int)(val11);
   result = (struct scsi_task *)iscsi_compareandwrite_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -7108,8 +7138,9 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify16_sync(PyObject *SWIGUNUSEDPARM(sel
   int ecode2 = 0 ;
   unsigned long long val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -7150,11 +7181,11 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify16_sync(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_writeverify16_sync" "', argument " "3"" of type '" "uint64_t""'");
   } 
   arg3 = (uint64_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writeverify16_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writeverify16_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_writeverify16_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -7187,8 +7218,10 @@ SWIGINTERN PyObject *_wrap_iscsi_writeverify16_sync(PyObject *SWIGUNUSEDPARM(sel
   arg10 = (int)(val10);
   result = (struct scsi_task *)iscsi_writeverify16_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -7828,8 +7861,9 @@ SWIGINTERN PyObject *_wrap_iscsi_verify10_sync(PyObject *SWIGUNUSEDPARM(self), P
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
   unsigned int val4 ;
   int ecode4 = 0 ;
   unsigned int val5 ;
@@ -7864,11 +7898,11 @@ SWIGINTERN PyObject *_wrap_iscsi_verify10_sync(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "iscsi_verify10_sync" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res3 = SWIG_AsCharPtrAndSize(obj2, &buf3, NULL, &alloc3);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "iscsi_verify10_sync" "', argument " "3"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "iscsi_verify10_sync" "', argument " "3"" of type '" "unsigned char *""'");
   }
-  arg3 = (unsigned char *)(argp3);
+  arg3 = (unsigned char *)(buf3);
   ecode4 = SWIG_AsVal_unsigned_SS_int(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "iscsi_verify10_sync" "', argument " "4"" of type '" "uint32_t""'");
@@ -7901,8 +7935,10 @@ SWIGINTERN PyObject *_wrap_iscsi_verify10_sync(PyObject *SWIGUNUSEDPARM(self), P
   arg9 = (int)(val9);
   result = (struct scsi_task *)iscsi_verify10_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
   return resultobj;
 fail:
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
   return NULL;
 }
 
@@ -7922,8 +7958,9 @@ SWIGINTERN PyObject *_wrap_iscsi_verify12_sync(PyObject *SWIGUNUSEDPARM(self), P
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
   unsigned int val4 ;
   int ecode4 = 0 ;
   unsigned int val5 ;
@@ -7958,11 +7995,11 @@ SWIGINTERN PyObject *_wrap_iscsi_verify12_sync(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "iscsi_verify12_sync" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res3 = SWIG_AsCharPtrAndSize(obj2, &buf3, NULL, &alloc3);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "iscsi_verify12_sync" "', argument " "3"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "iscsi_verify12_sync" "', argument " "3"" of type '" "unsigned char *""'");
   }
-  arg3 = (unsigned char *)(argp3);
+  arg3 = (unsigned char *)(buf3);
   ecode4 = SWIG_AsVal_unsigned_SS_int(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "iscsi_verify12_sync" "', argument " "4"" of type '" "uint32_t""'");
@@ -7995,8 +8032,10 @@ SWIGINTERN PyObject *_wrap_iscsi_verify12_sync(PyObject *SWIGUNUSEDPARM(self), P
   arg9 = (int)(val9);
   result = (struct scsi_task *)iscsi_verify12_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
   return resultobj;
 fail:
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
   return NULL;
 }
 
@@ -8016,8 +8055,9 @@ SWIGINTERN PyObject *_wrap_iscsi_verify16_sync(PyObject *SWIGUNUSEDPARM(self), P
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
   unsigned int val4 ;
   int ecode4 = 0 ;
   unsigned long long val5 ;
@@ -8052,11 +8092,11 @@ SWIGINTERN PyObject *_wrap_iscsi_verify16_sync(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "iscsi_verify16_sync" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res3 = SWIG_AsCharPtrAndSize(obj2, &buf3, NULL, &alloc3);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "iscsi_verify16_sync" "', argument " "3"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "iscsi_verify16_sync" "', argument " "3"" of type '" "unsigned char *""'");
   }
-  arg3 = (unsigned char *)(argp3);
+  arg3 = (unsigned char *)(buf3);
   ecode4 = SWIG_AsVal_unsigned_SS_int(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "iscsi_verify16_sync" "', argument " "4"" of type '" "uint32_t""'");
@@ -8089,8 +8129,10 @@ SWIGINTERN PyObject *_wrap_iscsi_verify16_sync(PyObject *SWIGUNUSEDPARM(self), P
   arg9 = (int)(val9);
   result = (struct scsi_task *)iscsi_verify16_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
   return resultobj;
 fail:
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
   return NULL;
 }
 
@@ -8113,8 +8155,9 @@ SWIGINTERN PyObject *_wrap_iscsi_writesame10_sync(PyObject *SWIGUNUSEDPARM(self)
   int ecode2 = 0 ;
   unsigned int val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   unsigned short val6 ;
@@ -8155,11 +8198,11 @@ SWIGINTERN PyObject *_wrap_iscsi_writesame10_sync(PyObject *SWIGUNUSEDPARM(self)
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_writesame10_sync" "', argument " "3"" of type '" "uint32_t""'");
   } 
   arg3 = (uint32_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writesame10_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writesame10_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_writesame10_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -8192,8 +8235,10 @@ SWIGINTERN PyObject *_wrap_iscsi_writesame10_sync(PyObject *SWIGUNUSEDPARM(self)
   arg10 = (int)(val10);
   result = (struct scsi_task *)iscsi_writesame10_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -8216,8 +8261,9 @@ SWIGINTERN PyObject *_wrap_iscsi_writesame16_sync(PyObject *SWIGUNUSEDPARM(self)
   int ecode2 = 0 ;
   unsigned long long val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
   unsigned int val5 ;
   int ecode5 = 0 ;
   unsigned int val6 ;
@@ -8258,11 +8304,11 @@ SWIGINTERN PyObject *_wrap_iscsi_writesame16_sync(PyObject *SWIGUNUSEDPARM(self)
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "iscsi_writesame16_sync" "', argument " "3"" of type '" "uint64_t""'");
   } 
   arg3 = (uint64_t)(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res4 = SWIG_AsCharPtrAndSize(obj3, &buf4, NULL, &alloc4);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writesame16_sync" "', argument " "4"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "iscsi_writesame16_sync" "', argument " "4"" of type '" "unsigned char *""'");
   }
-  arg4 = (unsigned char *)(argp4);
+  arg4 = (unsigned char *)(buf4);
   ecode5 = SWIG_AsVal_unsigned_SS_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "iscsi_writesame16_sync" "', argument " "5"" of type '" "uint32_t""'");
@@ -8295,8 +8341,10 @@ SWIGINTERN PyObject *_wrap_iscsi_writesame16_sync(PyObject *SWIGUNUSEDPARM(self)
   arg10 = (int)(val10);
   result = (struct scsi_task *)iscsi_writesame16_sync(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return resultobj;
 fail:
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
   return NULL;
 }
 
@@ -9522,8 +9570,9 @@ SWIGINTERN PyObject *_wrap_scsi_data_data_set(PyObject *SWIGUNUSEDPARM(self), Py
   unsigned char *arg2 = (unsigned char *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -9533,15 +9582,23 @@ SWIGINTERN PyObject *_wrap_scsi_data_data_set(PyObject *SWIGUNUSEDPARM(self), Py
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_data_data_set" "', argument " "1"" of type '" "struct scsi_data *""'"); 
   }
   arg1 = (struct scsi_data *)(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_data_data_set" "', argument " "2"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_data_data_set" "', argument " "2"" of type '" "unsigned char *""'");
   }
-  arg2 = (unsigned char *)(argp2);
-  if (arg1) (arg1)->data = arg2;
+  arg2 = (unsigned char *)(buf2);
+  if (arg1->data) free((char*)arg1->data);
+  if (arg2) {
+    size_t size = strlen((const char *)(arg2)) + 1;
+    arg1->data = (unsigned char *)(char *)memcpy((char *)malloc((size)*sizeof(char)), (const char *)(arg2), sizeof(char)*(size));
+  } else {
+    arg1->data = 0;
+  }
   resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return resultobj;
 fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return NULL;
 }
 
@@ -9561,7 +9618,7 @@ SWIGINTERN PyObject *_wrap_scsi_data_data_get(PyObject *SWIGUNUSEDPARM(self), Py
   }
   arg1 = (struct scsi_data *)(argp1);
   result = (unsigned char *) ((arg1)->data);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  resultobj = SWIG_FromCharPtr((const char *)result);
   return resultobj;
 fail:
   return NULL;
@@ -9617,8 +9674,9 @@ SWIGINTERN PyObject *_wrap_scsi_create_task(PyObject *SWIGUNUSEDPARM(self), PyOb
   int arg4 ;
   int val1 ;
   int ecode1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
   int val4 ;
@@ -9635,11 +9693,11 @@ SWIGINTERN PyObject *_wrap_scsi_create_task(PyObject *SWIGUNUSEDPARM(self), PyOb
     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "scsi_create_task" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_create_task" "', argument " "2"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_create_task" "', argument " "2"" of type '" "unsigned char *""'");
   }
-  arg2 = (unsigned char *)(argp2);
+  arg2 = (unsigned char *)(buf2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "scsi_create_task" "', argument " "3"" of type '" "int""'");
@@ -9652,8 +9710,10 @@ SWIGINTERN PyObject *_wrap_scsi_create_task(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg4 = (int)(val4);
   result = (struct scsi_task *)scsi_create_task(arg1,arg2,arg3,arg4);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_scsi_task, 0 |  0 );
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return resultobj;
 fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return NULL;
 }
 
@@ -11921,8 +11981,9 @@ SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_pages_set(PyObject *SWIG
   unsigned char *arg2 = (unsigned char *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -11932,15 +11993,23 @@ SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_pages_set(PyObject *SWIG
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "scsi_inquiry_supported_pages_pages_set" "', argument " "1"" of type '" "struct scsi_inquiry_supported_pages *""'"); 
   }
   arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_supported_pages_pages_set" "', argument " "2"" of type '" "unsigned char *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "scsi_inquiry_supported_pages_pages_set" "', argument " "2"" of type '" "unsigned char *""'");
   }
-  arg2 = (unsigned char *)(argp2);
-  if (arg1) (arg1)->pages = arg2;
+  arg2 = (unsigned char *)(buf2);
+  if (arg1->pages) free((char*)arg1->pages);
+  if (arg2) {
+    size_t size = strlen((const char *)(arg2)) + 1;
+    arg1->pages = (unsigned char *)(char *)memcpy((char *)malloc((size)*sizeof(char)), (const char *)(arg2), sizeof(char)*(size));
+  } else {
+    arg1->pages = 0;
+  }
   resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return resultobj;
 fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
   return NULL;
 }
 
@@ -11960,7 +12029,7 @@ SWIGINTERN PyObject *_wrap_scsi_inquiry_supported_pages_pages_get(PyObject *SWIG
   }
   arg1 = (struct scsi_inquiry_supported_pages *)(argp1);
   result = (unsigned char *) ((arg1)->pages);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
+  resultobj = SWIG_FromCharPtr((const char *)result);
   return resultobj;
 fail:
   return NULL;

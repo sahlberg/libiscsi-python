@@ -28,6 +28,7 @@
 %pointer_functions(struct nfsfh *, NFSFileHandle)
 %pointer_functions(uint64_t, uint64_t_ptr)
 */
+%apply char*  {unsigned char*};
 
 struct iscsi_context;
 struct sockaddr;
@@ -577,7 +578,7 @@ enum scsi_residual {
 	SCSI_RESIDUAL_OVERFLOW
 };
 
-extern struct scsi_task *scsi_create_task(int cdb_size, char *cdb, int xfer_dir, int expxferlen);
+extern struct scsi_task *scsi_create_task(int cdb_size, unsigned char *cdb, int xfer_dir, int expxferlen);
 
 extern void scsi_free_scsi_task(struct scsi_task *task);
 
