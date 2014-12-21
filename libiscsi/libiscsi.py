@@ -279,6 +279,49 @@ class iscsi_discovery_address(_object):
 iscsi_discovery_address_swigregister = _libiscsi.iscsi_discovery_address_swigregister
 iscsi_discovery_address_swigregister(iscsi_discovery_address)
 
+class scsi_data(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_data, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, scsi_data, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["size"] = _libiscsi.scsi_data_size_set
+    __swig_getmethods__["size"] = _libiscsi.scsi_data_size_get
+    if _newclass:size = _swig_property(_libiscsi.scsi_data_size_get, _libiscsi.scsi_data_size_set)
+    __swig_setmethods__["data"] = _libiscsi.scsi_data_data_set
+    __swig_getmethods__["data"] = _libiscsi.scsi_data_data_get
+    if _newclass:data = _swig_property(_libiscsi.scsi_data_data_get, _libiscsi.scsi_data_data_set)
+    def __init__(self): 
+        this = _libiscsi.new_scsi_data()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_scsi_data
+    __del__ = lambda self : None;
+scsi_data_swigregister = _libiscsi.scsi_data_swigregister
+scsi_data_swigregister(scsi_data)
+
+class iscsi_data(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, iscsi_data, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, iscsi_data, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["size"] = _libiscsi.iscsi_data_size_set
+    __swig_getmethods__["size"] = _libiscsi.iscsi_data_size_get
+    if _newclass:size = _swig_property(_libiscsi.iscsi_data_size_get, _libiscsi.iscsi_data_size_set)
+    __swig_setmethods__["data"] = _libiscsi.iscsi_data_data_set
+    __swig_getmethods__["data"] = _libiscsi.iscsi_data_data_get
+    if _newclass:data = _swig_property(_libiscsi.iscsi_data_data_get, _libiscsi.iscsi_data_data_set)
+    def __init__(self): 
+        this = _libiscsi.new_iscsi_data()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _libiscsi.delete_iscsi_data
+    __del__ = lambda self : None;
+iscsi_data_swigregister = _libiscsi.iscsi_data_swigregister
+iscsi_data_swigregister(iscsi_data)
+
+SCSI_CDB_MAX_SIZE = _libiscsi.SCSI_CDB_MAX_SIZE
 ISCSI_TM_ABORT_TASK = _libiscsi.ISCSI_TM_ABORT_TASK
 ISCSI_TM_ABORT_TASK_SET = _libiscsi.ISCSI_TM_ABORT_TASK_SET
 ISCSI_TM_CLEAR_ACA = _libiscsi.ISCSI_TM_CLEAR_ACA
@@ -311,27 +354,6 @@ iscsi_task_mgmt_target_warm_reset_sync = _libiscsi.iscsi_task_mgmt_target_warm_r
 def iscsi_task_mgmt_target_cold_reset_sync(*args):
   return _libiscsi.iscsi_task_mgmt_target_cold_reset_sync(*args)
 iscsi_task_mgmt_target_cold_reset_sync = _libiscsi.iscsi_task_mgmt_target_cold_reset_sync
-class iscsi_data(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, iscsi_data, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, iscsi_data, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["size"] = _libiscsi.iscsi_data_size_set
-    __swig_getmethods__["size"] = _libiscsi.iscsi_data_size_get
-    if _newclass:size = _swig_property(_libiscsi.iscsi_data_size_get, _libiscsi.iscsi_data_size_set)
-    __swig_setmethods__["data"] = _libiscsi.iscsi_data_data_set
-    __swig_getmethods__["data"] = _libiscsi.iscsi_data_data_get
-    if _newclass:data = _swig_property(_libiscsi.iscsi_data_data_get, _libiscsi.iscsi_data_data_set)
-    def __init__(self): 
-        this = _libiscsi.new_iscsi_data()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _libiscsi.delete_iscsi_data
-    __del__ = lambda self : None;
-iscsi_data_swigregister = _libiscsi.iscsi_data_swigregister
-iscsi_data_swigregister(iscsi_data)
-
 
 def iscsi_set_isid_oui(*args):
   return _libiscsi.iscsi_set_isid_oui(*args)
@@ -740,27 +762,6 @@ class scsi_sense(_object):
 scsi_sense_swigregister = _libiscsi.scsi_sense_swigregister
 scsi_sense_swigregister(scsi_sense)
 
-class scsi_data(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, scsi_data, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, scsi_data, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["size"] = _libiscsi.scsi_data_size_set
-    __swig_getmethods__["size"] = _libiscsi.scsi_data_size_get
-    if _newclass:size = _swig_property(_libiscsi.scsi_data_size_get, _libiscsi.scsi_data_size_set)
-    __swig_setmethods__["data"] = _libiscsi.scsi_data_data_set
-    __swig_getmethods__["data"] = _libiscsi.scsi_data_data_get
-    if _newclass:data = _swig_property(_libiscsi.scsi_data_data_get, _libiscsi.scsi_data_data_set)
-    def __init__(self): 
-        this = _libiscsi.new_scsi_data()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _libiscsi.delete_scsi_data
-    __del__ = lambda self : None;
-scsi_data_swigregister = _libiscsi.scsi_data_swigregister
-scsi_data_swigregister(scsi_data)
-
 SCSI_RESIDUAL_NO_RESIDUAL = _libiscsi.SCSI_RESIDUAL_NO_RESIDUAL
 SCSI_RESIDUAL_UNDERFLOW = _libiscsi.SCSI_RESIDUAL_UNDERFLOW
 SCSI_RESIDUAL_OVERFLOW = _libiscsi.SCSI_RESIDUAL_OVERFLOW
@@ -769,13 +770,17 @@ def scsi_create_task(*args):
   return _libiscsi.scsi_create_task(*args)
 scsi_create_task = _libiscsi.scsi_create_task
 
-def scsi_task_get_data_in_buffer(*args):
-  return _libiscsi.scsi_task_get_data_in_buffer(*args)
-scsi_task_get_data_in_buffer = _libiscsi.scsi_task_get_data_in_buffer
+def scsi_task_add_data_in_buffer(*args):
+  return _libiscsi.scsi_task_add_data_in_buffer(*args)
+scsi_task_add_data_in_buffer = _libiscsi.scsi_task_add_data_in_buffer
 
-def scsi_task_get_data_out_buffer(*args):
-  return _libiscsi.scsi_task_get_data_out_buffer(*args)
-scsi_task_get_data_out_buffer = _libiscsi.scsi_task_get_data_out_buffer
+def scsi_task_add_data_out_buffer(*args):
+  return _libiscsi.scsi_task_add_data_out_buffer(*args)
+scsi_task_add_data_out_buffer = _libiscsi.scsi_task_add_data_out_buffer
+
+def scsi_task_get_status(*args):
+  return _libiscsi.scsi_task_get_status(*args)
+scsi_task_get_status = _libiscsi.scsi_task_get_status
 
 def scsi_free_scsi_task(*args):
   return _libiscsi.scsi_free_scsi_task(*args)

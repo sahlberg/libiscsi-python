@@ -7,3 +7,9 @@ LICENSE
 This module is distributed under LGPL version 2.1.
 Please see COPYING for the full text of this license.
 
+
+This is a very early module and it is incomplete.
+It is primarily aimed at providing a simple transport for the python-scsi
+project.
+Patches are welcome to turn this into a more general and useful module
+for python.

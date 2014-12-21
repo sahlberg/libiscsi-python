@@ -23,12 +23,47 @@
 %}
 
 %include <stdint.i>
-%include <cpointer.i>
-/*
-%pointer_functions(struct nfsfh *, NFSFileHandle)
-%pointer_functions(uint64_t, uint64_t_ptr)
-*/
-%apply char*  {unsigned char*};
+
+%typemap(in) (int cdb_size, unsigned char *cdb)
+  (int res, Py_ssize_t size = 0, const void *buf = 0) {
+  res = PyObject_AsReadBuffer($input, &buf, &size);
+  if (res<0) {
+    PyErr_Clear();
+    %argument_fail(res, "(TYPEMAP, SIZE)", $symname, $argnum);
+  }
+  $2 = ($2_ltype) buf;
+  $1 = ($1_ltype) (size/sizeof($*2_type));
+}
+%typemap(in) (int len, unsigned char *rw)
+  (int res, Py_ssize_t size = 0, void *buf = 0) {
+  res = PyObject_AsWriteBuffer($input, &buf, &size);
+  if (res<0) {
+    PyErr_Clear();
+    %argument_fail(res, "(TYPEMAP, SIZE)", $symname, $argnum);
+  }
+  $2 = ($2_ltype) buf;
+  $1 = ($1_ltype) (size/sizeof($*2_type));
+}
+%typemap(in) (int len, unsigned char *ro)
+  (int res, Py_ssize_t size = 0, const void *buf = 0) {
+  res = PyObject_AsReadBuffer($input, &buf, &size);
+  if (res<0) {
+    PyErr_Clear();
+    %argument_fail(res, "(TYPEMAP, SIZE)", $symname, $argnum);
+  }
+  $2 = ($2_ltype) buf;
+  $1 = ($1_ltype) (size/sizeof($*2_type));
+}
+%typemap(in) (unsigned char *ro, uint32_t len)
+  (int res, Py_ssize_t size = 0, const void *buf = 0) {
+  res = PyObject_AsReadBuffer($input, &buf, &size);
+  if (res<0) {
+    PyErr_Clear();
+    %argument_fail(res, "(TYPEMAP, SIZE)", $symname, $argnum);
+  }
+  $1 = ($1_ltype) buf;
+  $2 = ($2_ltype) (size/sizeof($1_type));
+}
 
 struct iscsi_context;
 struct sockaddr;
@@ -146,6 +181,18 @@ struct iscsi_discovery_address {
 struct scsi_iovector;
 struct scsi_allocated_memory;
 
+struct scsi_data {
+	int            size;
+	unsigned char *data;
+};
+
+struct iscsi_data {
+       size_t size;
+       unsigned char *data;
+};
+
+#define SCSI_CDB_MAX_SIZE			16
+
 struct scsi_task;
 
 enum iscsi_task_mgmt_funcs {
@@ -178,11 +225,6 @@ iscsi_task_mgmt_target_warm_reset_sync(struct iscsi_context *iscsi);
 
 extern int
 iscsi_task_mgmt_target_cold_reset_sync(struct iscsi_context *iscsi);
-
-struct iscsi_data {
-       size_t size;
-       unsigned char *data;
-};
 
 extern int
 iscsi_set_isid_oui(struct iscsi_context *iscsi, uint32_t oui, uint32_t qualifier);
@@ -224,12 +266,12 @@ iscsi_read10_sync(struct iscsi_context *iscsi, int lun, uint32_t lba,
 
 extern struct scsi_task *
 iscsi_write10_sync(struct iscsi_context *iscsi, int lun, uint32_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int fua, int fua_nv, int group_number);
 
 extern struct scsi_task *
 iscsi_writeverify10_sync(struct iscsi_context *iscsi, int lun, uint32_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int bytchk, int group_number);
 
 extern struct scsi_task *
@@ -239,12 +281,12 @@ iscsi_read12_sync(struct iscsi_context *iscsi, int lun, uint32_t lba,
 
 extern struct scsi_task *
 iscsi_write12_sync(struct iscsi_context *iscsi, int lun, uint32_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int fua, int fua_nv, int group_number);
 
 extern struct scsi_task *
 iscsi_writeverify12_sync(struct iscsi_context *iscsi, int lun, uint32_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int bytchk, int group_number);
 
 extern struct scsi_task *
@@ -254,12 +296,12 @@ iscsi_read16_sync(struct iscsi_context *iscsi, int lun, uint64_t lba,
 
 extern struct scsi_task *
 iscsi_write16_sync(struct iscsi_context *iscsi, int lun, uint64_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int fua, int fua_nv, int group_number);
 
 extern struct scsi_task *
 iscsi_orwrite_sync(struct iscsi_context *iscsi, int lun, uint64_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int fua, int fua_nv, int group_number);
 
 extern struct scsi_task *
@@ -273,12 +315,12 @@ iscsi_preventallow_sync(struct iscsi_context *iscsi, int lun,
 
 extern struct scsi_task *
 iscsi_compareandwrite_sync(struct iscsi_context *iscsi, int lun, uint64_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int fua, int fua_nv, int group_number);
 
 extern struct scsi_task *
 iscsi_writeverify16_sync(struct iscsi_context *iscsi, int lun, uint64_t lba,
-		   unsigned char *data, uint32_t datalen, int blocksize,
+		   unsigned char *ro, uint32_t len, int blocksize,
 		   int wrprotect, int dpo, int bytchk, int group_number);
 
 extern struct scsi_task *
@@ -322,31 +364,31 @@ iscsi_prefetch16_sync(struct iscsi_context *iscsi, int lun, uint64_t lba,
 
 extern struct scsi_task *
 iscsi_verify10_sync(struct iscsi_context *iscsi, int lun,
-		    unsigned char *data, uint32_t datalen, uint32_t lba,
+		    unsigned char *ro, uint32_t len, uint32_t lba,
 		    int vprotect, int dpo, int bytchk,
 		    int blocksize);
 
 extern struct scsi_task *
 iscsi_verify12_sync(struct iscsi_context *iscsi, int lun,
-		    unsigned char *data, uint32_t datalen, uint32_t lba,
+		    unsigned char *ro, uint32_t len, uint32_t lba,
 		    int vprotect, int dpo, int bytchk,
 		    int blocksize);
 
 extern struct scsi_task *
 iscsi_verify16_sync(struct iscsi_context *iscsi, int lun,
-		    unsigned char *data, uint32_t datalen, uint64_t lba,
+		    unsigned char *ro, uint32_t len, uint64_t lba,
 		    int vprotect, int dpo, int bytchk,
 		    int blocksize);
 
 extern struct scsi_task *
 iscsi_writesame10_sync(struct iscsi_context *iscsi, int lun, uint32_t lba,
-		       unsigned char *data, uint32_t datalen,
+		       unsigned char *ro, uint32_t len,
 		       uint16_t num_blocks,
 		       int anchor, int unmap, int wrprotect, int group);
 
 extern struct scsi_task *
 iscsi_writesame16_sync(struct iscsi_context *iscsi, int lun, uint64_t lba,
-		       unsigned char *data, uint32_t datalen,
+		       unsigned char *ro, uint32_t len,
 		       uint32_t num_blocks,
 		       int anchor, int unmap, int wrprotect, int group);
 
@@ -567,11 +609,6 @@ struct scsi_sense {
 	int                 ascq;
 };
 
-struct scsi_data {
-	int            size;
-	unsigned char *data;
-};
-
 enum scsi_residual {
 	SCSI_RESIDUAL_NO_RESIDUAL = 0,
 	SCSI_RESIDUAL_UNDERFLOW,
@@ -579,8 +616,10 @@ enum scsi_residual {
 };
 
 extern struct scsi_task *scsi_create_task(int cdb_size, unsigned char *cdb, int xfer_dir, int expxferlen);
-extern unsigned char *scsi_task_get_data_in_buffer(struct scsi_task *task, uint32_t pos, ssize_t *count);
-extern unsigned char *scsi_task_get_data_out_buffer(struct scsi_task *task, uint32_t pos, ssize_t *count);
+extern int scsi_task_add_data_in_buffer(struct scsi_task *task, int len, unsigned char *rw);
+extern int scsi_task_add_data_out_buffer(struct scsi_task *task, int len, unsigned char *ro);
+
+extern int scsi_task_get_status(struct scsi_task *task, struct scsi_sense *sense);
 
 extern void scsi_free_scsi_task(struct scsi_task *task);
 
