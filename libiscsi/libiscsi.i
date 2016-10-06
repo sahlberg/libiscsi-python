@@ -178,6 +178,14 @@ struct iscsi_discovery_address {
        struct iscsi_target_portal *portals;
 };
 
+extern struct iscsi_discovery_address *
+iscsi_discovery_sync(struct iscsi_context *iscsi);
+
+extern void
+iscsi_free_discovery_data(struct iscsi_context *iscsi,
+                          struct iscsi_discovery_address *da);
+
+
 struct scsi_iovector;
 struct scsi_allocated_memory;
 
