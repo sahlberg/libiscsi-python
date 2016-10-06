@@ -15,4 +15,4 @@ _libiscsi.so: libiscsi_wrap.o
 	${CC} libiscsi_wrap.o -shared $$(python${PYVER}-config --ldflags) -o _libiscsi.so ${LIBS}
 
 clean:
-	rm -f *.o *.so *.pyc
+	rm -f *.o *.so *.pyc libiscsi.py libiscsi_wrap.c
